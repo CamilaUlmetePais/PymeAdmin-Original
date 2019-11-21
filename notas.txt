@@ -1,0 +1,45 @@
+Notas
+
+
+
+Entradas 
+			Item:string 	Código:integer		Peso:decimal 	Cantidad (gr/u)grams=true:boolean	 	Pago (efvo/tarjeta): cash=true:boolean
+			Item 			Code				Weight			Quantity								Payment
+
+
+Salidas
+			Compras a proveedor		Pago de deuda 		Fiado
+			Estado de cuenta x proveedor
+
+
+Mercadería
+			Stock			Lista de precios    Name
+
+
+Notificaciones 
+				Pedidos		Bajo stock x proveedor (genera lista de compras)
+				Desactivables
+
+
+Estadísticas
+			  Caja		Balance		Venta por item (en kg y en $)
+
+
+
+Probably going to need this vocabulary:
+
+cash		credit		debt 		expenses		income		inflow 		outflow
+
+
+
+
+
+
+
+
+
+
+
+
+
+rails g scaffold 
