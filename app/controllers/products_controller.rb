@@ -8,8 +8,8 @@ class ProductsController < ApplicationController
   end
 
   # GET /products/1
-  # GET /products/1.json
-  def show
+  # GET /products/1.jso
+ def show
   end
 
   # GET /products/new
@@ -28,7 +28,7 @@ class ProductsController < ApplicationController
 
     respond_to do |format|
       if @product.save
-        format.html { redirect_to @product, notice: 'Product was successfully created.' }
+        format.html { redirect_to @product, notice: I18n.t('product.created') }
         format.json { render :show, status: :created, location: @product }
       else
         format.html { render :new }

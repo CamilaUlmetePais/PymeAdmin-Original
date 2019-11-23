@@ -1,45 +1,77 @@
 Notas
+-----
 
+Entradas/Inflow
+			ProductItem
+			Peso:float
+			Pago (efvo/tarjeta)
 
-
-Entradas 
-			Item:string 	Código:integer		Peso:decimal 	Cantidad (gr/u)grams=true:boolean	 	Pago (efvo/tarjeta): cash=true:boolean
-			Item 			Code				Weight			Quantity								Payment
-
-
-Salidas
-			Compras a proveedor		Pago de deuda 		Fiado
+Salidas/Outflow
+			Compras a proveedor
+			Pago de deuda
+			Fiado
 			Estado de cuenta x proveedor
 
+Mercadería/Stock
+Product
+	name:string
+	price:decimal
+Hijos: weight/unit
 
-Mercadería
-			Stock			Lista de precios    Name
-
-
-Notificaciones 
-				Pedidos		Bajo stock x proveedor (genera lista de compras)
+Notificaciones
+				Pedidos
+				Bajo stock x proveedor (genera lista de compras)
 				Desactivables
 
-
 Estadísticas
-			  Caja		Balance		Venta por item (en kg y en $)
+			  Caja
+			  Balance
+			  Venta por item (en kg y en $)
 
-
+Temas a hablar con Sandra:
+Conversor cajones --> mala idea (huecos en stock o sobras), el tiempo perdido ingresando exacto es preferible dado todo lo demás que soluciona
+precio de oferta --> es siempre a partir de 2kg? es un porcentaje fijo menor al precio normal?
 
 Probably going to need this vocabulary:
+cash
+credit
+debt
+expenses
+income
+cashflow		inflow
+				outflow
+profit
+revenue
+petty cash (caja chica)
+commodities
+compensation
+deficit
+discount
+sale price
+due date
+rent
+services
+tax
+expenditure
+forecasting / projection
+gross income
+gross margin
+gross sales
+net sales
+product half-life
+inventory / stock
+merchandise
+salary
+margin of profit
+net income
+net proceeds
+net sales
+net worth
+premium
+vendor
+supplier
+wage
 
-cash		credit		debt 		expenses		income		inflow 		outflow
 
-
-
-
-
-
-
-
-
-
-
-
-
-rails g scaffold 
+rails g scaffold Inflow total:float
+rails g model ProductItem quantity:float

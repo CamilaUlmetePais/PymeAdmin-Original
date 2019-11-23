@@ -1,0 +1,27 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Inflows</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Total</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @inflows.each do |inflow| %>
+      <tr>
+        <td><%= inflow.total %></td>
+        <td><%= link_to 'Show', inflow %></td>
+        <td><%= link_to 'Edit', edit_inflow_path(inflow) %></td>
+        <td><%= link_to 'Destroy', inflow, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Inflow', new_inflow_path %>
