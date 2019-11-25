@@ -12,11 +12,11 @@ Salidas/Outflow
 			Fiado
 			Estado de cuenta x proveedor
 
-Mercadería/Stock
 Product
 	name:string
-	price:decimal
-Hijos: weight/unit
+	price:float
+	promotion_price:float
+
 
 Notificaciones
 				Pedidos
@@ -29,8 +29,57 @@ Estadísticas
 			  Venta por item (en kg y en $)
 
 Temas a hablar con Sandra:
-Conversor cajones --> mala idea (huecos en stock o sobras), el tiempo perdido ingresando exacto es preferible dado todo lo demás que soluciona
-precio de oferta --> es siempre a partir de 2kg? es un porcentaje fijo menor al precio normal?
+	Conversor cajones --> mala idea (huecos en stock o sobras), el tiempo perdido ingresando exacto es preferible dado todo lo demás que soluciona
+	precio de oferta --> es siempre a partir de 2kg? es un porcentaje fijo menor al precio normal?
+
+Tasks:
+DONE |	Associations
+		associating Inflow and Product IDs to PI model
+
+rails generate migration AddReferenceIdsToProductItem
+
+class AddReferenceIdsToProductItem < ActiveRecord::Migration
+  def change
+  	add_reference :product_items, :product
+  	add_reference :product_items, :inflow
+  end
+end
+
+DONE |	Add new Product attributes
+		delete product attribute "quantity"
+		add float:"promotion_price"
+		add string:"quantity_type"  kgs - u
+
+rails generate migration RemoveQuantityFromProducts quantity:float
+
+class RemoveQuantityfromProducts < ActiveRecord::Migration[5.0]
+  def up
+    remove_column :products, :quantity
+  end
+
+  def down
+    add_column :products, :quantity, :float
+  end
+ end
+
+rails generate migration AddAttributesToProducts unit:string promotion_price:float
+
+class AddAttributesToProducts < ActiveRecord::Migration
+  def change
+    add_column :products, :unit, :string
+    add_column :products, :promotion_price, :float
+  end
+end
+
+UP NEXT |	Generate Supplier model (has_many :outflows)
+			Scaffold Outflow (belongs_to :supplier)
+			Actualización de Supplier Balance en creación de Outflow entry
+
+@outflow.save
+	@outflow.supplier
+		balance = @supplier.balance + @outflow.amount
+		@supplier.update_attribute(:balance => balance)
+end
 
 Probably going to need this vocabulary:
 cash
@@ -73,5 +122,5 @@ supplier
 wage
 
 
-rails g scaffold Inflow total:float
-rails g model ProductItem quantity:float
+
+

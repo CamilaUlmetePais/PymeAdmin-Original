@@ -10,14 +10,31 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20191121204421) do
+ActiveRecord::Schema.define(version: 20191125145933) do
+
+  create_table "inflows", force: :cascade do |t|
+    t.float    "total"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "product_items", force: :cascade do |t|
+    t.float    "quantity"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.integer  "product_id"
+    t.integer  "inflow_id"
+    t.index ["inflow_id"], name: "index_product_items_on_inflow_id"
+    t.index ["product_id"], name: "index_product_items_on_product_id"
+  end
 
   create_table "products", force: :cascade do |t|
     t.string   "name"
     t.float    "price"
-    t.float    "quantity"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at",      null: false
+    t.datetime "updated_at",      null: false
+    t.string   "unit"
+    t.float    "promotion_price"
   end
 
 end
