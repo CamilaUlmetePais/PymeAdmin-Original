@@ -1,0 +1,29 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Outflows</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Amount</th>
+      <th>Cash</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @outflows.each do |outflow| %>
+      <tr>
+        <td><%= outflow.amount %></td>
+        <td><%= outflow.cash %></td>
+        <td><%= link_to 'Show', outflow %></td>
+        <td><%= link_to 'Edit', edit_outflow_path(outflow) %></td>
+        <td><%= link_to 'Destroy', outflow, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Outflow', new_outflow_path %>

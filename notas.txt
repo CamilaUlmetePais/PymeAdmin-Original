@@ -71,9 +71,38 @@ class AddAttributesToProducts < ActiveRecord::Migration
   end
 end
 
-UP NEXT |	Generate Supplier model (has_many :outflows)
-			Scaffold Outflow (belongs_to :supplier)
-			Actualización de Supplier Balance en creación de Outflow entry
+DONE |	Generate Supplier model (has_many :outflows)
+DONE |	Scaffold Outflow (belongs_to :supplier)
+
+rails generate migration AddReferenceIdsToOutflow
+
+class AddReferenceIdsToOutflow < ActiveRecord::Migration[5.0]
+  def change
+  	add_reference :outflow, :supplier
+  end
+end
+
+DONE |	Agregar cash boolean a Inflow
+
+rails generate migration AddCashToInflows cash:boolean
+
+class AddAttributesToProducts < ActiveRecord::Migration
+  def change
+    add_column :inflows, :cash, :boolean
+  end
+end
+
+
+TO DO |	Validations:
+			Inflow: 	cash boolean, product items > 0
+			Outflow: 	amount > 0, cash boolean, supplier == string
+			ProductItem: Quantity (limited to 3 decimals), product ID (existing product)
+			Product: 	name == string, price > 0, unit "kgs" or "u"
+			Supplier: 	name == string, balance
+		Set Product's promotion_price == price if nil
+		Crear 3 elementos por modelo para usar de ejemplo
+		Creación de Inflow con respectivos PI
+		Actualización de Supplier Balance en creación de Outflow entry
 
 @outflow.save
 	@outflow.supplier
@@ -120,7 +149,3 @@ premium
 vendor
 supplier
 wage
-
-
-
-

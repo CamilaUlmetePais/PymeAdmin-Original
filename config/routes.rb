@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  resources :outflows
+  resources :suppliers
   root to: 'inflows#index'
   resources :inflows
   resources :products

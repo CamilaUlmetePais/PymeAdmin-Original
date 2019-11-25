@@ -10,12 +10,23 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20191125145933) do
+ActiveRecord::Schema.define(version: 20191125210619) do
 
   create_table "inflows", force: :cascade do |t|
     t.float    "total"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.boolean  "cash"
+  end
+
+  create_table "outflows", force: :cascade do |t|
+    t.float    "amount"
+    t.boolean  "cash"
+    t.text     "notes"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+    t.integer  "supplier_id"
+    t.index ["supplier_id"], name: "index_outflows_on_supplier_id"
   end
 
   create_table "product_items", force: :cascade do |t|
@@ -35,6 +46,14 @@ ActiveRecord::Schema.define(version: 20191125145933) do
     t.datetime "updated_at",      null: false
     t.string   "unit"
     t.float    "promotion_price"
+  end
+
+  create_table "suppliers", force: :cascade do |t|
+    t.string   "name"
+    t.string   "phone_number"
+    t.float    "account_balance"
+    t.datetime "created_at",      null: false
+    t.datetime "updated_at",      null: false
   end
 
 end
