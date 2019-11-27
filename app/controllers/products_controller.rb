@@ -24,7 +24,6 @@ class ProductsController < ApplicationController
   # POST /products
   # POST /products.json
   def create
-    product_params[:promotion_price] ||= product_params[:price]
     @product = Product.new(product_params)
 
     respond_to do |format|

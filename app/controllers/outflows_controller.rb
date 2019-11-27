@@ -28,6 +28,7 @@ class OutflowsController < ApplicationController
 
     respond_to do |format|
       if @outflow.save
+        @outflow.supplier.update_balance(@outflow)
         format.html { redirect_to @outflow, notice: 'Outflow was successfully created.' }
         format.json { render :show, status: :created, location: @outflow }
       else

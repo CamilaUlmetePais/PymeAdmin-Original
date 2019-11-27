@@ -24,7 +24,6 @@ class SuppliersController < ApplicationController
   # POST /suppliers
   # POST /suppliers.json
   def create
-    supplier_params[:account_balance] = '0' if supplier_params[:account_balance].empty?
     @supplier = Supplier.new(supplier_params)
 
     respond_to do |format|

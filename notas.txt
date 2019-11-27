@@ -30,7 +30,6 @@ Estadísticas
 
 Temas a hablar con Sandra:
 	Conversor cajones --> mala idea (huecos en stock o sobras), el tiempo perdido ingresando exacto es preferible dado todo lo demás que soluciona
-	Precio de oferta --> es siempre a partir de 2kg? es un porcentaje fijo menor al precio normal?
 	Ingreso de peso de item: decimales automáticos son un terrible dolor de cabeza. El error sería obvio, es mucho problema? Opción: no ver el subtotal en tiempo real.
 
 
@@ -102,16 +101,15 @@ DONE |	Validations:
 			Product: 	name, price > 0, promotion_price > 0, unit "kgs" or "u"
 			Supplier: 	name
 
-DONE |	Set Product's promotion_price == price if nil
-DONE |	Default Supplier balance to 0 if nil
-		Actualización de Supplier Balance en creación de Outflow entry
+TO DO|	Stock column in Product model, relacionado a Inflow y Outflow, tal vez incluso a Supplier.
+		Actualización de VISTAS Supplier account_balance en creación de Outflow entry
 		Crear 3 elementos por modelo para usar de ejemplo
+		Views
+		Producto + quantity => inflow
 		Creación de Inflow con respectivos PI
 			Select con autocomplete, javascript
-
-
-REFACTOR |	Rockets
-			I18N
+		i18n
+		remove sprockets
 
 
 @outflow.save
