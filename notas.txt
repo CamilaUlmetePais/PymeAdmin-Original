@@ -2,7 +2,7 @@ Notas
 -----
 
 Entradas/Inflow
-			ProductItem
+			InflowItem
 			Peso:float
 			Pago (efvo/tarjeta)
 
@@ -37,12 +37,12 @@ Tasks:
 DONE |	Associations
 		associating Inflow and Product IDs to PI model
 
-rails generate migration AddReferenceIdsToProductItem
+rails generate migration AddReferenceIdsToInflowItem
 
-class AddReferenceIdsToProductItem < ActiveRecord::Migration
+class AddReferenceIdsToInflowItem < ActiveRecord::Migration
   def change
-  	add_reference :product_items, :product
-  	add_reference :product_items, :inflow
+  	add_reference :inflow_items, :product
+  	add_reference :inflow_items, :inflow
   end
 end
 
@@ -97,17 +97,26 @@ end
 DONE |	Validations:
 			Inflow: 	total > 0, cash boolean,
 			Outflow: 	amount > 0, cash boolean, supplier
-			ProductItem: Quantity > 0, product ID, inflow ID
-			Product: 	name, price > 0, promotion_price > 0, unit "kgs" or "u"
+			InflowItem: Quantity > 0, product ID, inflow ID
+			Product: 	name, price > 0, promotion_price > 0,
 			Supplier: 	name
 
-TO DO|	Stock column in Product model, relacionado a Inflow y Outflow, tal vez incluso a Supplier.
-		Actualización de VISTAS Supplier account_balance en creación de Outflow entry
+DONE |	Create an OutflowItem model, associated with Outflow and Product.
+
+rails generate model OutflowItem quantity:float outflow:references product:references
+
+DONE |	Add stock column in Product model
+
+rails generate migration AddStockToProduct stock:float
+
+add_column :products, :stock, :float
+
+TO DO|
 		Crear 3 elementos por modelo para usar de ejemplo
-		Views
 		Producto + quantity => inflow
-		Creación de Inflow con respectivos PI
+		Creación de Inflow con respectivos II y Outflow con OI
 			Select con autocomplete, javascript
+		Actualización de VISTAS Supplier account_balance en creación de Outflow entry
 		i18n
 		remove sprockets
 

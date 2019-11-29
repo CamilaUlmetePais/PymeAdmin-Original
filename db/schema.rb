@@ -10,13 +10,33 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20191125210619) do
+ActiveRecord::Schema.define(version: 20191127225928) do
+
+  create_table "inflow_items", force: :cascade do |t|
+    t.float    "quantity"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.integer  "product_id"
+    t.integer  "inflow_id"
+    t.index ["inflow_id"], name: "index_inflow_items_on_inflow_id"
+    t.index ["product_id"], name: "index_inflow_items_on_product_id"
+  end
 
   create_table "inflows", force: :cascade do |t|
     t.float    "total"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.boolean  "cash"
+  end
+
+  create_table "outflow_items", force: :cascade do |t|
+    t.float    "quantity"
+    t.integer  "outflow_id"
+    t.integer  "product_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["outflow_id"], name: "index_outflow_items_on_outflow_id"
+    t.index ["product_id"], name: "index_outflow_items_on_product_id"
   end
 
   create_table "outflows", force: :cascade do |t|
@@ -29,16 +49,6 @@ ActiveRecord::Schema.define(version: 20191125210619) do
     t.index ["supplier_id"], name: "index_outflows_on_supplier_id"
   end
 
-  create_table "product_items", force: :cascade do |t|
-    t.float    "quantity"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.integer  "product_id"
-    t.integer  "inflow_id"
-    t.index ["inflow_id"], name: "index_product_items_on_inflow_id"
-    t.index ["product_id"], name: "index_product_items_on_product_id"
-  end
-
   create_table "products", force: :cascade do |t|
     t.string   "name"
     t.float    "price"
@@ -46,6 +56,7 @@ ActiveRecord::Schema.define(version: 20191125210619) do
     t.datetime "updated_at",      null: false
     t.string   "unit"
     t.float    "promotion_price"
+    t.float    "stock"
   end
 
   create_table "suppliers", force: :cascade do |t|

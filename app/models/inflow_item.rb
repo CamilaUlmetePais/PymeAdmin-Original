@@ -1,4 +1,5 @@
-class ProductItem < ApplicationRecord
+
+class InflowItem < ApplicationRecord
 	belongs_to :inflow
 	belongs_to :product
 	validates :quantity, :product_id, presence: true
