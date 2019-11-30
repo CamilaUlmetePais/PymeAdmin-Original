@@ -111,8 +111,20 @@ rails generate migration AddStockToProduct stock:float
 
 add_column :products, :stock, :float
 
-TO DO|
+DONE |	Create nav bar with logo
+TO DO|	Nested forms
 		Crear 3 elementos por modelo para usar de ejemplo
+		MVC Notifications
+		C Pages
+			take
+			statistics
+				gross sales by item (kg/$)
+				rush hour
+				cost of goods sold (costos)
+				gross margin
+				net profit
+				total cashflow
+			balances (y - s - m - w)
 		Producto + quantity => inflow
 		Creación de Inflow con respectivos II y Outflow con OI
 			Select con autocomplete, javascript
@@ -132,16 +144,14 @@ end
 Probably going to need this vocabulary:
 cash
 credit
+cashflow		inflow
+				outflow
+statistics
 debt
 expenses
 income
-cashflow		inflow
-				outflow
-profit
-revenue
+take (caja del día)
 petty cash (caja chica)
-commodities
-compensation
 deficit
 discount
 sale price
