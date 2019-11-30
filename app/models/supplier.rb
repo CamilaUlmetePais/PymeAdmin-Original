@@ -1,4 +1,5 @@
 class Supplier < ApplicationRecord
+#	attr_accessible :name, :phone_number, :account_balance
 	has_many :outflows
 	validates :name, presence: true
 	validates :account_balance, numericality: { greater_than: 0 }
