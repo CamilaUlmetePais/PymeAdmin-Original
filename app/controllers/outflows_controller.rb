@@ -29,7 +29,7 @@ class OutflowsController < ApplicationController
     respond_to do |format|
       if @outflow.save
         @outflow.supplier.update_balance(@outflow)
-        format.html { redirect_to @outflow, notice: 'Outflow was successfully created.' }
+        format.html { redirect_to @outflow, notice: I18n.t('outflow.created') }
         format.json { render :show, status: :created, location: @outflow }
       else
         format.html { render :new }
@@ -43,7 +43,7 @@ class OutflowsController < ApplicationController
   def update
     respond_to do |format|
       if @outflow.update(outflow_params)
-        format.html { redirect_to @outflow, notice: 'Outflow was successfully updated.' }
+        format.html { redirect_to @outflow, notice: I18n.t('outflow.updated') }
         format.json { render :show, status: :ok, location: @outflow }
       else
         format.html { render :edit }
@@ -57,7 +57,7 @@ class OutflowsController < ApplicationController
   def destroy
     @outflow.destroy
     respond_to do |format|
-      format.html { redirect_to outflows_url, notice: 'Outflow was successfully destroyed.' }
+      format.html { redirect_to outflows_url, notice: I18n.t('outflow.destroyed') }
       format.json { head :no_content }
     end
   end
@@ -70,6 +70,6 @@ class OutflowsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def outflow_params
-      params.require(:outflow).permit(:amount, :cash)
+      params.require(:outflow).permit(:amount, :cash, :notes, :supplier_id, outflow_item_attributes: [:quantity, :product_id])
     end
 end

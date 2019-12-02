@@ -1,4 +1,4 @@
-<%= form_for(inflow) do |f| %>
+<%= form_for(@inflow) do |f| %>
   <% if inflow.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(inflow.errors.count, "error") %> prohibited this inflow from being saved:</h2>
@@ -13,7 +13,24 @@
 
   <div class="field">
     <%= f.label :total %>
-    <%= f.text_field :total %>
+    <%= f.number_field :total %> <br />
+    <%= f.label :cash %>
+    <%= f.check_box :cash %>
+
+  </div>
+
+  <%# render 'inflows/inflow_items/form', form: f %>
+
+  <div class="field">
+    <%= f.fields_for :inflow_items do |inflow_form| %>
+        <%= inflow_form.label "Inflow items" %> <br />
+        <%= inflow_form.label :quantity, "Quantity" %> <br />
+        <%= inflow_form.number_field :quantity %> <br / >
+        <%= inflow_form.label :product_id, "Product" %> <br />
+        <%= inflow_form.number_field :product_id %> <br / >
+        <%# link_to "Remove item", '#', class: 'remove_items' %>
+        <%# inflow_form.hidden_field :_destroy %>
+    <% end %>
   </div>
 
   <div class="actions">

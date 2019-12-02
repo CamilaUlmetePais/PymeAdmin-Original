@@ -14,12 +14,15 @@
   <div class="field">
     <%= f.label :amount %>
     <%= f.text_field :amount %>
-  </div>
-
-  <div class="field">
     <%= f.label :cash %>
     <%= f.check_box :cash %>
+    <%= f.label :notes %>
+    <%= f.text_area :notes %>
+    <%= f.label :supplier_id, "Supplier" %>
+    <%= f.number_field :supplier_id %>
   </div>
+
+ <%= render 'outflows/outflow_items/form', form: f %>
 
   <div class="actions">
     <%= f.submit %>

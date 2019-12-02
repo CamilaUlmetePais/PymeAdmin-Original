@@ -23,4 +23,21 @@ en:
   hello: "Hello world"
   product:
     created: "Product successfully created."
+    updated: "Product was successfully updated."
+    destroyed: "Product was successfully deleted."
+  inflow:
+    created: "Inflow successfully created."
+    updated: "Inflow was successfully updated."
+    destroyed: "Inflow was successfully deleted."
+  notification:
+    updated: "Notification was successfully updated."
+    destroyed: "Notification was successfully deleted."
+  outflow:
+    created: "Outflow was successfully created."
+    updated: "Outflow was successfully updated."
+    destroyed: "Outflow was successfully deleted."
+  supplier:
+    created: "Supplier was successfully created."
+    updated: "Supplier was successfully updated."
+    destroyed: "Supplier was successfully deleted."
 

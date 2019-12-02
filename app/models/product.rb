@@ -1,5 +1,5 @@
 class Product < ApplicationRecord
-#	attr_accessible :name, :price, :unit, :promotion_price, :stock
+#	attr_accessor :name, :price, :unit, :promotion_price, :stock
 	has_many :inflow_items
 	has_many :outflow_items
 	validates :name, :price, :promotion_price, :unit, presence: true

@@ -113,9 +113,14 @@ add_column :products, :stock, :float
 
 DONE |	Create nav bar with logo
 TO DO|	Nested forms
-		Crear 3 elementos por modelo para usar de ejemplo
+		Outflow items: product??? que pasa cuando van a comprar yerba??
 		MVC Notifications
-		C Pages
+			Model 										| DONE
+			Migration: create_table		| DONE
+			Controller 								| DONE
+			Route											| DONE
+			View folder and files			| DONE
+		Controller: Pages
 			take
 			statistics
 				gross sales by item (kg/$)
@@ -133,6 +138,7 @@ TO DO|	Nested forms
 		Actualización de VISTAS Supplier account_balance en creación de Outflow entry
 		i18n
 		remove sprockets
+		limpiar routes
 
 
 @outflow.save
