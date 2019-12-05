@@ -69,6 +69,9 @@ class InflowsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def inflow_params
-      params.require(:inflow).permit(:total, :cash, inflow_items_attributes: [ :id, :quantity, :product_id ] )
+      params.require(:inflow).permit(
+        :total, :cash,
+        inflow_items_attributes: [:quantity, :product_id ]
+      )
     end
 end

@@ -11,7 +11,7 @@
     </div>
   <% end %>
 
-  <div class="field">
+  <div class="fields">
     <%= f.label :total %>
     <%= f.number_field :total %> <br />
     <%= f.label :cash %>
@@ -19,19 +19,11 @@
 
   </div>
 
-  <%# render 'inflows/inflow_items/form', form: f %>
+  <%= f.fields_for :inflow_items do |builder| %>
+    <%= render "inflows/inflow_items/inflow_items_fields", :builder => builder %>
+  <% end %>
 
-  <div class="field">
-    <%= f.fields_for :inflow_items do |inflow_form| %>
-        <%= inflow_form.label "Inflow items" %> <br />
-        <%= inflow_form.label :quantity, "Quantity" %> <br />
-        <%= inflow_form.number_field :quantity %> <br / >
-        <%= inflow_form.label :product_id, "Product" %> <br />
-        <%= inflow_form.number_field :product_id %> <br / >
-        <%# link_to "Remove item", '#', class: 'remove_items' %>
-        <%# inflow_form.hidden_field :_destroy %>
-    <% end %>
-  </div>
+  <p><%= link_to_add_fields "Add Inflow item", f, :inflow_items %></p>
 
   <div class="actions">
     <%= f.submit %>

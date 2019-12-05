@@ -29,9 +29,6 @@ Estadísticas
 			  Venta por item (en kg y en $)
 
 Temas a hablar con Sandra:
-	Conversor cajones --> mala idea (huecos en stock o sobras), el tiempo perdido ingresando exacto es preferible dado todo lo demás que soluciona
-	Ingreso de peso de item: decimales automáticos son un terrible dolor de cabeza. El error sería obvio, es mucho problema? Opción: no ver el subtotal en tiempo real.
-
 
 Tasks:
 DONE |	Associations
@@ -184,3 +181,59 @@ premium
 vendor
 supplier
 wage
+
+
+YAML translation file
+
+
+STACK OVERFLOW : HOW TO DRY OUT THE FILE ("elegant solution")
+			dictionary:
+			  email: &email Email
+			  name: &name Name
+			  password: &password Password
+			  confirmation: &confirmation Confirmation
+
+			activerecord:
+			  attributes:
+			    user:
+			      email: *email
+			      name: *name
+			      password: *password
+			      password_confirmation: *confirmation
+			  models:
+			    user: User
+			users:
+			  fields:
+			    email: *email
+			    name: *name
+			    password: *password
+			    confirmation: *confirmation
+			sessions:
+			  new:
+			    email: *email
+			    password: *password
+
+
+Use "lazy" lookup for the texts used in views. Let’s say we have the following structure:
+			en:
+			  users:
+			    show:
+			      title: 'User details page'
+			The value for users.show.title can be looked up in the template app/views/users/show.html.haml like this:
+
+			= t '.title'
+
+Any translation that should be kept throughout the site should be namespaced to app. For example, if we wanted to translate "Codealia", we would need to do something like the following:
+			en:
+			  app:
+			    codealia: "Codealia"
+
+Translation Categories
+			In addition to namespacing, to avoid conflicts within views, we introduce a couple of categories to organize translations in:
+
+			headings - Translations related to headings in the document
+			labels - Translations which are used to identify parts of the document. e.g. form labels, table headers, etc.
+			flash - For flash messages
+			links - Translations related to followable links
+
+

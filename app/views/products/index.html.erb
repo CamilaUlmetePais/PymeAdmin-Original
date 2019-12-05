@@ -7,7 +7,9 @@
     <tr>
       <th>Name</th>
       <th>Price</th>
-      <th>Quantity</th>
+      <th>Promotion Price</th>
+      <th>Unit</th>
+      <th>Stock</th>
       <th colspan="3"></th>
     </tr>
   </thead>
@@ -17,7 +19,9 @@
       <tr>
         <td><%= product.name %></td>
         <td><%= product.price %></td>
-        <td><%= product.quantity %></td>
+        <td><%= product.promotion_price %></td>
+        <td><%= product.unit %></td>
+        <td><%= product.stock %></td>
         <td><%= link_to 'Show', product %></td>
         <td><%= link_to 'Edit', edit_product_path(product) %></td>
         <td><%= link_to 'Destroy', product, method: :delete, data: { confirm: 'Are you sure?' } %></td>

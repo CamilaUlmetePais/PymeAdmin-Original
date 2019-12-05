@@ -15,6 +15,7 @@ class OutflowsController < ApplicationController
   # GET /outflows/new
   def new
     @outflow = Outflow.new
+    @outflow.outflow_items.build
   end
 
   # GET /outflows/1/edit
@@ -70,6 +71,9 @@ class OutflowsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def outflow_params
-      params.require(:outflow).permit(:amount, :cash, :notes, :supplier_id, outflow_item_attributes: [:quantity, :product_id])
+      params.require(:outflow).permit(
+        :amount, :cash, :notes, :supplier_id,
+        outflow_items_attributes: [:quantity, :product_id]
+      )
     end
 end

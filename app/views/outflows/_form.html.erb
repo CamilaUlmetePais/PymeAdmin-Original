@@ -11,7 +11,7 @@
     </div>
   <% end %>
 
-  <div class="field">
+  <div class="fields">
     <%= f.label :amount %>
     <%= f.text_field :amount %>
     <%= f.label :cash %>
@@ -22,7 +22,11 @@
     <%= f.number_field :supplier_id %>
   </div>
 
- <%= render 'outflows/outflow_items/form', form: f %>
+   <%= f.fields_for :outflow_items do |builder| %>
+    <%= render "outflows/outflow_items/outflow_items_fields", :builder => builder %>
+  <% end %>
+
+  <p><%= link_to_add_fields "Add Outflow item", f, :outflow_items %></p>
 
   <div class="actions">
     <%= f.submit %>
