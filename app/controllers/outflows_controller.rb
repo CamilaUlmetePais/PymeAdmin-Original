@@ -30,7 +30,7 @@ class OutflowsController < ApplicationController
     respond_to do |format|
       if @outflow.save
         @outflow.supplier.update_balance(@outflow)
-        format.html { redirect_to @outflow, notice: I18n.t('outflow.created') }
+        format.html { redirect_to @outflow, notice: I18n.t('activerecord.controllers.actions.created', model_name: I18n.t('activerecord.models.outflow.one') ) }
         format.json { render :show, status: :created, location: @outflow }
       else
         format.html { render :new }
@@ -44,7 +44,7 @@ class OutflowsController < ApplicationController
   def update
     respond_to do |format|
       if @outflow.update(outflow_params)
-        format.html { redirect_to @outflow, notice: I18n.t('outflow.updated') }
+        format.html { redirect_to @outflow, notice: I18n.t('activerecord.controllers.actions.updated', model_name: I18n.t('activerecord.models.outflow.one') ) }
         format.json { render :show, status: :ok, location: @outflow }
       else
         format.html { render :edit }
@@ -58,7 +58,7 @@ class OutflowsController < ApplicationController
   def destroy
     @outflow.destroy
     respond_to do |format|
-      format.html { redirect_to outflows_url, notice: I18n.t('outflow.destroyed') }
+      format.html { redirect_to outflows_url, notice: I18n.t('activerecord.controllers.actions.destroyed', model_name: I18n.t('activerecord.models.outflow.one') ) }
       format.json { head :no_content }
     end
   end

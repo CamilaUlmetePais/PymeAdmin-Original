@@ -32,7 +32,7 @@ en:
         updated: " %{model_name} was successfully updated."
         destroyed: " %{model_name} was successfully deleted."
     attributes:
-      product:
+      products:
         name: "Name"
         price: "Price"
         promotion_price: "Promotion price"
@@ -42,23 +42,23 @@ en:
         name: "Name"
         phone_number: "Phone number"
         account_balance: "Account balance"
-      notification:
+      notifications:
         title: "Title"
         text: "Text"
         done: "Done"
-      inflow:
+      inflows:
         total: "Total"
         cash: "Cash"
-      inflow_item:
+      inflow_items:
         quantity: "Quantity"
         product_id: "Product"
         inflow_id: "Inflow ID"
-      outflow:
+      outflows:
         amount: "Amount"
         cash: "Cash"
         notes: "Notes"
         supplier_id: "Supplier"
-      outflow_item:
+      outflow_items:
         quantity: "Quantity"
         outflow_id: "Outflow ID"
         product_id: "Product ID"
@@ -84,29 +84,6 @@ en:
       outflow_item:
         one: "Outflow item"
         other: "Outflow items"
-    views:
-      title:
-        inflows: "Inflows"
-        inflow_items: "Inflow items"
-        notifications: "Notifications"
-        outflows: "Outflows"
-        products: "Products"
-        suppliers: "Suppliers"
-      links:
-        new_inflow: "New Inflow"
-        outflow: "New Outflow"
-        product: "New Product"
-        suppliers: "New Supplier"
-      buttons:
-        show: "Show"
-        edit: "Edit"
-        destroy: "Destroy"
-        are_you_sure: "Are you sure?"
-        back: "Back"
-      buttons:
-        add_inflow_item: "Add new item"
-        remove_inflow_item: "Remove"
-        submit_inflow: "Submit"
   date:
     abbr_day_names:
     - Sun
@@ -264,6 +241,36 @@ en:
         title: "Title"
         text: "Text"
         done: "Done"
+      inflow:
+        total: "Total"
+        cash: "Cash"
+      inflow_item:
+        quantity: "Quantity"
+        product_id: "Product"
+        inflow_id: "Inflow ID"
+      outflow:
+        amount: "Amount"
+        cash: "Cash"
+        notes: "Notes"
+        supplier_id: "Supplier"
+      outflow_item:
+        quantity: "Quantity"
+        outflow_id: "Outflow ID"
+        product_id: "Product"
+    links:
+      new_inflow: "New Inflow"
+      outflow: "New Outflow"
+      product: "New Product"
+      suppliers: "New Supplier"
+    buttons:
+      show: "Show"
+      edit: "Edit"
+      destroy: "Destroy"
+      are_you_sure: "Are you sure?"
+      back: "Back"
+      add_inflow_item: "Add new item"
+      remove_inflow_item: "Remove"
+      submit_inflow: "Submit"
   number:
     currency:
       format:

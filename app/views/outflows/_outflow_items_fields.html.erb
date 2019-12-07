@@ -1,0 +1,12 @@
+<div class="fields">
+	<%= builder.fields_for :outflow_item do |form| %>
+	  <fieldset>
+	    <%= form.label "Outflow item" %> <br />
+	    <%= form.label :quantity, "Quantity" %> <br />
+	    <%= form.number_field :quantity %> <br / >
+	    <%= form.label :product_id, "Product" %> <br />
+	    <%= form.number_field :product_id %> <br / >
+    	<%= link_to_remove_fields "remove", form %>
+	  </fieldset>
+	<% end %>
+</div>

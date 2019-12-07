@@ -23,7 +23,7 @@
   </div>
 
    <%= f.fields_for :outflow_items do |builder| %>
-    <%= render "outflows/outflow_items/outflow_items_fields", :builder => builder %>
+    <%= render "outflows/outflow_items_fields", :builder => builder %>
   <% end %>
 
   <p><%= link_to_add_fields "Add Outflow item", f, :outflow_items %></p>
