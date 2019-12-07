@@ -16,7 +16,7 @@
 #     article:
 #       create: "Publish article"
 #       update: "Update article"
-
+#  <%= I18n.t('') %>
 
 en:
   activerecord:
@@ -84,6 +84,9 @@ en:
       outflow_item:
         one: "Outflow item"
         other: "Outflow items"
+  views:
+    headers:
+      edit: Editing %{model}
   date:
     abbr_day_names:
     - Sun
@@ -259,18 +262,17 @@ en:
         product_id: "Product"
     links:
       new_inflow: "New Inflow"
-      outflow: "New Outflow"
-      product: "New Product"
-      suppliers: "New Supplier"
+      new_outflow: "New Outflow"
+      new_product: "New Product"
+      new_suppliers: "New Supplier"
     buttons:
       show: "Show"
       edit: "Edit"
       destroy: "Destroy"
-      are_you_sure: "Are you sure?"
+      are_you_sure: "Segurito?"
       back: "Back"
-      add_inflow_item: "Add new item"
-      remove_inflow_item: "Remove"
-      submit_inflow: "Submit"
+      add: "Add new item"
+      remove: "Remove"
   number:
     currency:
       format:

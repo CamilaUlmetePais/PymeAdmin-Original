@@ -1,9 +1,9 @@
 <p id="notice"><%= notice %></p>
 
 <p>
-  <strong>Total:</strong>
+  <strong><%= I18n.t('activerecord.attributes.inflows.total') %></strong>
   <%= @inflow.total %>
 </p>
 
-<%= link_to 'Edit', edit_inflow_path(@inflow) %> |
-<%= link_to 'Back', inflows_path %>
+<%= link_to I18n.t('helpers.buttons.edit'), edit_inflow_path(@inflow) %> |
+<%= link_to I18n.t('helpers.buttons.back'), inflows_path %>

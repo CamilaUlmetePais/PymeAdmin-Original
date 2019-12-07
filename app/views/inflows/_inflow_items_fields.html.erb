@@ -1,10 +1,10 @@
 <div class="fields">
   <fieldset>
-    <%= builder.label "Inflow items" %> <br />
+    <%= builder.label I18n.t('activerecord.models.inflow_item.other') %> <br />
     <%= builder.label :quantity, "Quantity" %> <br />
     <%= builder.number_field :quantity %> <br / >
     <%= builder.label :product_id, "Product" %> <br />
     <%= builder.number_field :product_id %> <br / >
-  	<%= link_to_remove_fields "remove", builder %>
+  	<%= link_to_remove_fields I18n.t('helpers.buttons.remove'), builder %>
   </fieldset>
 </div>

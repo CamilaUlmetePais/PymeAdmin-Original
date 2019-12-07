@@ -109,7 +109,7 @@ rails generate migration AddStockToProduct stock:float
 add_column :products, :stock, :float
 
 DONE |	Create nav bar with logo
-TO DO|	Nested forms
+DONE |	Nested forms
 		Outflow items: product??? que pasa cuando van a comprar yerba??
 		MVC Notifications
 			Model 										| DONE
@@ -117,25 +117,24 @@ TO DO|	Nested forms
 			Controller 								| DONE
 			Route											| DONE
 			View folder and files			| DONE
-		Controller: Pages
-			take
-			statistics
-				gross sales by item (kg/$)
-				rush hour
-				cost of goods sold (costos)
-				gross margin
-				net profit
-				total cashflow
-			balances (y - s - m - w)
-		Producto + quantity => inflow
-		Creación de Inflow con respectivos II y Outflow con OI
-			Select con autocomplete, javascript
-		Limitar index a últimas n entradas para evitar carga lenta, dar opción a cargar de a n cantidad por vez
-			index method within controller, Project.all  -x-> custom query
-		Actualización de VISTAS Supplier account_balance en creación de Outflow entry
-		i18n
-		remove sprockets
-		limpiar routes
+TO DO|	Controller: Pages
+					take
+					statistics
+						gross sales by item (kg/$)
+						rush hour
+						cost of goods sold (costos)
+						gross margin
+						net profit
+						total cashflow
+					balances (y - s - m - w)
+				Producto + quantity => inflow
+				Creación de Inflow con respectivos II y Outflow con OI
+					Select con autocomplete, javascript
+				Limitar index a últimas n entradas para evitar carga lenta, dar opción a cargar de a n cantidad por vez
+					index method within controller, Project.all  -x-> custom query
+				Actualización de VISTAS Supplier account_balance en creación de Outflow entry
+				i18n
+				remove sprockets
 
 
 @outflow.save

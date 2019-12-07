@@ -23,7 +23,7 @@
     <%= render "inflows/inflow_items_fields", :builder => builder %>
   <% end %>
 
-  <p><%= link_to_add_fields "Add Inflow item", f, :inflow_items %></p>
+  <p><%= link_to_add_fields I18n.t('helpers.links.new_inflow'), f, :inflow_items %></p>
 
   <div class="actions">
     <%= f.submit %>

@@ -1,11 +1,11 @@
 <p id="notice"><%= notice %></p>
 
-<h1>Inflows</h1>
+<h1> <%= I18n.t('activerecord.models.inflow.other') %> </h1>
 
 <table>
   <thead>
     <tr>
-      <th>Total</th>
+      <th><%= I18n.t('activerecord.attributes.inflows.total') %></th>
       <th colspan="3"></th>
     </tr>
   </thead>
@@ -14,9 +14,9 @@
     <% @inflows.each do |inflow| %>
       <tr>
         <td><%= inflow.total %></td>
-        <td><%= link_to 'Show', inflow %></td>
-        <td><%= link_to 'Edit', edit_inflow_path(inflow) %></td>
-        <td><%= link_to 'Destroy', inflow, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to I18n.t('helpers.buttons.show'), inflow %></td>
+        <td><%= link_to I18n.t('helpers.buttons.edit'), edit_inflow_path(inflow) %></td>
+        <td><%= link_to I18n.t('helpers.buttons.destroy'), inflow, method: :delete, data: { confirm: I18n.t('helpers.buttons.are_you_sure') } %></td>
       </tr>
     <% end %>
   </tbody>
@@ -24,4 +24,4 @@
 
 <br>
 
-<%= link_to 'New Inflow', new_inflow_path %>
+<%= link_to I18n.t('helpers.links.new_inflow'), new_inflow_path %>
