@@ -60,8 +60,8 @@ en:
         supplier_id: "Supplier"
       outflow_items:
         quantity: "Quantity"
-        outflow_id: "Outflow ID"
-        product_id: "Product ID"
+        outflow_id: "Outflow"
+        product_id: "Product"
     models:
       product:
         one: "Product"
@@ -86,7 +86,7 @@ en:
         other: "Outflow items"
   views:
     headers:
-      edit: Editing %{model}
+      edit: Edit %{model}
   date:
     abbr_day_names:
     - Sun
@@ -264,12 +264,12 @@ en:
       new_inflow: "New Inflow"
       new_outflow: "New Outflow"
       new_product: "New Product"
-      new_suppliers: "New Supplier"
+      new_supplier: "New Supplier"
     buttons:
       show: "Show"
       edit: "Edit"
       destroy: "Destroy"
-      are_you_sure: "Segurito?"
+      are_you_sure: "Are you sure?"
       back: "Back"
       add: "Add new item"
       remove: "Remove"

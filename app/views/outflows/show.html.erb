@@ -1,14 +1,47 @@
 <p id="notice"><%= notice %></p>
 
 <p>
-  <strong>Amount:</strong>
+  <strong><%= I18n.t('activerecord.attributes.outflows.amount') %></strong>
   <%= @outflow.amount %>
 </p>
 
 <p>
-  <strong>Cash:</strong>
+  <strong><%= I18n.t('activerecord.attributes.outflows.cash') %></strong>
   <%= @outflow.cash %>
 </p>
 
-<%= link_to 'Edit', edit_outflow_path(@outflow) %> |
-<%= link_to 'Back', outflows_path %>
+<p>
+  <strong><%= I18n.t('activerecord.attributes.outflows.notes') %></strong>
+  <%= @outflow.notes %>
+</p>
+
+<p>
+  <strong><%= I18n.t('activerecord.attributes.outflows.supplier_id') %></strong>
+  <%= @outflow.supplier.name %>
+</p>
+
+<div class="fields">
+	<h3><%= I18n.t('activerecord.models.outflow_item.other') %></h3>
+	<table>
+	  <thead>
+	    <tr>
+	      <th><%= I18n.t('activerecord.attributes.outflow_items.quantity') %></th>
+	      <th><%= I18n.t('activerecord.attributes.outflow_items.product_id') %></th>
+	      <th colspan="3"></th>
+	    </tr>
+	  </thead>
+
+	  <tbody>
+	    <% @outflow.outflow_items.each do |item| %>
+	      <tr>
+	        <td><%= item.quantity %></td>
+	        <td><%= item.product.name %></td>
+	      </tr>
+	    <% end %>
+	  </tbody>
+	</table>
+</div>
+
+
+<%= link_to I18n.t('helpers.buttons.edit'), edit_outflow_path(@outflow) %> |
+<%= link_to I18n.t('helpers.buttons.back'), outflows_path %>

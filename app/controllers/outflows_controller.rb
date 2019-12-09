@@ -26,7 +26,6 @@ class OutflowsController < ApplicationController
   # POST /outflows.json
   def create
     @outflow = Outflow.new(outflow_params)
-
     respond_to do |format|
       if @outflow.save
         @outflow.supplier.update_balance(@outflow)

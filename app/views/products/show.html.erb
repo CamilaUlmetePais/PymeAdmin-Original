@@ -1,19 +1,29 @@
 <p id="notice"><%= notice %></p>
 
 <p>
-  <strong>Name:</strong>
+  <strong><%= I18n.t('activerecord.attributes.products.name') %></strong>
   <%= @product.name %>
 </p>
 
 <p>
-  <strong>Price:</strong>
+  <strong><%= I18n.t('activerecord.attributes.products.price') %></strong>
   <%= @product.price %>
 </p>
 
 <p>
-  <strong>PromotionPrice:</strong>
+  <strong><%= I18n.t('activerecord.attributes.products.promotion_price') %></strong>
   <%= @product.promotion_price %>
 </p>
 
-<%= link_to 'Edit', edit_product_path(@product) %> |
-<%= link_to 'Back', products_path %>
+<p>
+  <strong><%= I18n.t('activerecord.attributes.products.unit') %></strong>
+  <%= @product.unit %>
+</p>
+
+<p>
+  <strong><%= I18n.t('activerecord.attributes.products.stock') %></strong>
+  <%= @product.stock %>
+</p>
+
+<%= link_to I18n.t('helpers.buttons.edit'), edit_product_path(@product) %> |
+<%= link_to I18n.t('helpers.buttons.back'), products_path %>

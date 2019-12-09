@@ -1,12 +1,10 @@
 <div class="fields">
-	<%= builder.fields_for :outflow_item do |form| %>
-	  <fieldset>
-	    <%= form.label "Outflow item" %> <br />
-	    <%= form.label :quantity, "Quantity" %> <br />
-	    <%= form.number_field :quantity %> <br / >
-	    <%= form.label :product_id, "Product" %> <br />
-	    <%= form.number_field :product_id %> <br / >
-    	<%= link_to_remove_fields "remove", form %>
-	  </fieldset>
-	<% end %>
+  <fieldset>
+    <%= builder.label I18n.t('activerecord.models.outflow_item.one') %> <br />
+    <%= builder.label :quantity %> <br />
+    <%= builder.number_field :quantity %> <br / >
+    <%= builder.label :product_id %> <br />
+    <%= builder.number_field :product_id %> <br / >
+  	<%= link_to_remove_fields  I18n.t('helpers.buttons.remove'), builder %>
+  </fieldset>
 </div>

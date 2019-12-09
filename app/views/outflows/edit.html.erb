@@ -1,6 +1,6 @@
-<h1>Editing Outflow</h1>
+<h1><%= I18n.t('views.headers.edit', model: I18n.t('activerecord.models.outflow.one') ) %></h1>
 
 <%= render 'form', outflow: @outflow %>
 
-<%= link_to 'Show', @outflow %> |
-<%= link_to 'Back', outflows_path %>
+<%= link_to I18n.t('helpers.buttons.show'), @outflow %> |
+<%= link_to I18n.t('helpers.buttons.back'), outflows_path %>

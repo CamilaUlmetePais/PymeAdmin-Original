@@ -31,110 +31,27 @@ Estadísticas
 Temas a hablar con Sandra:
 
 Tasks:
-DONE |	Associations
-		associating Inflow and Product IDs to PI model
-
-rails generate migration AddReferenceIdsToInflowItem
-
-class AddReferenceIdsToInflowItem < ActiveRecord::Migration
-  def change
-  	add_reference :inflow_items, :product
-  	add_reference :inflow_items, :inflow
-  end
-end
-
-DONE |	Add new Product attributes
-		delete product attribute "quantity"
-		add float:"promotion_price"
-		add string:"quantity_type"  kgs - u
-
-rails generate migration RemoveQuantityFromProducts quantity:float
-
-class RemoveQuantityfromProducts < ActiveRecord::Migration[5.0]
-  def up
-    remove_column :products, :quantity
-  end
-
-  def down
-    add_column :products, :quantity, :float
-  end
- end
-
-rails generate migration AddAttributesToProducts unit:string promotion_price:float
-
-class AddAttributesToProducts < ActiveRecord::Migration
-  def change
-    add_column :products, :unit, :string
-    add_column :products, :promotion_price, :float
-  end
-end
-
-DONE |	Generate Supplier model (has_many :outflows)
-DONE |	Scaffold Outflow (belongs_to :supplier)
-
-rails generate migration AddReferenceIdsToOutflow
-
-class AddReferenceIdsToOutflow < ActiveRecord::Migration[5.0]
-  def change
-  	add_reference :outflow, :supplier
-  end
-end
-
-DONE |	Agregar cash boolean a Inflow
-
-rails generate migration AddCashToInflows cash:boolean
-
-class AddAttributesToProducts < ActiveRecord::Migration
-  def change
-    add_column :inflows, :cash, :boolean
-  end
-end
-
-
-DONE |	Validations:
-			Inflow: 	total > 0, cash boolean,
-			Outflow: 	amount > 0, cash boolean, supplier
-			InflowItem: Quantity > 0, product ID, inflow ID
-			Product: 	name, price > 0, promotion_price > 0,
-			Supplier: 	name
-
-DONE |	Create an OutflowItem model, associated with Outflow and Product.
-
-rails generate model OutflowItem quantity:float outflow:references product:references
-
-DONE |	Add stock column in Product model
-
-rails generate migration AddStockToProduct stock:float
-
-add_column :products, :stock, :float
-
-DONE |	Create nav bar with logo
-DONE |	Nested forms
-		Outflow items: product??? que pasa cuando van a comprar yerba??
-		MVC Notifications
-			Model 										| DONE
-			Migration: create_table		| DONE
-			Controller 								| DONE
-			Route											| DONE
-			View folder and files			| DONE
-TO DO|	Controller: Pages
-					take
-					statistics
-						gross sales by item (kg/$)
-						rush hour
-						cost of goods sold (costos)
-						gross margin
-						net profit
-						total cashflow
-					balances (y - s - m - w)
-				Producto + quantity => inflow
-				Creación de Inflow con respectivos II y Outflow con OI
-					Select con autocomplete, javascript
-				Limitar index a últimas n entradas para evitar carga lenta, dar opción a cargar de a n cantidad por vez
-					index method within controller, Project.all  -x-> custom query
-				Actualización de VISTAS Supplier account_balance en creación de Outflow entry
-				i18n
-				remove sprockets
+Calcular total y subtotal automáticamente
+inflow and outflow items que se lean horizontalmente para que ocupen menos espacio
+Delete function from forms doesn't actually delete stuff
+I18n: Traducción a español
+Controller: Pages
+	take
+	statistics
+		gross sales by item (kg/$)
+		rush hour
+		cost of goods sold (costos)
+		gross margin
+		net profit
+		total cashflow
+	balances (y - s - m - w)
+Producto + quantity => inflow
+Creación de Inflow con respectivos II y Outflow con OI
+	Select con autocomplete, javascript
+Limitar index a últimas n entradas para evitar carga lenta, dar opción a cargar de a n cantidad por vez
+	index method within controller, Project.all  -x-> custom query
+Actualización de VISTAS Supplier account_balance en creación de Outflow entry
+remove sprockets
 
 
 @outflow.save

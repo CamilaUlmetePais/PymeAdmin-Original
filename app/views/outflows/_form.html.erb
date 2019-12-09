@@ -18,7 +18,7 @@
     <%= f.check_box :cash %>
     <%= f.label :notes %>
     <%= f.text_area :notes %>
-    <%= f.label :supplier_id, "Supplier" %>
+    <%= f.label :supplier_id %>
     <%= f.number_field :supplier_id %>
   </div>
 
@@ -26,7 +26,7 @@
     <%= render "outflows/outflow_items_fields", :builder => builder %>
   <% end %>
 
-  <p><%= link_to_add_fields "Add Outflow item", f, :outflow_items %></p>
+  <p><%= link_to_add_fields I18n.t('helpers.buttons.add'), f, :outflow_items %></p>
 
   <div class="actions">
     <%= f.submit %>

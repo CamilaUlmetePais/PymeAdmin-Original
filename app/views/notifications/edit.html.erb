@@ -1,6 +1,6 @@
-<h1>Editing Notification</h1>
+<h1><%= I18n.t('views.headers.edit', model: I18n.t('activerecord.models.notification.one') ) %></h1>
 
 <%= render 'form', notification: @notification %>
 
-<%= link_to 'Show', @notification %> |
-<%= link_to 'Back', notifications_path %>
+<%= link_to I18n.t('helpers.buttons.show'), @notification %> |
+<%= link_to I18n.t('helpers.buttons.back'), notifications_path %>

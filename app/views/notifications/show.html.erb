@@ -1,19 +1,19 @@
 <p id="notice"><%= notice %></p>
 
 <p>
-	<strong>Title:</strong>
+	<strong><%= I18n.t('activerecord.attributes.notifications.title') %></strong>
 	<%= @notification.title %>
 </p>
 
 <p>
-	<strong>Text:</strong>
+	<strong><%= I18n.t('activerecord.attributes.notifications.text') %></strong>
 	<%= @notification.text %>
 </p>
 
 <p>
-	<strong>Done</strong>
+	<strong><%= I18n.t('activerecord.attributes.notifications.done') %></strong>
 	<%= @notification.Done %>
 </p>
 
-<%= link_to 'Edit', edit_notification_path(@notification) %> |
-<%= link_to 'Back', notifications_path %>
+<%= link_to I18n.t('helpers.buttons.edit'), edit_notification_path(@notification) %> |
+<%= link_to I18n.t('helpers.buttons.back'), notifications_path %>

@@ -1,6 +1,6 @@
-<h1>Editing Product</h1>
+<h1><%= I18n.t('views.headers.edit', model: I18n.t('activerecord.models.product.one') ) %></h1>
 
 <%= render 'form', product: @product %>
 
-<%= link_to 'Show', @product %> |
-<%= link_to 'Back', products_path %>
+<%= link_to I18n.t('helpers.buttons.show'), @product %> |
+<%= link_to I18n.t('helpers.buttons.back'), products_path %>

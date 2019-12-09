@@ -1,5 +1,5 @@
-<h1>New Outflow</h1>
+<h1><%= I18n.t('helpers.links.new_outflow') %></h1>
 
 <%= render 'form', outflow: @outflow %>
 
-<%= link_to 'Back', outflows_path %>
+<%= link_to I18n.t('helpers.buttons.back'), outflows_path %>
