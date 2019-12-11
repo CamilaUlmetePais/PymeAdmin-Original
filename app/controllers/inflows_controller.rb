@@ -15,7 +15,7 @@ class InflowsController < ApplicationController
   # GET /inflows/new
   def new
     @inflow = Inflow.new
-    @inflow.inflow_items.build
+    @inflow.items.build
   end
 
   # GET /inflows/1/edit
@@ -28,6 +28,7 @@ class InflowsController < ApplicationController
     @inflow = Inflow.new(inflow_params)
     respond_to do |format|
       if @inflow.save
+        @inflow.update_stocks
         format.html { redirect_to @inflow, notice: I18n.t('activerecord.controllers.actions.created', model_name: I18n.t('activerecord.models.inflow.one') ) }
         format.json { render :show, status: :created, location: @inflow }
       else

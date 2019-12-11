@@ -1,5 +1,4 @@
 class Supplier < ApplicationRecord
-#	attr_accessor :name, :phone_number, :account_balance
 	has_many :outflows
 	validates :name, presence: true
 	validates :account_balance, numericality: { greater_than: 0 }
@@ -7,5 +6,5 @@ class Supplier < ApplicationRecord
 	def update_balance(outflow)
 		new_balance = self.account_balance - outflow.amount
         self.update_attribute(:account_balance, new_balance)
-    end
+  end
 end

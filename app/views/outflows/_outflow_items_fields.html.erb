@@ -1,9 +1,9 @@
 <div class="fields">
   <fieldset>
     <%= builder.label I18n.t('activerecord.models.outflow_item.one') %> <br />
-    <%= builder.label :quantity %> <br />
-    <%= builder.number_field :quantity %> <br / >
-    <%= builder.label :product_id %> <br />
+    <%= builder.label :quantity %>
+    <%= builder.number_field :quantity %>
+    <%= builder.label :product_id %>
     <%= builder.number_field :product_id %> <br / >
   	<%= link_to_remove_fields  I18n.t('helpers.buttons.remove'), builder %>
   </fieldset>

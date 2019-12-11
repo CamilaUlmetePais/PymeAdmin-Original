@@ -15,7 +15,7 @@ class OutflowsController < ApplicationController
   # GET /outflows/new
   def new
     @outflow = Outflow.new
-    @outflow.outflow_items.build
+    @outflow.items.build
   end
 
   # GET /outflows/1/edit
@@ -28,6 +28,7 @@ class OutflowsController < ApplicationController
     @outflow = Outflow.new(outflow_params)
     respond_to do |format|
       if @outflow.save
+        @outflow.update_stocks
         @outflow.supplier.update_balance(@outflow)
         format.html { redirect_to @outflow, notice: I18n.t('activerecord.controllers.actions.created', model_name: I18n.t('activerecord.models.outflow.one') ) }
         format.json { render :show, status: :created, location: @outflow }

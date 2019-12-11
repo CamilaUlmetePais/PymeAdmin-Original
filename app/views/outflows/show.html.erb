@@ -32,7 +32,7 @@
 	  </thead>
 
 	  <tbody>
-	    <% @outflow.outflow_items.each do |item| %>
+	    <% @outflow.items.each do |item| %>
 	      <tr>
 	        <td><%= item.quantity %></td>
 	        <td><%= item.product.name %></td>

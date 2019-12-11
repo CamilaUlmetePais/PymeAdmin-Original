@@ -1,8 +1,12 @@
 class Product < ApplicationRecord
-#	attr_accessor :name, :price, :unit, :promotion_price, :stock
 	has_many :inflow_items
 	has_many :outflow_items
-	validates :name, :price, :promotion_price, :unit, presence: true
-	validates :price, :promotion_price, numericality: { greater_than: 0 }
-	validates :promotion_price, numericality: { less_than_or_equal_to: :price }
+	validates :name, :price, :unit, presence: true
+	validates :price, numericality: { greater_than: 0 }
+# deleted promotion_price validation for the time being
+
+	def update_stock(quantity)
+		value = self.stock + quantity
+		self.update_attributes(stock: value)
+	end
 end
