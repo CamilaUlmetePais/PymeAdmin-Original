@@ -11,6 +11,14 @@ class NotificationsController < ApplicationController
 	def edit
 	end
 
+	def new
+		@notification = Notification.new
+	end
+
+	def create
+
+	end
+
 	def update
 		respond_to do |format|
 			if @notification.update(notification_params)

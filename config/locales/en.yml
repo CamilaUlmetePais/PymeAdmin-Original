@@ -54,7 +54,8 @@ en:
         product_id: "Product"
         inflow_id: "Inflow ID"
       outflows:
-        amount: "Amount"
+        total: "Total"
+        paid: "Paid"
         cash: "Cash"
         notes: "Notes"
         supplier_id: "Supplier"
@@ -87,6 +88,26 @@ en:
   views:
     headers:
       edit: Edit %{model}
+      pages:
+        take:
+          title: Take
+          total: Total
+          cash_inflows: Cash inflows
+          cash_outflows: Cash outflows
+          cash_inflows_total: Cash inflows total
+          cash_outflows_total: Cash outflows total
+          cash_total: Cash total
+        statistics:
+          title: "Statistics"
+          gross_income: "Gross income"
+          total_expenses: "Total expenses"
+          total_cogs: "Total cost of goods sold"
+          total_operative: "Total operative expenses"
+          balance: "Balance"
+          sales_per_product: "Sales per product"
+          kgs: "Kilograms sold"
+          total: "Total made"
+    outflow_guide: "To register debt paid, input a positive value. To register debt acquired, input a negative value."
   date:
     abbr_day_names:
     - Sun
@@ -252,7 +273,8 @@ en:
         product_id: "Product"
         inflow_id: "Inflow ID"
       outflow:
-        amount: "Amount"
+        total: "Amount"
+        paid: "Paid"
         cash: "Cash"
         notes: "Notes"
         supplier_id: "Supplier"

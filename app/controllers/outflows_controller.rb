@@ -72,7 +72,7 @@ class OutflowsController < ApplicationController
     # Never trust parameters from the scary internet, only allow the white list through.
     def outflow_params
       params.require(:outflow).permit(
-        :amount, :cash, :notes, :supplier_id,
+        :total, :paid, :cash, :notes, :supplier_id,
         outflow_items_attributes: [:quantity, :product_id]
       )
     end

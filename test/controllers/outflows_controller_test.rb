@@ -17,7 +17,7 @@ class OutflowsControllerTest < ActionDispatch::IntegrationTest
 
   test "should create outflow" do
     assert_difference('Outflow.count') do
-      post outflows_url, params: { outflow: { amount: @outflow.amount, cash: @outflow.cash } }
+      post outflows_url, params: { outflow: { total: @outflow.total, cash: @outflow.cash } }
     end
 
     assert_redirected_to outflow_url(Outflow.last)
@@ -34,7 +34,7 @@ class OutflowsControllerTest < ActionDispatch::IntegrationTest
   end
 
   test "should update outflow" do
-    patch outflow_url(@outflow), params: { outflow: { amount: @outflow.amount, cash: @outflow.cash } }
+    patch outflow_url(@outflow), params: { outflow: { total: @outflow.total, cash: @outflow.cash } }
     assert_redirected_to outflow_url(@outflow)
   end
 

@@ -6,4 +6,8 @@ class InflowItem < ApplicationRecord
 	def subtotal
 		self.quantity * self.price
 	end
+
+	def list
+		self.product.name + " " + self.quantity.to_s + " / "
+	end
 end

@@ -1,0 +1,79 @@
+<h1><%= I18n.t('views.headers.pages.take.title') %></h1>
+<br>
+
+<table>
+	<thead>
+		<tr>
+			<th><%= I18n.t('activerecord.models.inflow.other') %></th>
+			<th><%= I18n.t('activerecord.models.outflow.other') %></th>
+			<th><%= I18n.t('views.headers.pages.take.total') %></th>
+		</tr>
+	</thead>
+
+	<tbody>
+		<tr>
+			<td>$<%= @variables[:inflow_total] %></td>
+			<td>$<%= @variables[:outflow_total] %></td>
+			<td>$<%= @variables[:inflow_total] - @variables[:outflow_total] %></td>
+		</tr>
+	</tbody>
+</table>
+
+<h2><%= I18n.t('views.headers.pages.take.cash_inflows') %></h2>
+<table>
+  <thead>
+    <tr>
+      <th><%= I18n.t('activerecord.attributes.inflows.total') %></th>
+      <th><%= I18n.t('activerecord.models.inflow_item.other') %></th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @variables[:cash_inflows].each do |inflow| %>
+      <tr>
+        <td><%= inflow.total %></td>
+        <td>
+        	<% inflow.items.each do |item| %>
+          	<%= item.list %>
+          <% end %>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<h3><%= I18n.t('views.headers.pages.take.cash_inflows_total') %></h3>
+<%= @variables[:cash_inflows].sum('total') %>
+
+<h2><%= I18n.t('views.headers.pages.take.cash_outflows') %></h2>
+<table>
+  <thead>
+    <tr>
+      <th><%= I18n.t('activerecord.attributes.outflows.total') %></th>
+      <th><%= I18n.t('activerecord.attributes.outflows.supplier_id') %></th>
+      <th><%= I18n.t('activerecord.models.outflow_item.other') %></th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @variables[:cash_outflows].each do |outflow| %>
+      <tr>
+        <td><%= outflow.total %></td>
+        <td><%= outflow.supplier.name %></td>
+        <td>
+        	<% outflow.items.each do |item| %>
+        		<%= item.list %>
+        	<% end %>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<h3><%= I18n.t('views.headers.pages.take.cash_outflows_total') %></h3>
+<%= @variables[:cash_outflows].sum('total') %>
+
+<h2><%= I18n.t('views.headers.pages.take.cash_total') %></h2>
+<%= @variables[:cash_inflows].sum('total') - @variables[:cash_outflows].sum('total') %>

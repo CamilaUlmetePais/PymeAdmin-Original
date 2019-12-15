@@ -5,7 +5,8 @@
 <table>
   <thead>
     <tr>
-      <th><%= I18n.t('activerecord.attributes.outflows.amount') %></th>
+      <th><%= I18n.t('activerecord.attributes.outflows.total') %></th>
+      <th><%= I18n.t('activerecord.attributes.outflows.paid') %></th>
       <th><%= I18n.t('activerecord.attributes.outflows.cash') %></th>
       <th><%= I18n.t('activerecord.attributes.outflows.notes') %></th>
       <th><%= I18n.t('activerecord.attributes.outflows.supplier_id') %></th>
@@ -16,7 +17,8 @@
   <tbody>
     <% @outflows.each do |outflow| %>
       <tr>
-        <td><%= outflow.amount %></td>
+        <td><%= outflow.total %></td>
+        <td><%= outflow.paid %></td>
         <td><%= outflow.cash %></td>
         <td><%= outflow.notes %></td>
         <td><%= outflow.supplier.name %></td>

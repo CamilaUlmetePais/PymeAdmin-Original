@@ -1,8 +1,13 @@
 <p id="notice"><%= notice %></p>
 
 <p>
-  <strong><%= I18n.t('activerecord.attributes.outflows.amount') %></strong>
-  <%= @outflow.amount %>
+  <strong><%= I18n.t('activerecord.attributes.outflows.total') %></strong>
+  <%= @outflow.total %>
+</p>
+
+<p>
+  <strong><%= I18n.t('activerecord.attributes.outflows.paid') %></strong>
+  <%= @outflow.paid %>
 </p>
 
 <p>

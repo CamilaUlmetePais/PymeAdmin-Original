@@ -9,4 +9,12 @@ class Product < ApplicationRecord
 		value = self.stock + quantity
 		self.update_attributes(stock: value)
 	end
+
+	def units_sold
+		self.inflow_items.sum('quantity')
+	end
+
+	def sales_total
+		self.units_sold * self.price
+	end
 end

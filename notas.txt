@@ -3,16 +3,10 @@ Notas
 
 Tasks:
 
-- Controller: Pages
-		take
-		statistics
-			gross sales by item (kg/$)
-			rush hour
-			cost of goods sold (costos)
-			gross margin
-			net profit
-			total cashflow
-			balances (y - s - m - w)
+- Statistics
+		Add COGS (Cost of Goods Sold) and Operating Expense variable to Supplier?
+		Scopes
+- Notifications auto generation
 - Calcular total y subtotal automáticamente
 - Select con autocomplete, javascript
 - Delete function from forms doesn't actually delete stuff

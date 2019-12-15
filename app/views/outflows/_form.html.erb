@@ -11,9 +11,15 @@
     </div>
   <% end %>
 
+  <p>
+    <strong><%= I18n.t('views.outflow_guide') %></strong>
+  </p>
+
   <div class="fields">
-    <%= f.label :amount %>
-    <%= f.text_field :amount %>
+    <%= f.label :total %>
+    <%= f.number_field :total %>
+    <%= f.label :paid %>
+    <%= f.number_field :paid %>
     <%= f.label :cash %>
     <%= f.check_box :cash %>
     <%= f.label :notes %>
