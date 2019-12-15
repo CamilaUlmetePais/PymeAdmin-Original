@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20191215180027) do
+ActiveRecord::Schema.define(version: 20191215221850) do
 
   create_table "inflow_items", force: :cascade do |t|
     t.float    "quantity"
@@ -74,6 +74,15 @@ ActiveRecord::Schema.define(version: 20191215180027) do
     t.float    "account_balance"
     t.datetime "created_at",      null: false
     t.datetime "updated_at",      null: false
+  end
+
+  create_table "supplies", force: :cascade do |t|
+    t.string   "name"
+    t.float    "price"
+    t.string   "unit"
+    t.float    "stock"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
 end

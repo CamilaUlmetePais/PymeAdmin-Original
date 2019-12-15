@@ -4,20 +4,6 @@
 # Call like this: t('.description', site_name: t('site_name'))
 #       => "Site Name is an online system"
 
-# Form labels: helpers.label.<model>.<field>
-# Submit buttons:
-# helpers:
-#   submit:
-#     # helpers.submit.<action>
-#     create: "Create a %{model}"
-#     update: "Confirm changes to %{model}"
-
-#     # helpers.submit.<model>.<action>
-#     article:
-#       create: "Publish article"
-#       update: "Update article"
-#  <%= I18n.t('') %>
-
 en:
   activerecord:
     errors:
@@ -33,59 +19,71 @@ en:
         destroyed: " %{model_name} was successfully deleted."
     attributes:
       products:
-        name: "Name"
-        price: "Price"
-        promotion_price: "Promotion price"
-        unit: "Unit"
-        stock: "Stock"
+        name: Name
+        price: Price
+        promotion_price: Promotion price
+        unit: Unit
+        stock: Stock
       suppliers:
-        name: "Name"
-        phone_number: "Phone number"
-        account_balance: "Account balance"
+        name: Name
+        phone_number: Phone number
+        account_balance: Account balance
       notifications:
-        title: "Title"
-        text: "Text"
-        done: "Done"
+        title: Title
+        text: Text
+        done: Done
       inflows:
-        total: "Total"
-        cash: "Cash"
+        total: Total
+        cash: Cash
       inflow_items:
-        quantity: "Quantity"
-        product_id: "Product"
-        inflow_id: "Inflow ID"
+        quantity: Quantity
+        product_id: Product
+        inflow_id: Inflow ID
       outflows:
-        total: "Total"
-        paid: "Paid"
-        cash: "Cash"
-        notes: "Notes"
-        supplier_id: "Supplier"
+        total: Total
+        paid: Paid
+        cash: Cash
+        notes: Notes
+        supplier_id: Supplier
       outflow_items:
-        quantity: "Quantity"
-        outflow_id: "Outflow"
-        product_id: "Product"
+        quantity: Quantity
+        outflow_id: Outflow
+        product_id: Product
+      supplies:
+        name: Name
+        price: Price
+        unit: Unit
+        stock: Stock
     models:
       product:
-        one: "Product"
-        other: "Products"
+        one: Product
+        other: Products
       supplier:
-        one: "Supplier"
-        other: "Suppliers"
+        one: Supplier
+        other: Suppliers
       notification:
-        one: "Notification"
-        other: "Notifications"
+        one: Notification
+        other: Notifications
       inflow:
-        one: "Inflow"
-        other: "Inflows"
+        one: Inflow
+        other: Inflows
       inflow_item:
-        one: "Inflow item"
-        other: "Inflow items"
+        one: Inflow item
+        other: Inflow items
       outflow:
-        one: "Outflow"
-        other: "Outflows"
+        one: Outflow
+        other: Outflows
       outflow_item:
-        one: "Outflow item"
-        other: "Outflow items"
+        one: Outflow item
+        other: Outflow items
+      supply:
+        one: Supply
+        other: Supplies
   views:
+    body:
+      outflows:
+        outflow_guide: To register debt paid, input a positive value. To register debt acquired, input a negative value.
+        operative_expenses_guide: To register payment of operative expenses, select the "Operative expenses" product as the only item, and set the quantity equal to the billed total.
     headers:
       edit: Edit %{model}
       pages:
@@ -98,16 +96,15 @@ en:
           cash_outflows_total: Cash outflows total
           cash_total: Cash total
         statistics:
-          title: "Statistics"
-          gross_income: "Gross income"
-          total_expenses: "Total expenses"
-          total_cogs: "Total cost of goods sold"
-          total_operative: "Total operative expenses"
-          balance: "Balance"
-          sales_per_product: "Sales per product"
-          kgs: "Kilograms sold"
-          total: "Total made"
-    outflow_guide: "To register debt paid, input a positive value. To register debt acquired, input a negative value."
+          title: Statistics
+          gross_income: Gross income
+          total_expenses: Total expenses
+          total_cogs: Total cost of goods sold
+          total_operative: Total operative expenses
+          balance: Balance
+          sales_per_product: Sales per product
+          kgs: Kilograms sold
+          total: Total made
   date:
     abbr_day_names:
     - Sun
@@ -252,49 +249,56 @@ en:
       update: Update %{model}
     label:
       product:
-        name: "Name"
-        price: "Price"
-        promotion_price: "Promotion price"
-        unit: "Unit"
-        stock: "Stock"
+        name: Name
+        price: Price
+        promotion_price: Promotion price
+        unit: Unit
+        stock: Stock
       supplier:
-        name: "Name"
-        phone_number: "Phone number"
-        account_balance: "Account balance"
+        name: Name
+        phone_number: Phone number
+        account_balance: Account balance
       notification:
-        title: "Title"
-        text: "Text"
-        done: "Done"
+        title: Title
+        text: Text
+        done: Done
       inflow:
-        total: "Total"
-        cash: "Cash"
+        total: Total
+        cash: Cash
       inflow_item:
-        quantity: "Quantity"
-        product_id: "Product"
-        inflow_id: "Inflow ID"
+        quantity: Quantity
+        product_id: Product
+        inflow_id: Inflow ID
       outflow:
-        total: "Amount"
-        paid: "Paid"
-        cash: "Cash"
-        notes: "Notes"
-        supplier_id: "Supplier"
+        total: Amount
+        paid: Paid
+        cash: Cash
+        notes: Notes
+        supplier_id: Supplier
       outflow_item:
-        quantity: "Quantity"
-        outflow_id: "Outflow ID"
-        product_id: "Product"
+        quantity: Quantity
+        outflow_id: Outflow ID
+        product_id: Product
+      supply:
+        name: Name
+        price: Price
+        unit: Unit
+        stock: Stock
     links:
-      new_inflow: "New Inflow"
-      new_outflow: "New Outflow"
-      new_product: "New Product"
-      new_supplier: "New Supplier"
+      new_inflow: New Inflow
+      new_outflow: New Outflow
+      new_product: New Product
+      new_supplier: New Supplier
+      new_supply: New Supply
+      new_notification: New Notification
     buttons:
-      show: "Show"
-      edit: "Edit"
-      destroy: "Destroy"
-      are_you_sure: "Are you sure?"
-      back: "Back"
-      add: "Add new item"
-      remove: "Remove"
+      show: Show
+      edit: Edit
+      destroy: Destroy
+      are_you_sure: Are you sure?
+      back: Back
+      add: Add new item
+      remove: Remove
   number:
     currency:
       format:

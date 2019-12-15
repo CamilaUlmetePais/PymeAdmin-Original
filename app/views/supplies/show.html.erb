@@ -1,0 +1,24 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong><%= I18n.t('activerecord.attributes.supplies.name') %></strong>
+  <%= @supply.name %>
+</p>
+
+<p>
+  <strong><%= I18n.t('activerecord.attributes.supplies.price') %></strong>
+  <%= @supply.price %>
+</p>
+
+<p>
+  <strong><%= I18n.t('activerecord.attributes.supplies.unit') %></strong>
+  <%= @supply.unit %>
+</p>
+
+<p>
+  <strong><%= I18n.t('activerecord.attributes.supplies.stock') %></strong>
+  <%= @supply.stock %>
+</p>
+
+<%= link_to I18n.t('helpers.buttons.edit'), edit_supply_path(@supply) %> |
+<%= link_to I18n.t('helpers.buttons.back'), supplies_path %>

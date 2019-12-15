@@ -1,6 +1,6 @@
 class Product < ApplicationRecord
 	has_many :inflow_items
-	has_many :outflow_items
+	alias_attribute :items, :outflow_items
 	validates :name, :price, :unit, presence: true
 	validates :price, numericality: { greater_than: 0 }
 # deleted promotion_price validation for the time being
@@ -16,5 +16,10 @@ class Product < ApplicationRecord
 
 	def sales_total
 		self.units_sold * self.price
+	end
+
+	def self.operative_expenses
+		product = Product.find_by(name: "Gastos operativos")
+		product.outflow_items.sum('quantity') * product.price
 	end
 end

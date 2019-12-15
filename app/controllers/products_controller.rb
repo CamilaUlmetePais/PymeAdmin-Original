@@ -9,7 +9,7 @@ class ProductsController < ApplicationController
 
   # GET /products/1
   # GET /products/1.jso
- def show
+  def show
   end
 
   # GET /products/new

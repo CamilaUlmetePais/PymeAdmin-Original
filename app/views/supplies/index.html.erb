@@ -1,0 +1,30 @@
+<p id="notice"><%= notice %></p>
+
+<h1><%= I18n.t('activerecord.models.supply.other') %></h1>
+
+<table>
+	<thead>
+		<tr>
+			<th><%= I18n.t('activerecord.attributes.supplies.name') %></th>
+			<th><%= I18n.t('activerecord.attributes.supplies.price') %></th>
+			<th><%= I18n.t('activerecord.attributes.supplies.unit') %></th>
+			<th><%= I18n.t('activerecord.attributes.supplies.stock') %></th>
+		</tr>
+	</thead>
+
+	<tbody>
+		<% @supplies.each do |supply| %>
+			<tr>
+				<td><%= supply.name %></td>
+				<td><%= supply.price %></td>
+				<td><%= supply.unit %></td>
+				<td><%= supply.stock %></td>
+				<td><%= link_to I18n.t('helpers.buttons.show'), supply %></td>
+        <td><%= link_to I18n.t('helpers.buttons.edit'), edit_supply_path(supply) %></td>
+        <td><%= link_to I18n.t('helpers.buttons.destroy'), supply, method: :delete, data: { confirm: I18n.t('helpers.buttons.are_you_sure') } %></td>
+			</tr>
+		<% end %>
+	</tbody>
+</table>
+
+<%= link_to I18n.t('helpers.links.new_supply'), new_supply_path %>

@@ -3,25 +3,6 @@
 
 <h2><%= I18n.t('views.headers.pages.statistics.gross_income') %></h2>
 <h3><%= @inflows.sum('total') %></h3>
-<br>
-
-<h2><%= I18n.t('views.headers.pages.statistics.total_expenses') %></h2>
-<h3><%= @outflows.sum('total') %></h3>
-<br>
-
-<h2><%= I18n.t('views.headers.pages.statistics.total_cogs') %></h2>
-<br>
-
-<h2><%= I18n.t('views.headers.pages.statistics.total_operative') %></h2>
-<br>
-
-<h2><%= I18n.t('views.headers.pages.statistics.balance') %></h2>
-<h3><%= @inflows.sum('total') - @outflows.sum('total') %></h3>
-<br>
-
-<h2><%= I18n.t('views.headers.pages.statistics.sales_per_product') %></h2>
-<br>
-
 <table>
 	<thead>
 		<tr>
@@ -42,3 +23,20 @@
 		<%end%>
 	</tbody>
 </table>
+<br>
+
+<h2><%= I18n.t('views.headers.pages.statistics.total_expenses') %></h2>
+<h3><%= @outflows.sum('total') %></h3>
+<br>
+
+<h2><%= I18n.t('views.headers.pages.statistics.total_cogs') %></h2>
+<h3><%=  %></h3>
+<br>
+
+<h2><%= I18n.t('views.headers.pages.statistics.total_operative') %></h2>
+<h3><%= Product.operative_expenses %></h3>
+<br>
+
+<h2><%= I18n.t('views.headers.pages.statistics.balance') %></h2>
+<h3><%= @inflows.sum('total') - @outflows.sum('total') %></h3>
+<br>

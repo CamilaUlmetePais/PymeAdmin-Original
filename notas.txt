@@ -3,72 +3,48 @@ Notas
 
 Tasks:
 
+- New model for manual joint table
+- Add to stock automatically?, link to form
+- Product
+	- Add to Stock button
+- Renombrar asociación y columna de outflow  product id --x--> supply id
 - Statistics
-		Add COGS (Cost of Goods Sold) and Operating Expense variable to Supplier?
-		Scopes
-- Notifications auto generation
-- Calcular total y subtotal automáticamente
-- Select con autocomplete, javascript
-- Delete function from forms doesn't actually delete stuff
-- Cash boolean doesn't save properly
-- Limitar index a últimas n entradas para evitar carga lenta, dar opción a cargar de a n cantidad por vez
-		index method within controller, Project.all  -x-> custom query
+	- Mapear gastos operativos por supplier
+	- Mapear cogs por producto
+- Notifications
+	- Types: low stock - balance alert - client orders
+	- auto generation (ls - ba)
+	- create method in controller for client orders
+	- 3 tables for index, one per type
+- Indexes: newest first
+- Uniqueness Validations
+- Scopes
+    - Limitar index a últimas n entradas para evitar carga lenta, dar opción a cargar de a n cantidad por vez
+				index method within controller, Project.all  -x-> custom query
+		- Agregar scopes manuales a statistics y take
+		- Auto eliminación de Notificaciones
+- JavaScript
+	- Calcular total y subtotal automáticamente
+	- Select con autocomplete, javascript
+	- Delete function from forms doesn't actually delete stuff
+	- Cash boolean doesn't save properly
 - I18n
-		Dry out the file: dictionary of repeated terms
-			dictionary:
-			  email: &email Email
-			  name: &name Name
-			  password: &password Password
-			  confirmation: &confirmation Confirmation
+		- Dry out the file: dictionary of repeated terms
+				dictionary:
+				  email: &email Email
+				  name: &name Name
+				  password: &password Password
+				  confirmation: &confirmation Confirmation
 
-			activerecord:
-			  attributes:
-			    user:
-			      email: *email
-			      name: *name
-			      password: *password
-			      password_confirmation: *confirmation
-		Traducción a español
+				activerecord:
+				  attributes:
+				    user:
+				      email: *email
+				      name: *name
+				      password: *password
+				      password_confirmation: *confirmation
+		- Traducción a español
 - Devise
-		Dos usuarios: Admin-Sandra (acceso a todas las secciones)
-									La Raquelita (acceso sólo a inflows y outflows)
+		- Dos usuarios: Admin-Sandra (acceso a todas las secciones)
+										La Raquelita (acceso sólo a inflows y outflows)
 - Bootstrap
-
-
-Probably going to need this vocabulary:
-
-- cashflow
-		inflow & outflow
-		cash
-		credit - debit
-- statistics
-		debt
-		expenses
-		income
-		take (caja del día)
-		petty cash (caja chica)
-		deficit
-- finances
-		due date
-		rent
-		services
-		tax
-		expenditure
-		forecasting / projection
-		gross income
-		gross margin
-		gross sales
-		net sales
-		product half-life
-		inventory / stock
-		merchandise
-		salary
-		margin of profit
-		net income
-		net proceeds
-		net sales
-		net worth
-		premium
-		vendor
-		supplier
-		wage
