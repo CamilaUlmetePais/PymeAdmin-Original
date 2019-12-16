@@ -1,6 +1,6 @@
 class Product < ApplicationRecord
 	has_many :inflow_items
-	alias_attribute :items, :outflow_items
+	alias_attribute :items, :inflow_items
 	validates :name, :price, :unit, presence: true
 	validates :price, numericality: { greater_than: 0 }
 # deleted promotion_price validation for the time being

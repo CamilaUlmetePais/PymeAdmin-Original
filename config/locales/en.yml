@@ -54,6 +54,9 @@ en:
         price: Price
         unit: Unit
         stock: Stock
+      supply_product_links:
+        product_id: Product
+        supply_id: Supply
     models:
       product:
         one: Product
@@ -79,6 +82,9 @@ en:
       supply:
         one: Supply
         other: Supplies
+      supply_product_link:
+        one: Supply-to-Product Link
+        other: Supply-to-Product Links
   views:
     body:
       outflows:
@@ -284,6 +290,9 @@ en:
         price: Price
         unit: Unit
         stock: Stock
+      supply_product_link:
+        product: Product
+        supply: Supply
     links:
       new_inflow: New Inflow
       new_outflow: New Outflow
@@ -291,6 +300,8 @@ en:
       new_supplier: New Supplier
       new_supply: New Supply
       new_notification: New Notification
+      auto_stock: Automatic stock configuration
+      new_supply_product_link: New Supply-Product link
     buttons:
       show: Show
       edit: Edit

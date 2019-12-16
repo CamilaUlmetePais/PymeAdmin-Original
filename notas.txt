@@ -1,13 +1,8 @@
 Notas
------
 
-Tasks:
-
-- New model for manual joint table
 - Add to stock automatically?, link to form
 - Product
 	- Add to Stock button
-- Renombrar asociación y columna de outflow  product id --x--> supply id
 - Statistics
 	- Mapear gastos operativos por supplier
 	- Mapear cogs por producto
