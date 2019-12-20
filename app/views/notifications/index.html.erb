@@ -13,7 +13,7 @@
 	</thead>
 
 	<tbody>
-		<% @notifications.each do |notification| %>
+		<% @notifications.order(created_at: :desc).each do |notification| %>
 			<tr>
 				<td><%= notification.title %></td>
 				<td><%= notification.text %></td>

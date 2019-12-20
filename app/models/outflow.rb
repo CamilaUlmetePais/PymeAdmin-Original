@@ -8,7 +8,13 @@ class Outflow < ApplicationRecord
 
 	def update_stocks
 		self.items.each do |item|
-			item.product.update_stock(item.quantity)
+			link = SupplyProductLink.find_by(supply_id: item.supply.id)
+
+			if link.nil?
+				item.supply.update_stock(item.quantity)
+			else
+				Product.find(link.product_id).update_stock(item.quantity)
+			end
 		end
 	end
 

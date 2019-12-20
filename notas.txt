@@ -1,8 +1,14 @@
 Notas
 
-- Add to stock automatically?, link to form
-- Product
-	- Add to Stock button
+- Logic behind SupplyToProduct
+	- Asigna asociación entre Product X y Supply Y.
+	- Método en outflow que al crearse, itera sobre sus items, y actualiza el stock del producto asociado al supply comprado. Luego resta eso del "stock" de supply, para que no quede stock sin salida.
+	- .after_save en supply
+	- Validar ambos ids uniqueness
+- Mass update stock
+	- mass update_attributes
+	- form & view
+	- nav bar
 - Statistics
 	- Mapear gastos operativos por supplier
 	- Mapear cogs por producto
@@ -11,8 +17,6 @@ Notas
 	- auto generation (ls - ba)
 	- create method in controller for client orders
 	- 3 tables for index, one per type
-- Indexes: newest first
-- Uniqueness Validations
 - Scopes
     - Limitar index a últimas n entradas para evitar carga lenta, dar opción a cargar de a n cantidad por vez
 				index method within controller, Project.all  -x-> custom query

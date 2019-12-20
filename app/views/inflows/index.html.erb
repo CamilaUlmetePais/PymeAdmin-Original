@@ -12,7 +12,7 @@
   </thead>
 
   <tbody>
-    <% @inflows.each do |inflow| %>
+    <% @inflows.order(created_at: :desc).each do |inflow| %>
       <tr>
         <td><%= inflow.total %></td>
         <td><%= inflow.cash %></td>

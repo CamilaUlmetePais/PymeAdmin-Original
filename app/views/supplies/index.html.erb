@@ -13,7 +13,7 @@
 	</thead>
 
 	<tbody>
-		<% @supplies.each do |supply| %>
+		<% @supplies.order(name: :asc).each do |supply| %>
 			<tr>
 				<td><%= supply.name %></td>
 				<td><%= supply.price %></td>

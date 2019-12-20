@@ -14,9 +14,9 @@
   <tbody>
     <% @supply_product_links.each do |supply_product_link| %>
       <tr>
-        <td><%= supply_product_links.product_id %></td>
-        <td><%= supply_product_links.supply_id %></td>
-        <td><%= link_to I18n.t('helpers.buttons.destroy'), supply_product_links, method: :delete, data: { confirm: I18n.t('helpers.buttons.are_you_sure') } %></td>
+        <td><%= supply_product_link.product_id %></td>
+        <td><%= supply_product_link.supply_id %></td>
+        <td><%= link_to I18n.t('helpers.buttons.destroy'), supply_product_link, method: :delete, data: { confirm: I18n.t('helpers.buttons.are_you_sure') } %></td>
       </tr>
     <% end %>
   </tbody>

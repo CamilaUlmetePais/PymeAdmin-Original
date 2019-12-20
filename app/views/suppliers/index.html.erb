@@ -13,7 +13,7 @@
   </thead>
 
   <tbody>
-    <% @suppliers.each do |supplier| %>
+    <% @suppliers.order(name: :asc).each do |supplier| %>
       <tr>
         <td><%= supplier.name %></td>
         <td><%= supplier.phone_number %></td>

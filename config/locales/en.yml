@@ -111,6 +111,8 @@ en:
           sales_per_product: Sales per product
           kgs: Kilograms sold
           total: Total made
+      products:
+        stock_update: Add Stock in bulk
   date:
     abbr_day_names:
     - Sun

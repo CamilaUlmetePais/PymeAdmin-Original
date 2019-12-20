@@ -73,7 +73,7 @@ class OutflowsController < ApplicationController
     def outflow_params
       params.require(:outflow).permit(
         :total, :paid, :cash, :notes, :supplier_id,
-        outflow_items_attributes: [:quantity, :product_id]
+        outflow_items_attributes: [:quantity, :supply_id]
       )
     end
 end

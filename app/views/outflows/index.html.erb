@@ -15,7 +15,7 @@
   </thead>
 
   <tbody>
-    <% @outflows.each do |outflow| %>
+    <% @outflows.order(created_at: :desc).each do |outflow| %>
       <tr>
         <td><%= outflow.total %></td>
         <td><%= outflow.paid %></td>
