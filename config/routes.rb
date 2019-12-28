@@ -1,6 +1,11 @@
 Rails.application.routes.draw do
   root to: 'inflows#index'
-  resources :products
+  resources :products do
+  	collection do
+  		get 'mass_stock'
+  		post 'mass_stock_update'
+  	end
+  end
   resources :suppliers
   resources :inflows
   resources :outflows

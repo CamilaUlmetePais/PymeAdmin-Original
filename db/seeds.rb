@@ -6,4 +6,6 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 
-Product.create({name: "Gastos operativos", price: 1, unit: "u"})
+Supply.create({name: "Servicios", price: 1, unit: "$", stock: 0})
+Supply.create({name: "Impuestos", price: 1, unit: "$", stock: 0})
+Supply.create({name: "Salarios", price: 1, unit: "$", stock: 0})

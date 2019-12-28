@@ -5,4 +5,8 @@ class OutflowItem < ApplicationRecord
   def list
 		self.supply.name + " " + self.quantity.to_s + " / "
 	end
+
+	def subtotal
+		self.quantity * self.supply.price
+	end
 end

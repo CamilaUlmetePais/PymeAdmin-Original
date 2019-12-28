@@ -4,7 +4,7 @@ class InflowItem < ApplicationRecord
 	validates :quantity, :product_id, presence: true
 
 	def subtotal
-		self.quantity * self.price
+		self.quantity * self.product.price
 	end
 
 	def list

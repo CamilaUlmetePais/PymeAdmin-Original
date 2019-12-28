@@ -3,16 +3,13 @@
   <head>
     <title>PymeAdmin</title>
     <%= csrf_meta_tags %>
-
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
 
   <body>
-
-<%= image_tag("logo.jpg", width: '100px') %>
-<%= render 'shared/nav' %>
-
+		<%= image_tag("logo.jpg", width: '100px') %>
+		<%= render 'shared/nav' %>
     <%= yield %>
   </body>
 </html>

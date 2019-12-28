@@ -18,9 +18,4 @@ class Product < ApplicationRecord
 	def sales_total
 		self.units_sold * self.price
 	end
-
-	def self.operative_expenses
-		product = Product.find_by(name: "Gastos operativos")
-		product.outflow_items.sum('quantity') * product.price
-	end
 end

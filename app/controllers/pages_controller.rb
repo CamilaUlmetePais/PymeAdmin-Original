@@ -12,8 +12,21 @@ class PagesController < ApplicationController
 	end
 
 	def statistics
-		@inflows = Inflow.all
-		@outflows = Outflow.all
+		inflows_total = Inflow.all.sum('total')
+		outflows_total = Outflow.all.sum('total')
+		supplies = Supply.all
+		consumables = supplies.where.not(unit: "$")
+		operative_expenses = supplies - consumables
+
+
 		@products = Product.all
+		@suppliers = Supplier.all
+		@statistics = {
+			gross_income: inflows_total,
+			total_expenses: outflows_total,
+			balance: inflows_total - outflows_total,
+			consumables: consumables,
+			operative_expenses: operative_expenses
+			}
 	end
 end

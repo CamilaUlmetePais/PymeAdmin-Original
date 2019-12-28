@@ -1,31 +1,11 @@
 class ProductsController < ApplicationController
   before_action :set_product, only: [:show, :edit, :update, :destroy]
-
-  # GET /products
-  # GET /products.json
-  def index
-    @products = Product.all
-  end
-
-  # GET /products/1
-  # GET /products/1.jso
-  def show
-  end
-
-  # GET /products/new
-  def new
-    @product = Product.new
-  end
-
-  # GET /products/1/edit
-  def edit
-  end
+  skip_before_action :verify_authenticity_token, only: [:mass_stock_update]
 
   # POST /products
   # POST /products.json
   def create
     @product = Product.new(product_params)
-
     respond_to do |format|
       if @product.save
         format.html { redirect_to @product, notice: I18n.t('activerecord.controllers.actions.created', model_name: I18n.t('activerecord.models.product.one') ) }
@@ -35,6 +15,52 @@ class ProductsController < ApplicationController
         format.json { render json: @product.errors, status: :unprocessable_entity }
       end
     end
+  end
+
+  # DELETE /products/1
+  # DELETE /products/1.json
+  def destroy
+    @product.destroy
+    respond_to do |format|
+      format.html { redirect_to products_path, notice: I18n.t('activerecord.controllers.actions.destroyed', model_name: I18n.t('activerecord.models.product.one') ) }
+      format.json { head :no_content }
+    end
+  end
+
+  # GET /products/1/edit
+  def edit
+  end
+
+  # GET /products
+  # GET /products.json
+  def index
+    @products = Product.all
+  end
+
+  def mass_stock
+  end
+
+  def mass_stock_update
+    products = product_params[:mass_stock].to_h.values
+    products.each do |parameters|
+      unless parameters[:product_id].empty? || parameters[:stock].empty?
+        product = Product.find(parameters[:product_id].to_i)
+        product.update_stock(parameters[:stock].to_i)
+      end
+    end
+    respond_to do |format|
+      format.html { redirect_to products_path, notice: I18n.t('activerecord.controllers.actions.stock_updated') }
+    end
+  end
+
+  # GET /products/new
+  def new
+    @product = Product.new
+  end
+
+  # GET /products/1
+  # GET /products/1.jso
+  def show
   end
 
   # PATCH/PUT /products/1
@@ -51,16 +77,6 @@ class ProductsController < ApplicationController
     end
   end
 
-  # DELETE /products/1
-  # DELETE /products/1.json
-  def destroy
-    @product.destroy
-    respond_to do |format|
-      format.html { redirect_to products_url, notice: I18n.t('activerecord.controllers.actions.destroyed', model_name: I18n.t('activerecord.models.product.one') ) }
-      format.json { head :no_content }
-    end
-  end
-
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_product
@@ -69,6 +85,6 @@ class ProductsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def product_params
-      params.require(:product).permit(:name, :price, :unit, :promotion_price, :stock)
+      params.require(:product).permit(:name, :price, :unit, :promotion_price, :stock, mass_stock: [:product_id, :stock])
     end
 end

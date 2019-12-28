@@ -6,6 +6,18 @@ class Outflow < ApplicationRecord
 	validates :total, numericality: { greater_than: 0 }
 	accepts_nested_attributes_for :outflow_items, allow_destroy: true
 
+	def balance
+		self.paid - self.total
+	end
+
+	def generate_total
+		total = 0
+		self.items.each do |item|
+			total += item.subtotal
+		end
+		total
+	end
+
 	def update_stocks
 		self.items.each do |item|
 			link = SupplyProductLink.find_by(supply_id: item.supply.id)
@@ -18,7 +30,4 @@ class Outflow < ApplicationRecord
 		end
 	end
 
-	def balance
-		self.paid - self.total
-	end
 end

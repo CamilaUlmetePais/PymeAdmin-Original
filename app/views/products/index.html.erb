@@ -5,6 +5,7 @@
 <table>
   <thead>
     <tr>
+      <th> ID </th>
       <th><%= I18n.t('activerecord.attributes.products.name') %></th>
       <th><%= I18n.t('activerecord.attributes.products.price') %></th>
 <!--       <th><%= I18n.t('activerecord.attributes.products.promotion_price') %></th> -->
@@ -17,6 +18,7 @@
   <tbody>
     <% @products.order(name: :asc).each do |product| %>
       <tr>
+        <td><%= product.id %></td>
         <td><%= product.name %></td>
         <td><%= product.price %></td>
 <!--    <td><%= product.promotion_price %></td> -->
@@ -32,4 +34,6 @@
 
 <br>
 
-<%= link_to I18n.t('helpers.links.new_product'), new_product_path %>
+<%= link_to I18n.t('helpers.links.new_product'), new_product_path %> |
+<%= link_to I18n.t('helpers.buttons.update_stock'), mass_stock_products_path %>
+

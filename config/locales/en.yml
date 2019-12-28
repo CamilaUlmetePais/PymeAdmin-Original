@@ -17,6 +17,7 @@ en:
         created: " %{model_name} was successfully created."
         updated: " %{model_name} was successfully updated."
         destroyed: " %{model_name} was successfully deleted."
+        stock_updated: Stock was successfully updated.
     attributes:
       products:
         name: Name
@@ -48,7 +49,7 @@ en:
       outflow_items:
         quantity: Quantity
         outflow_id: Outflow
-        product_id: Product
+        supply_id: Supply
       supplies:
         name: Name
         price: Price
@@ -106,13 +107,15 @@ en:
           gross_income: Gross income
           total_expenses: Total expenses
           total_cogs: Total cost of goods sold
-          total_operative: Total operative expenses
+          total_operative_expenses: Total operative expenses
           balance: Balance
           sales_per_product: Sales per product
-          kgs: Kilograms sold
-          total: Total made
+          quantity: Quantity
+          total: Total
+          percentage: Percentage
+          exp_per_supplier: Expenses per supplier
       products:
-        stock_update: Add Stock in bulk
+        mass_stock: Stock update
   date:
     abbr_day_names:
     - Sun
@@ -286,15 +289,15 @@ en:
       outflow_item:
         quantity: Quantity
         outflow_id: Outflow ID
-        product_id: Product
+        supply_id: Supply ID
       supply:
         name: Name
         price: Price
         unit: Unit
         stock: Stock
       supply_product_link:
-        product: Product
-        supply: Supply
+        product: Product ID
+        supply: Supply ID
     links:
       new_inflow: New Inflow
       new_outflow: New Outflow
@@ -303,7 +306,7 @@ en:
       new_supply: New Supply
       new_notification: New Notification
       auto_stock: Automatic stock configuration
-      new_supply_product_link: New Supply-Product link
+      new_supply_product_link: New Supply-Product links
     buttons:
       show: Show
       edit: Edit
@@ -312,6 +315,7 @@ en:
       back: Back
       add: Add new item
       remove: Remove
+      update_stock: Update stock
   number:
     currency:
       format:
