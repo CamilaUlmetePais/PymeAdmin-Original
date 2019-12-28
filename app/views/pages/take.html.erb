@@ -1,4 +1,4 @@
-<h1><%= I18n.t('views.headers.pages.take.title') %></h1>
+<h1><%= I18n.t('views.headers.pages.take') %></h1>
 <br>
 
 <table>
@@ -6,7 +6,7 @@
 		<tr>
 			<th><%= I18n.t('activerecord.models.inflow.other') %></th>
 			<th><%= I18n.t('activerecord.models.outflow.other') %></th>
-			<th><%= I18n.t('views.headers.pages.take.total') %></th>
+			<th><%= I18n.t('views.body.pages.take.total') %></th>
 		</tr>
 	</thead>
 
@@ -19,7 +19,7 @@
 	</tbody>
 </table>
 
-<h2><%= I18n.t('views.headers.pages.take.cash_inflows') %></h2>
+<h2><%= I18n.t('views.body.pages.take.cash_inflows') %></h2>
 <table>
   <thead>
     <tr>
@@ -43,10 +43,10 @@
   </tbody>
 </table>
 
-<h3><%= I18n.t('views.headers.pages.take.cash_inflows_total') %></h3>
+<h3><%= I18n.t('views.body.pages.take.cash_inflows_total') %></h3>
 <%= @variables[:cash_inflows].sum('total') %>
 
-<h2><%= I18n.t('views.headers.pages.take.cash_outflows') %></h2>
+<h2><%= I18n.t('views.body.pages.take.cash_outflows') %></h2>
 <table>
   <thead>
     <tr>
@@ -72,8 +72,8 @@
   </tbody>
 </table>
 
-<h3><%= I18n.t('views.headers.pages.take.cash_outflows_total') %></h3>
+<h3><%= I18n.t('views.body.pages.take.cash_outflows_total') %></h3>
 <%= @variables[:cash_outflows].sum('total') %>
 
-<h2><%= I18n.t('views.headers.pages.take.cash_total') %></h2>
+<h2><%= I18n.t('views.body.pages.take.cash_total') %></h2>
 <%= @variables[:cash_inflows].sum('total') - @variables[:cash_outflows].sum('total') %>

@@ -91,19 +91,8 @@ en:
       outflows:
         outflow_guide: To register debt paid, input a positive value. To register debt acquired, input a negative value.
         operative_expenses_guide: To register payment of operative expenses, select the "Operative expenses" product as the only item, and set the quantity equal to the billed total.
-    headers:
-      edit: Edit %{model}
       pages:
-        take:
-          title: Take
-          total: Total
-          cash_inflows: Cash inflows
-          cash_outflows: Cash outflows
-          cash_inflows_total: Cash inflows total
-          cash_outflows_total: Cash outflows total
-          cash_total: Cash total
         statistics:
-          title: Statistics
           gross_income: Gross income
           total_expenses: Total expenses
           total_cogs: Total cost of goods sold
@@ -114,6 +103,21 @@ en:
           total: Total
           percentage: Percentage
           exp_per_supplier: Expenses per supplier
+          supply_name: Supply
+          supplier_name: Supplier
+          supplier_op_ex: Expenses
+        take:
+          total: Total
+          cash_inflows: Cash inflows
+          cash_outflows: Cash outflows
+          cash_inflows_total: Cash inflows total
+          cash_outflows_total: Cash outflows total
+          cash_total: Cash total
+    headers:
+      edit: Edit %{model}
+      pages:
+        take: Take
+        statistics: Statistics
       products:
         mass_stock: Stock update
   date:

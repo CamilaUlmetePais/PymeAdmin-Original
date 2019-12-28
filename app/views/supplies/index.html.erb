@@ -5,6 +5,7 @@
 <table>
 	<thead>
 		<tr>
+			<th> ID </th>
 			<th><%= I18n.t('activerecord.attributes.supplies.name') %></th>
 			<th><%= I18n.t('activerecord.attributes.supplies.price') %></th>
 			<th><%= I18n.t('activerecord.attributes.supplies.unit') %></th>
@@ -15,6 +16,7 @@
 	<tbody>
 		<% @supplies.order(name: :asc).each do |supply| %>
 			<tr>
+				<td><%= supply.id %></td>
 				<td><%= supply.name %></td>
 				<td><%= supply.price %></td>
 				<td><%= supply.unit %></td>

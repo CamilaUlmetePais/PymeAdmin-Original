@@ -17,7 +17,7 @@ class PagesController < ApplicationController
 		supplies = Supply.all
 		consumables = supplies.where.not(unit: "$")
 		operative_expenses = supplies - consumables
-
+		op_ex_by_supplier = operative_expenses.map{|supply| supply.get_operative_expenses}.flatten
 
 		@products = Product.all
 		@suppliers = Supplier.all
@@ -26,7 +26,8 @@ class PagesController < ApplicationController
 			total_expenses: outflows_total,
 			balance: inflows_total - outflows_total,
 			consumables: consumables,
-			operative_expenses: operative_expenses
+			operative_expenses: operative_expenses,
+			op_ex_by_supplier: op_ex_by_supplier
 			}
 	end
 end

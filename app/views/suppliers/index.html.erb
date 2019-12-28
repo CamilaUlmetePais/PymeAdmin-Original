@@ -5,6 +5,7 @@
 <table>
   <thead>
     <tr>
+      <th> ID </th>
       <th><%= I18n.t('activerecord.attributes.suppliers.name') %></th>
       <th><%= I18n.t('activerecord.attributes.suppliers.phone_number') %></th>
       <th><%= I18n.t('activerecord.attributes.suppliers.account_balance') %></th>
@@ -15,6 +16,7 @@
   <tbody>
     <% @suppliers.order(name: :asc).each do |supplier| %>
       <tr>
+        <td><%= supplier.id %></td>
         <td><%= supplier.name %></td>
         <td><%= supplier.phone_number %></td>
         <td><%= supplier.account_balance %></td>

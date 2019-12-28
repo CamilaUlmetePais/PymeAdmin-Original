@@ -1,6 +1,6 @@
 class Inflow < ApplicationRecord
 	alias_attribute :items, :inflow_items
-	validates :total, :cash, presence: true
+	validates :total, presence: true
 	has_many :inflow_items
 	accepts_nested_attributes_for :inflow_items
 
