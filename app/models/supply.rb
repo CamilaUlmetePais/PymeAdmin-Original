@@ -7,16 +7,7 @@ class Supply < ApplicationRecord
 	validates :price, numericality: { greater_than: 0 }
 	validates :name, uniqueness: { case_sensitive: false }
 
-	def update_stock(quantity)
-		value = self.stock + quantity
-		self.update_attributes(stock: value)
-	end
-
-	def units_bought
-		self.outflow_items.sum('quantity')
-	end
-
-# Calculates Cost of Goods Sold
+  # Calculates Cost of Goods Sold
 	def cogs
 		self.units_bought * self.price
 	end
@@ -24,5 +15,14 @@ class Supply < ApplicationRecord
 	# Supply -> [{keys: supplier_id, value: quantity}]
 	def get_operative_expenses
 		self.suppliers.uniq.map{|supplier| supplier.get_expenses(self.id, self.name)}
+	end
+
+	def units_bought
+		self.outflow_items.sum('quantity')
+	end
+
+	def update_stock(quantity)
+		value = self.stock + quantity
+		self.update_attributes(stock: value)
 	end
 end

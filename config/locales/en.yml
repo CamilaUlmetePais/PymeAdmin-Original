@@ -304,6 +304,7 @@ en:
         supply: Supply ID
     links:
       new_inflow: New Inflow
+      new_item: New Item
       new_outflow: New Outflow
       new_product: New Product
       new_supplier: New Supplier
