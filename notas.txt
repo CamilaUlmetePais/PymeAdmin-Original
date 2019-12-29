@@ -1,38 +1,11 @@
 Notas
 
-- Statistics
-	- Mapear gastos operativos por supplier
-	- Mapear cogs por producto
-
-	<% consumables = @supplies.where.not(unit: "$") %>
-	<%= # consumables.price * consumables.stock %>
-
-	<table>
-		<thead>
-			<tr>
-				<th><%= I18n.t('activerecord.models.supply.one') %></th>
-				<th> Total </th>
-				<th colspan="3"></th>
-			</tr>
-		</thead>
-
-		<tbody>
-			<% consumables.each do |consumable| %>
-				<tr>
-					<td><%= consumable.name %></td>
-					<td><%= consumable.price * consumable.stock %></td>
-				</tr>
-			<%end%>
-		</tbody>
-	</table>
-
-
-
 - Notifications
 	- Types: low stock - balance alert - client orders
 	- auto generation (ls - ba)
 	- create method in controller for client orders
 	- 3 tables for index, one per type
+- Bootstrap
 - Scopes
     - Limitar index a últimas n entradas para evitar carga lenta, dar opción a cargar de a n cantidad por vez
 				index method within controller, Project.all  -x-> custom query
@@ -67,4 +40,4 @@ Notas
 - Devise
 		- Dos usuarios: Admin-Sandra (acceso a todas las secciones)
 										La Raquelita (acceso sólo a inflows y outflows)
-- Bootstrap
+- GitHub portfolio: config git.ignore

@@ -1,10 +1,33 @@
-<%= link_to I18n.t('activerecord.models.inflow.other'), root_path %>
-<%= link_to I18n.t('activerecord.models.outflow.other'), outflows_path %>
-<%= link_to	I18n.t('activerecord.models.product.other'), products_path %>
-<%= link_to I18n.t('activerecord.models.supplier.other'), suppliers_path %>
-<%= link_to I18n.t('activerecord.models.supply.other'), supplies_path %>
-<%= link_to I18n.t('activerecord.models.notification.other'), notifications_path %>
-<%= link_to I18n.t('views.headers.pages.take'), take_path %>
-<%= link_to I18n.t('views.headers.pages.statistics'), statistics_path %>
-<%= link_to I18n.t('activerecord.models.supply_product_link.other'), supply_product_links_path %>
-
+<nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+	<div class="collapse navbar-collapse" id="navbarColor01">
+    <ul class="navbar-nav mr-auto">
+    	<li class="nav-item">
+				<%= link_to I18n.t('activerecord.models.inflow.other'), inflows_path, class: "nav-link" %>
+			</li>
+			<li class="nav-item">
+				<%= link_to I18n.t('activerecord.models.outflow.other'), outflows_path, class: "nav-link" %>
+			</li>
+			<li class="nav-item">
+				<%= link_to	I18n.t('activerecord.models.product.other'), products_path, class: "nav-link" %>
+			</li>
+			<li class="nav-item">
+				<%= link_to I18n.t('activerecord.models.supplier.other'), suppliers_path, class: "nav-link" %>
+			</li>
+			<li class="nav-item">
+				<%= link_to I18n.t('activerecord.models.supply.other'), supplies_path, class: "nav-link" %>
+			</li>
+			<li class="nav-item">
+				<%= link_to I18n.t('activerecord.models.notification.other'), notifications_path, class: "nav-link" %>
+			</li>
+			<li class="nav-item">
+				<%= link_to I18n.t('views.headers.pages.take'), take_path, class: "nav-link" %>
+			</li>
+			<li class="nav-item">
+				<%= link_to I18n.t('views.headers.pages.statistics'), statistics_path, class: "nav-link" %>
+			</li>
+			<li class="nav-item">
+				<%= link_to I18n.t('activerecord.models.supply_product_link.other'), supply_product_links_path, class: "nav-link" %>
+			</li>
+		</ul>
+	</div>
+</nav>

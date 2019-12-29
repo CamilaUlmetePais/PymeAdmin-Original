@@ -8,8 +8,10 @@
   </head>
 
   <body>
-		<%= image_tag("logo.jpg", width: '100px') %>
-		<%= render 'shared/nav' %>
-    <%= yield %>
+    <%= render 'shared/nav' %>
+  	<%# image_tag("logo.jpg", width: '100px') %>
+    <div class="container-fluid">
+      <%= yield %>
+    </div>
   </body>
 </html>
