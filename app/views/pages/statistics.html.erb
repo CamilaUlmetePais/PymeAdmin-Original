@@ -1,75 +1,135 @@
 <div class="container-fluid">
-	<h1><%= I18n.t('views.headers.pages.statistics') %></h1>
-
-	<div>
-		<h2><%= I18n.t('views.body.pages.statistics.gross_income') %></h2>
-		<h3>$<%= @statistics[:gross_income] %></h3>
-		<table class="table">
-			<thead>
-				<tr>
-					<th><%= I18n.t('activerecord.models.product.one') %></th>
-					<th><%= I18n.t('views.body.pages.statistics.quantity') %></th>
-					<th><%= I18n.t('views.body.pages.statistics.total') %></th>
-					<th><%= I18n.t('views.body.pages.statistics.percentage') %></th>
-					<th colspan="3"></th>
-				</tr>
-			</thead>
-
-			<tbody>
-				<% @products.each do |product| %>
-					<tr>
-						<td><%= product.name %></td>
-						<td><%= product.units_sold %></td>
-						<td>$<%= product.sales_total %></td>
-						<td><%= percent_of(product.sales_total, @statistics[:gross_income]).round(2) %>%</td>
-					</tr>
-				<%end%>
-			</tbody>
-		</table>
+	<div class="row">
+		<div class="col-12">
+			<div class="card text-white mb-3" style="margin-top: 2rem; margin-bottom: 2rem; background-color: black">
+			  <div class="card-body">
+			    <h4 class="card-title"><%= I18n.t('views.headers.pages.statistics') %></h4>
+			  </div>
+			</div>
+		</div>
 	</div>
 
-	<div>
-		<h2><%= I18n.t('views.body.pages.statistics.total_expenses') %></h2>
-		<h3>$<%= @statistics[:total_expenses] %></h3>
-	</div>
-
-	<div>
-		<h2><%= I18n.t('views.body.pages.statistics.total_cogs') %></h2>
-		<h3>$<%= total_cogs(@statistics[:consumables]) %></h3>
-
-		<table class="table">
-			<thead>
-				<tr>
-					<th><%= I18n.t('activerecord.models.supply.one') %></th>
-					<th><%= I18n.t('views.body.pages.statistics.quantity') %></th>
-					<th><%= I18n.t('views.body.pages.statistics.total') %></th>
-					<th><%= I18n.t('views.body.pages.statistics.percentage') %></th>
-					<th colspan="3"></th>
-				</tr>
-			</thead>
-
-			<tbody>
-				<% @statistics[:consumables].each do |consumable| %>
-					<tr>
-						<td><%= consumable.name %></td>
-						<td><%= consumable.units_bought %></td>
-						<td>$<%= consumable_total(consumable) %></td>
-						<td><%= percent_of(consumable_total(consumable), total_cogs(@statistics[:consumables])).round(2) %>%</td>
-					</tr>
-				<%end%>
-			</tbody>
-		</table>
-	</div>
-
-	<div class="">
-		<div>
-			<h2><%= I18n.t('views.body.pages.statistics.total_operative_expenses') %></h2>
-			<% total_op_ex = total_operative_expenses(@statistics[:operative_expenses]) %>
-			<h3>$<%= total_op_ex %></h3>
+	<div class='row'>
+		<div class='col-xl-6'>
+			<div class="card text-white bg-primary mb-3">
+				<div class="card-header"><%= I18n.t('views.body.pages.statistics.gross_income') %></div>
+				<div class="card-body">
+			    <h3 class="cart-title">$<%= @statistics[:gross_income] %></h3>
+			  </div>
+			</div>
 		</div>
 
-		<div class="col-6">
-			<table class="table">
+
+		<div class='col-xl-6'>
+			<div class="card text-white bg-primary mb-3">
+				<div class="card-header"><%= I18n.t('views.body.pages.statistics.total_expenses') %></div>
+				<div class="card-body">
+			    <h3 class="cart-title">$<%= @statistics[:total_expenses] %></h3>
+			  </div>
+			</div>
+		</div>
+
+		<div class="col-xl-6">
+			<div class="card text-white bg-primary mb-3">
+				<div class="card-header"><%= I18n.t('views.body.pages.statistics.exp_per_supplier') %></div>
+			</div>
+
+			<table class="table table-light">
+				<thead>
+					<tr>
+						<th><%= I18n.t('activerecord.models.product.one') %></th>
+						<th><%= I18n.t('views.body.pages.statistics.quantity') %></th>
+						<th><%= I18n.t('views.body.pages.statistics.total') %></th>
+						<th><%= I18n.t('views.body.pages.statistics.percentage') %></th>
+						<th colspan="3"></th>
+					</tr>
+				</thead>
+
+				<tbody>
+					<% @products.each do |product| %>
+						<tr>
+							<td><%= product.name %></td>
+							<td><%= product.units_sold %></td>
+							<td>$<%= product.sales_total %></td>
+							<td><%= percent_of(product.sales_total, @statistics[:gross_income]).round(2) %>%</td>
+						</tr>
+					<%end%>
+				</tbody>
+			</table>
+		</div>
+
+		<div class='col-xl-6'>
+			<div class="card text-white bg-primary mb-3">
+				<div class="card-header"><%= I18n.t('views.body.pages.statistics.exp_per_supplier') %></div>
+			</div>
+
+			<table class="table table-light">
+				<thead>
+					<tr>
+						<th><%= I18n.t('activerecord.models.supplier.one') %></th>
+						<th><%= I18n.t('activerecord.attributes.outflows.total') %></th>
+						<th><%= I18n.t('views.body.pages.statistics.percentage') %></th>
+						<th colspan="3"></th>
+					</tr>
+				</thead>
+
+				<tbody>
+					<% @suppliers.each do |supplier| %>
+						<% supplier_total = supplier.outflows.sum('total') %>
+						<tr>
+							<td><%= supplier.name %></td>
+							<td>$<%= supplier_total %></td>
+							<td><%= percent_of(supplier_total, @statistics[:total_expenses]).round(2) %>%</td>
+						</tr>
+					<%end%>
+				</tbody>
+			</table>
+		</div>
+	</div>
+
+	<div class="row">
+		<div class='col-6'>
+			<div class="card text-white bg-primary mb-3">
+				<div class="card-header"><%= I18n.t('views.body.pages.statistics.total_cogs') %></div>
+				<div class="card-body">
+			    <h3 class="cart-title">$<%= total_cogs(@statistics[:consumables]) %></h3>
+			  </div>
+			</div>
+
+			<table class="table table-light">
+				<thead>
+					<tr>
+						<th><%= I18n.t('activerecord.models.supply.one') %></th>
+						<th><%= I18n.t('views.body.pages.statistics.quantity') %></th>
+						<th><%= I18n.t('views.body.pages.statistics.total') %></th>
+						<th><%= I18n.t('views.body.pages.statistics.percentage') %></th>
+						<th colspan="3"></th>
+					</tr>
+				</thead>
+
+				<tbody>
+					<% @statistics[:consumables].each do |consumable| %>
+						<tr>
+							<td><%= consumable.name %></td>
+							<td><%= consumable.units_bought %></td>
+							<td>$<%= consumable_total(consumable) %></td>
+							<td><%= percent_of(consumable_total(consumable), total_cogs(@statistics[:consumables])).round(2) %>%</td>
+						</tr>
+					<%end%>
+				</tbody>
+			</table>
+		</div>
+
+		<div class='col-6'>
+			<div class="card text-white bg-primary mb-3">
+				<div class="card-header"><%= I18n.t('views.body.pages.statistics.total_operative_expenses') %></div>
+				<div class="card-body">
+					<% total_op_ex = total_operative_expenses(@statistics[:operative_expenses]) %>
+			    <h3 class="cart-title">$<%= total_op_ex %></h3>
+			  </div>
+			</div>
+
+			<table class="table table-light">
 				<thead>
 					<tr>
 						<th><%= I18n.t('views.body.pages.statistics.supply_name') %></th>
@@ -93,34 +153,15 @@
 		</div>
 	</div>
 
-	<div><h2><%= I18n.t('views.body.pages.statistics.exp_per_supplier') %></h2></div>
-
-	<div>
-		<table class="table">
-			<thead>
-				<tr>
-					<th><%= I18n.t('activerecord.models.supplier.one') %></th>
-					<th><%= I18n.t('activerecord.attributes.outflows.total') %></th>
-					<th><%= I18n.t('views.body.pages.statistics.percentage') %></th>
-					<th colspan="3"></th>
-				</tr>
-			</thead>
-
-			<tbody>
-				<% @suppliers.each do |supplier| %>
-					<% supplier_total = supplier.outflows.sum('total') %>
-					<tr>
-						<td><%= supplier.name %></td>
-						<td>$<%= supplier_total %></td>
-						<td><%= percent_of(supplier_total, @statistics[:total_expenses]).round(2) %>%</td>
-					</tr>
-				<%end%>
-			</tbody>
-		</table>
+	<div class="row">
+		<div class='col-6 offset-3'>
+			<div class="card text-white bg-primary mb-3">
+				<div class="card-header"><%= I18n.t('views.body.pages.statistics.balance') %></div>
+				<div class="card-body">
+			    <h3 class="cart-title">$<%= @statistics[:balance] %></h3>
+			  </div>
+			</div>
+		</div>
 	</div>
 
-	<div>
-		<h2><%= I18n.t('views.body.pages.statistics.balance') %></h2>
-		<h3>$<%= @statistics[:balance] %></h3>
-	</div>
 </div>
