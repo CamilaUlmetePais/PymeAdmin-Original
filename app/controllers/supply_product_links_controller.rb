@@ -19,8 +19,7 @@ class SupplyProductLinksController < ApplicationController
 		@supply_product_link = SupplyProductLink.new(supply_product_link_params)
 		respond_to do |format|
 			if @supply_product_link.save
-        format.html { redirect_to supply_product_links_path, notice: I18n.t('activerecord.controllers.actions.created', model_name: I18n.t('activerecord.models.supply_product_link.one') ) }
-#        format.json { render :show, status: :created, location: @supply_product_link } NOPE
+        format.html { redirect_to supply_product_links_path, notice: { message: I18n.t('activerecord.controllers.actions.created', model_name: I18n.t('activerecord.models.supply_product_link.one') ), html_class: 'success' } }
       else
         format.html { render :new }
         format.json { render json: @supply_product_link.errors, status: :unprocessable_entity }
@@ -31,7 +30,7 @@ class SupplyProductLinksController < ApplicationController
 	def destroy
 		@supply_product_link.destroy
     respond_to do |format|
-      format.html { redirect_to supply_product_links_path, notice: I18n.t('activerecord.controllers.actions.destroyed', model_name: I18n.t('activerecord.models.supply_product_link.one') ) }
+      format.html { redirect_to supply_product_links_path, notice: { message: I18n.t('activerecord.controllers.actions.destroyed', model_name: I18n.t('activerecord.models.supply_product_link.one') ), html_class: 'danger' } }
       format.json { head :no_content }
     end
   end

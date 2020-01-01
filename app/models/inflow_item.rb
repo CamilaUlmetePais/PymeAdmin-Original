@@ -3,11 +3,12 @@ class InflowItem < ApplicationRecord
 	belongs_to :product
 	validates :quantity, :product_id, presence: true
 
-	def subtotal
+	def list
+		self.product.name + ": " + self.quantity.to_s + self.product.unit.to_s
+	end
+
+		def subtotal
 		self.quantity * self.product.price
 	end
 
-	def list
-		self.product.name + " " + self.quantity.to_s + " / "
-	end
 end

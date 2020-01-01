@@ -29,7 +29,7 @@ class InflowsController < ApplicationController
     respond_to do |format|
       if @inflow.save
         @inflow.update_stocks
-        format.html { redirect_to @inflow, notice: I18n.t('activerecord.controllers.actions.created', model_name: I18n.t('activerecord.models.inflow.one') ) }
+        format.html { redirect_to inflows_path, notice: { message: I18n.t('activerecord.controllers.actions.created', model_name: I18n.t('activerecord.models.inflow.one') ), html_class: 'success' } }
         format.json { render :show, status: :created, location: @inflow }
       else
         format.html { render :new }
@@ -43,7 +43,7 @@ class InflowsController < ApplicationController
   def update
     respond_to do |format|
       if @inflow.update(inflow_params)
-        format.html { redirect_to @inflow, notice: I18n.t('activerecord.controllers.actions.updated', model_name: I18n.t('activerecord.models.inflow.one') )}
+        format.html { redirect_to inflows_path, notice: { message: I18n.t('activerecord.controllers.actions.updated', model_name: I18n.t('activerecord.models.inflow.one') ), html_class: 'success'} }
         format.json { render :show, status: :ok, location: @inflow }
       else
         format.html { render :edit }
@@ -57,7 +57,7 @@ class InflowsController < ApplicationController
   def destroy
     @inflow.destroy
     respond_to do |format|
-      format.html { redirect_to inflows_url, notice: I18n.t('activerecord.controllers.actions.destroyed', model_name: I18n.t('activerecord.models.inflow.one') ) }
+      format.html { redirect_to inflows_path, notice: { message: I18n.t('activerecord.controllers.actions.destroyed', model_name: I18n.t('activerecord.models.inflow.one') ), html_class: 'danger'} }
       format.json { head :no_content }
     end
   end

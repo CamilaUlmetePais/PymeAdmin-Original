@@ -107,12 +107,14 @@ en:
           supplier_name: Supplier
           supplier_op_ex: Expenses
         take:
-          total: Total
+          balance: Balance
           cash_inflows: Cash inflows
           cash_outflows: Cash outflows
           cash_inflows_total: Cash inflows total
           cash_outflows_total: Cash outflows total
           cash_total: Cash total
+      index:
+        items: Items
     headers:
       edit: Edit %{model}
       pages:

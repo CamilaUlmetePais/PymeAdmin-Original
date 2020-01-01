@@ -1,32 +1,57 @@
-<p id="notice"><%= notice %></p>
+<div class='container-fluid'>
+	<%= render 'shared/notice', notice: notice %>
 
-<h1><%= I18n.t('activerecord.models.supply.other') %></h1>
+	<div class="row">
+		<h1><%= I18n.t('activerecord.models.supply.other') %></h1>
+	</div>
+	<br>
 
-<table>
-	<thead>
-		<tr>
-			<th> ID </th>
-			<th><%= I18n.t('activerecord.attributes.supplies.name') %></th>
-			<th><%= I18n.t('activerecord.attributes.supplies.price') %></th>
-			<th><%= I18n.t('activerecord.attributes.supplies.unit') %></th>
-			<th><%= I18n.t('activerecord.attributes.supplies.stock') %></th>
-		</tr>
-	</thead>
+	<div class="row">
+		<div class='col-md-6'>
+			<table class='table table-light'>
+				<thead>
+					<tr>
+						<th> ID </th>
+						<th><%= I18n.t('activerecord.attributes.supplies.name') %></th>
+						<th><%= I18n.t('activerecord.attributes.supplies.price') %></th>
+						<th><%= I18n.t('activerecord.attributes.supplies.unit') %></th>
+						<th><%= I18n.t('activerecord.attributes.supplies.stock') %></th>
+					</tr>
+				</thead>
 
-	<tbody>
-		<% @supplies.order(name: :asc).each do |supply| %>
-			<tr>
-				<td><%= supply.id %></td>
-				<td><%= supply.name %></td>
-				<td><%= supply.price %></td>
-				<td><%= supply.unit %></td>
-				<td><%= supply.stock %></td>
-				<td><%= link_to I18n.t('helpers.buttons.show'), supply %></td>
-        <td><%= link_to I18n.t('helpers.buttons.edit'), edit_supply_path(supply) %></td>
-        <td><%= link_to I18n.t('helpers.buttons.destroy'), supply, method: :delete, data: { confirm: I18n.t('helpers.buttons.are_you_sure') } %></td>
-			</tr>
-		<% end %>
-	</tbody>
-</table>
+				<tbody>
+					<% @supplies.order(name: :asc).each do |supply| %>
+						<tr>
+							<td><%= supply.id %></td>
+							<td><%= supply.name %></td>
+							<td>$<%= supply.price %></td>
+							<td><%= supply.unit %></td>
+							<td><%= supply.stock %></td>
+							<td>
+								<button type="button" class="btn btn-primary btn-sm" >
+									<%= link_to I18n.t('helpers.buttons.show'), supply, class: 'white-text' %>
+								</button>
+							</td>
+			        <td>
+			        	<button type="button" class='btn btn-success btn-sm'>
+			        		<%= link_to I18n.t('helpers.buttons.edit'), edit_supply_path(supply), class: 'white-text' %>
+			        	</button>
+			        </td>
+			        <td>
+			        	<button type="button" class="btn btn-danger btn-sm">
+			        		<%= link_to I18n.t('helpers.buttons.destroy'), supply, class: 'white-text',
+			        		method: :delete, data: { confirm: I18n.t('helpers.buttons.are_you_sure') } %>
+			        	</button>
+			        </td>
+						</tr>
+					<% end %>
+				</tbody>
+			</table>
+		</div>
+	</div>
 
-<%= link_to I18n.t('helpers.links.new_supply'), new_supply_path %>
+	<div class="row">
+		<button type="button" class="btn btn-primary btn-lg"><%= link_to I18n.t('helpers.links.new_supply'), new_supply_path, class: 'white-text' %></button>
+	</div>
+
+</div>
