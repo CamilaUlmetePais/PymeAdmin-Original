@@ -5,9 +5,6 @@ class SuppliesController < ApplicationController
 		@supplies = Supply.all
 	end
 
-	def show
-	end
-
 	def new
 		@supply = Supply.new
 	end

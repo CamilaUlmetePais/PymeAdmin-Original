@@ -1,5 +1,7 @@
-<h1><%= I18n.t('helpers.links.new_inflow') %></h1>
+<div class="container-fluid">
+	<div class="row">
+		<h1><%= I18n.t('helpers.links.new_inflow') %></h1>
+	</div>
+	<%= render 'form', inflow: @inflow %>
+</div>
 
-<%= render 'form', inflow: @inflow %>
-
-<%= link_to I18n.t('helpers.buttons.back'), inflows_path %>

@@ -1,5 +1,6 @@
-<h1><%= I18n.t('helpers.links.new_product') %></h1>
-
-<%= render 'form', product: @product %>
-
-<%= link_to I18n.t('helpers.buttons.back'), products_path %>
+<div class="container-fluid">
+	<div class="row">
+		<h1><%= I18n.t('helpers.links.new_product') %></h1>
+	</div>
+	<%= render 'form', product: @product %>
+</div>

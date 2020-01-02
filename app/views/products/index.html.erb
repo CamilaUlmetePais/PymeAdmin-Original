@@ -28,9 +28,17 @@
               <td>$<%= product.price %></td>
               <td><%= product.unit %></td>
               <td><%= product.stock %></td>
-              <td><%= link_to I18n.t('helpers.buttons.show'), product %></td>
-              <td><%= link_to I18n.t('helpers.buttons.edit'), edit_product_path(product) %></td>
-              <td><%= link_to I18n.t('helpers.buttons.destroy'), product, method: :delete, data: { confirm: I18n.t('helpers.buttons.are_you_sure') } %></td>
+              <td>
+                <button type="button" class="btn btn-success btn sm">
+                  <%= link_to I18n.t('helpers.buttons.edit'), edit_product_path(product), class: 'white-text'%>
+                </button>
+              </td>
+              <td>
+                <button type="button" class="btn btn-danger btn sm">
+                  <%= link_to I18n.t('helpers.buttons.destroy'), product, class: 'white-text',
+                  method: :delete, data: { confirm: I18n.t('helpers.buttons.are_you_sure') } %>
+                </button>
+              </td>
             </tr>
           <% end %>
         </tbody>

@@ -7,11 +7,6 @@ class InflowsController < ApplicationController
     @inflows = Inflow.all
   end
 
-  # GET /inflows/1
-  # GET /inflows/1.json
-  def show
-  end
-
   # GET /inflows/new
   def new
     @inflow = Inflow.new

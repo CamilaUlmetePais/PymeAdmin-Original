@@ -1,22 +1,13 @@
-<%= form_for(@inflow) do |f| %>
-  <% if inflow.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(inflow.errors.count, "error") %> prohibited this inflow from being saved:</h2>
-
-      <ul>
-      <% inflow.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
-      <% end %>
-      </ul>
-    </div>
-  <% end %>
+<%= form_for(inflow) do |f| %>
+  <div class="row">
+    <%= render 'shared/errors', klass: inflow %>
+  </div>
 
   <div class="fields">
     <%= f.label :total %>
     <%= f.number_field :total %> <br />
     <%= f.label :cash %>
     <%= f.check_box :cash %>
-
   </div>
 
   <%= f.fields_for :inflow_items do |builder| %>
@@ -27,5 +18,6 @@
 
   <div class="actions">
     <%= f.submit %>
+    <%= link_to I18n.t('helpers.buttons.back'), inflows_path %>
   </div>
 <% end %>

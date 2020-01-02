@@ -27,11 +27,6 @@
 							<td>$<%= supply.price %></td>
 							<td><%= supply.unit %></td>
 							<td><%= supply.stock %></td>
-							<td>
-								<button type="button" class="btn btn-primary btn-sm" >
-									<%= link_to I18n.t('helpers.buttons.show'), supply, class: 'white-text' %>
-								</button>
-							</td>
 			        <td>
 			        	<button type="button" class='btn btn-success btn-sm'>
 			        		<%= link_to I18n.t('helpers.buttons.edit'), edit_supply_path(supply), class: 'white-text' %>

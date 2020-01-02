@@ -5,9 +5,6 @@ class SupplyProductLinksController < ApplicationController
 		@supply_product_links = SupplyProductLink.all
 	end
 
-	def show
-	end
-
 	def new
 		@supply_product_link = SupplyProductLink.new
 	end
