@@ -1,32 +1,11 @@
-<%= form_for(notification) do |f| %>
-	<% if notification.errors.any? %>
-		<div id="error_explanation">
-			<h2><%= pluralize(notification.errors.count, "error") %> prohibited this notification from being saved:</h2>
-
-			<ul>
-			<% notification.errors.full_messages.each do |message| %>
-				<li><%= message %></li>
-			<% end %>
-			</ul>
+<%= simple_form_for(@notification, html: { class: 'form-vertical' }) do |f| %>
+	<div class="row">
+		<div class="col-4">
+			<%= f.error_notification %>
+			<%= f.input :title  %>
+			<%= f.input :text %>
+			<%= f.input :done %>
+			<%= f.button :submit, class: "btn-primary" %>
 		</div>
-	<% end %>
-
-	<div class="field">
-		<%= f.label :title %>
-		<%= f.text_field :title %>
-	</div>
-
-	<div class="field">
-		<%= f.label :text %>
-		<%= f.text_area :text %>
-	</div>
-
-	<div class="field">
-		<%= f.label :done %>
-		<%= f.check_box :done %>
-	</div>
-
-	<div class="actions">
-		<%= f.submit %>
 	</div>
 <% end %>

@@ -1,27 +1,10 @@
-<%= form_for(supply_product_link) do |f| %>
-  <% if supply_product_link.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(supply_product_link.errors.count, "error") %> prohibited this supply_product_link from being saved:</h2>
-
-      <ul>
-      <% supply_product_link.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
-      <% end %>
-      </ul>
+<%= simple_form_for(@supply_product_link, html: { class: 'form-vertical' }) do |f| %>
+  <div class="row">
+    <div class="col-4">
+      <%= f.error_notification %>
+      <%= f.input :product_id  %>
+      <%= f.input :supply_id %>
+      <%= f.button :submit, class: "btn-primary" %>
     </div>
-  <% end %>
-
-  <div class="field">
-    <%= f.label :product_id %>
-    <%= f.number_field :product_id %>
-  </div>
-
-  <div class="field">
-    <%= f.label :supply_id %>
-    <%= f.number_field :supply_id %>
-  </div>
-
-  <div class="actions">
-    <%= f.submit %>
   </div>
 <% end %>

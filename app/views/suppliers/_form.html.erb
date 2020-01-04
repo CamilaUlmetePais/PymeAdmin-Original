@@ -1,32 +1,11 @@
-<%= form_for(supplier) do |f| %>
-  <% if supplier.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(supplier.errors.count, "error") %> prohibited this supplier from being saved:</h2>
-
-      <ul>
-      <% supplier.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
-      <% end %>
-      </ul>
+<%= simple_form_for(@supplier, html: { class: 'form-vertical' }) do |f| %>
+  <div class="row">
+    <div class="col-4">
+      <%= f.error_notification %>
+      <%= f.input :name  %>
+      <%= f.input :phone_number %>
+      <%= f.input :account_balance %>
+      <%= f.button :submit, class: "btn-primary" %>
     </div>
-  <% end %>
-
-  <div class="field">
-    <%= f.label :name %>
-    <%= f.text_field :name %>
-  </div>
-
-  <div class="field">
-    <%= f.label :phone_number %>
-    <%= f.text_field :phone_number %>
-  </div>
-
-  <div class="field">
-    <%= f.label :account_balance %>
-    <%= f.number_field :account_balance %>
-  </div>
-
-  <div class="actions">
-    <%= f.submit %>
   </div>
 <% end %>

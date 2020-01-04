@@ -1,6 +1,10 @@
 Notas
 
 - Bootstrap
+	- Simple Form
+	Inside your views, use the 'simple_form_for' with the Bootstrap form
+  class, '.form-inline', as the following:
+	= simple_form_for(@user, html: { class: 'form-inline' }) do |form|
 - Notifications
 	- Types: low stock - balance alert - client orders
 	- auto generation (ls - ba)
@@ -35,7 +39,6 @@ Notas
 				      password: *password
 				      password_confirmation: *confirmation
 		- Traducción a español
-- Clean out views
 - Devise
 		- Dos usuarios: Admin-Sandra (acceso a todas las secciones)
 										La Raquelita (acceso sólo a inflows y outflows)

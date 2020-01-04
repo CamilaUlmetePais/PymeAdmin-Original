@@ -1,35 +1,12 @@
-<%= form_for(product) do |f| %>
-  <div class="row">
-    <%= render 'shared/errors', klass: product %>
-  </div>
-
-  <div class="row">
-    <div class="form-group col-6">
-      <%= f.label :name, class:'col-form-label', id: 'product_name' %>
-      <%= f.text_field :name, class: 'form-control', id: 'product_name' %>
-    </div>
-  </div>
-  <div class="row">
-    <div class="form-group col-6">
-      <%= f.label :price, class:'col-form-label', id: 'product_price' %>
-      <%= f.number_field :price, class: 'form-control', id: 'product_price' %>
-    </div>
-  </div>
-  <div class="row">
-    <div class="form-group col-6">
-      <%= f.label :unit, class:'col-form-label', id: 'product_unit' %>
-      <%= f.text_field :unit, class: 'form-control', id: 'product_unit' %>
-    </div>
-  </div>
-  <div class="row">
-    <div class="form-group col-6">
-      <%= f.label :stock, class:'col-form-label', id: 'product_stock' %>
-      <%= f.number_field :stock, class: 'form-control', id: 'product_stock' %>
-    </div>
-  </div>
-
-  <div class="row">
-    <button type="submit" class="btn btn-primary"><%= I18n.t('helpers.submit.submit', model: I18n.t('activerecord.models.product.one') ) %></button>
-    <button type="button" class="btn btn-outline-primary"><%= link_to I18n.t('helpers.buttons.back'), products_path %></button>
-  </div>
+<%= simple_form_for(@product, html: { class: 'form-vertical' }) do |f| %>
+	<div class="row">
+		<div class="col-4">
+			<%= f.error_notification %>
+			<%= f.input :name  %>
+			<%= f.input :price %>
+			<%= f.input :unit %>
+			<%= f.input :stock %>
+			<%= f.button :submit, class: "btn-primary" %>
+		</div>
+	</div>
 <% end %>

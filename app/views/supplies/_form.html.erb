@@ -1,37 +1,12 @@
-<%= form_for(supply) do |f| %>
-  <% if supply.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(supply.errors.count, "error") %> prohibited this supply from being saved:</h2>
-
-      <ul>
-      <% supply.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
-      <% end %>
-      </ul>
+<%= simple_form_for(@supply, html: { class: 'form-vertical' }) do |f| %>
+  <div class="row">
+    <div class="col-4">
+      <%= f.error_notification %>
+      <%= f.input :name  %>
+      <%= f.input :price %>
+      <%= f.input :unit %>
+      <%= f.input :stock %>
+      <%= f.button :submit, class: "btn-primary" %>
     </div>
-  <% end %>
-
-  <div class="field">
-    <%= f.label :name %>
-    <%= f.text_field :name %>
-  </div>
-
-  <div class="field">
-    <%= f.label :price %>
-    <%= f.text_field :price %>
-  </div>
-
-  <div class="field">
-    <%= f.label :unit %>
-    <%= f.text_field :unit %>
-  </div>
-
-   <div class="field">
-    <%= f.label :stock %>
-    <%= f.text_field :stock %>
-  </div>
-
-  <div class="actions">
-    <%= f.submit %>
   </div>
 <% end %>
