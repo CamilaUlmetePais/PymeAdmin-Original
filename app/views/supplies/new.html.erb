@@ -1,5 +1,23 @@
-<h1><%= I18n.t('helpers.links.new_supply') %></h1>
+<div class="container-fluid">
+	<div class="row">
+		<div class="col-6">
+			<h1><%= I18n.t('helpers.links.new_supply') %></h1>
+		</div>
+	</div>
 
-<%= render 'form', supply: @supply %>
+	<div class="row">
+		<div class="col-12">
+			<%= render 'form', supply: @supply %>
+		</div>
+	</div>
+	<br>
 
-<%= link_to I18n.t('helpers.buttons.back'), supplies_path %>
+	<div class="row">
+		<div class="col-3">
+			<button type="button" class="btn btn-outline-primary">
+				<%= link_to I18n.t('helpers.buttons.back'), supplies_path %>
+			</button>
+		</div>
+	</div>
+
+</div>

@@ -1,19 +1,43 @@
-<p id="notice"><%= notice %></p>
+<div class="container-fluid">
+	<div class="row">
+		<div class="col-6">
+			<%= render 'shared/notice', notice: notice %>
+		</div>
+	</div>
+	<br>
 
-<p>
-	<strong><%= I18n.t('activerecord.attributes.notifications.title') %></strong>
-	<%= @notification.title %>
-</p>
+	<div class="row">
+		<div class="col-6">
+			<div class="card border-primary mb-3" style="max-width: 20rem;">
+			  <div class="card-header"><%= @notification.title %></div>
+			  <div class="card-body">
+			    <p class="card-text"><%= @notification.text %></p>
+			  </div>
+			</div>
+		</div>
+	</div>
 
-<p>
-	<strong><%= I18n.t('activerecord.attributes.notifications.text') %></strong>
-	<%= @notification.text %>
-</p>
+	<div class="row">
+		<div class="col-1">
+			<strong><%= I18n.t('activerecord.attributes.notifications.done') %></strong>
+		</div>
+		<div class="col-1">
+			<%= @notification.done %>
+		</div>
+	</div>
+	<br>
 
-<p>
-	<strong><%= I18n.t('activerecord.attributes.notifications.done') %></strong>
-	<%= @notification.Done %>
-</p>
+	<div class="row">
+		<div class="col-2">
+			<button type="button" class="btn btn-outline-success" >
+				<%= link_to I18n.t('helpers.buttons.edit'), edit_notification_path(@notification) %>
+			</button>
+		</div>
+		<div class="col-2">
+			<button type="button" class="btn btn-outline-primary" >
+				<%= link_to I18n.t('helpers.buttons.back'), notifications_path %>
+			</button>
+		</div>
+	</div>
 
-<%= link_to I18n.t('helpers.buttons.edit'), edit_notification_path(@notification) %> |
-<%= link_to I18n.t('helpers.buttons.back'), notifications_path %>
+</div>

@@ -1,10 +1,10 @@
 Notas
 
 - Bootstrap
-	- Simple Form
+	- Simple Forms: inflows, outflows, mass stock update
 	Inside your views, use the 'simple_form_for' with the Bootstrap form
   class, '.form-inline', as the following:
-	= simple_form_for(@user, html: { class: 'form-inline' }) do |form|
+	simple_form_for(@user, html: { class: 'form-inline' }) do |f|
 - Notifications
 	- Types: low stock - balance alert - client orders
 	- auto generation (ls - ba)

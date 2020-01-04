@@ -1,6 +1,28 @@
-<h1><%= I18n.t('views.headers.edit', model: I18n.t('activerecord.models.notification.one') ) %></h1>
+<div class="container-fluid">
+	<div class="row">
+		<div class="col-6">
+			<h1><%= I18n.t('views.headers.edit', model: I18n.t('activerecord.models.notification.one') ) %></h1>
+		</div>
+	</div>
 
-<%= render 'form', notification: @notification %>
+	<div class="row">
+		<div class="col-12">
+			<%= render 'form', notification: @notification %>
+		</div>
+	</div>
+	<br>
 
-<%= link_to I18n.t('helpers.buttons.show'), @notification %> |
-<%= link_to I18n.t('helpers.buttons.back'), notifications_path %>
+	<div class="row">
+		<div class="col-2">
+			<button type="button" class="btn btn-outline-primary">
+				<%= link_to I18n.t('helpers.buttons.show'), @notification %>
+			</button>
+		</div>
+		<div class="col-2">
+			<button type="button" class="btn btn-outline-primary">
+				<%= link_to I18n.t('helpers.buttons.back'), notifications_path %>
+			</button>
+		</div>
+	</div>
+
+</div>

@@ -1,16 +1,30 @@
-<h1><%= I18n.t('views.headers.products.mass_stock') %></h1>
+<div class="container-fluid">
+	<div class="row">
+		<div class="col-6">
+			<h1><%= I18n.t('views.headers.products.mass_stock') %></h1>
+		</div>
+	</div>
 
-<%= form_for :product, url: 'mass_stock_update', authenticity_token: true  do |f| %>
+	<%= form_for :product, url: 'mass_stock_update', authenticity_token: true  do |f| %>
 
-	<% 10.times do |n| %>
-		<%= f.fields_for :mass_stock do |builder| %>
-	    <%= render 'mass_stock_fields', number: n, f: builder %>
-	  <% end %>
+		<% 10.times do |n| %>
+			<%= f.fields_for :mass_stock do |builder| %>
+		    <%= render 'mass_stock_fields', number: n, f: builder %>
+		  <% end %>
+		<% end %>
+	  <div class="actions">
+	    <%= f.submit %>
+	  </div>
+
 	<% end %>
-  <div class="actions">
-    <%= f.submit %>
-  </div>
 
-<% end %>
-
-<%= link_to I18n.t('helpers.buttons.back'), products_path %>
+	<br>
+	<div class="row">
+		<div class="col-3">
+			<button type="button" class="btn btn-outline-primary">
+				<%= link_to I18n.t('helpers.buttons.back'), products_path %>
+			</button>
+		</div>
+	</div>
+	<br>
+</div>

@@ -1,7 +1,23 @@
-<h1>New Supplier</h1>
+<div class="container-fluid">
+	<div class="row">
+		<div class="col-6">
+			<h1><%= I18n.t('helpers.links.new_supplier') %></h1>
+		</div>
+	</div>
 
-<%= render 'form', supplier: @supplier %>
+	<div class="row">
+		<div class="col-12">
+			<%= render 'form', supplier: @supplier %>
+		</div>
+	</div>
+	<br>
 
-<button type="button" class="btn btn-outline-primary">
-	<%= link_to I18n.t('helpers.buttons.back') , suppliers_path %>
-</button>
+	<div class="row">
+		<div class="col-2">
+			<button type="button" class="btn btn-outline-primary">
+				<%= link_to I18n.t('helpers.buttons.back') , suppliers_path %>
+			</button>
+		</div>
+	</div>
+
+</div>

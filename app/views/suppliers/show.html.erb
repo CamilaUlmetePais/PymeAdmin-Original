@@ -1,19 +1,41 @@
-<p id="notice"><%= notice %></p>
+<div class="container-fluid">
 
-<p>
-  <strong><%= I18n.t('activerecord.attributes.suppliers.name') %></strong>
-  <%= @supplier.name %>
-</p>
+	<div class="row">
+		<div class="col-6">
+	  	<h1><%= @supplier.name %></h1>
+	  </div>
+	</div>
 
-<p>
-  <strong><%= I18n.t('activerecord.attributes.suppliers.phone_number') %></strong>
-  <%= @supplier.phone_number %>
-</p>
+	<div class="row">
+		<div class="col-3">
+	  	<h5><%= I18n.t('activerecord.attributes.suppliers.phone_number') %></h5>
+	  </div>
+	  <div class="col-3">
+	  	<%= @supplier.phone_number %>
+	  </div>
+	</div>
 
-<p>
-  <strong><%= I18n.t('activerecord.attributes.suppliers.account_balance') %></strong>
-  <%= @supplier.account_balance %>
-</p>
+	<div class="row">
+		<div class="col-3">
+			<h5><%= I18n.t('activerecord.attributes.suppliers.account_balance') %></h5>
+		</div>
+		<div class="col-3">
+	  	<%= @supplier.account_balance %>
+		</div>
+	</div>
+	<br>
 
-<%= link_to I18n.t('helpers.buttons.edit'), edit_supplier_path(@supplier) %> |
-<%= link_to I18n.t('helpers.buttons.back'), suppliers_path %>
+	<div class="row">
+		<div class="col-3">
+			<button type="button" class="btn btn-outline-success">
+				<%= link_to I18n.t('helpers.buttons.edit'), edit_supplier_path(@supplier) %>
+			</button>
+		</div>
+		<div class="col-3">
+			<button type="button" class="btn btn-outline-primary">
+				<%= link_to I18n.t('helpers.buttons.back'), suppliers_path %>
+			</button>
+		</div>
+	</div>
+
+</div>

@@ -1,6 +1,28 @@
-<h1><%= I18n.t('views.headers.edit', model: I18n.t('activerecord.models.supplier.one') ) %></h1>
+<div class="container-fluid">
+	<div class="row">
+		<div class="col-6">
+			<h1><%= I18n.t('views.headers.edit', model: I18n.t('activerecord.models.supplier.one') ) %></h1>
+		</div>
+	</div>
 
-<%= render 'form', supplier: @supplier %>
+	<div class="row">
+		<div class="col-12">
+			<%= render 'form', supplier: @supplier %>
+		</div>
+	</div>
+	<br>
 
-<%= link_to I18n.t('helpers.buttons.show'), @supplier %> |
-<%= link_to I18n.t('helpers.buttons.back'), suppliers_path %>
+	<div class="row">
+		<div class="col-3">
+			<button type="button" class="btn btn-outline-primary">
+				<%= link_to I18n.t('helpers.buttons.show'), @supplier %>
+			</button>
+		</div>
+		<div class="col-3">
+			<button type="button" class="btn btn-outline-primary">
+				<%= link_to I18n.t('helpers.buttons.back'), suppliers_path %>
+			</button>
+		</div>
+	</div>
+
+</div>
