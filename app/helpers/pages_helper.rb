@@ -1,10 +1,10 @@
 module PagesHelper
-	def percent_of(number, total)
-    number.to_f / total.to_f * 100.0
-  end
-
   def consumable_total(supplies)
   	supplies.price * supplies.units_bought
+  end
+
+  def percent_of(number, total)
+    number.to_f / total.to_f * 100.0
   end
 
   def total_cogs(supplies)

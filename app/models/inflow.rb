@@ -1,8 +1,8 @@
 class Inflow < ApplicationRecord
-	alias_attribute :items, :inflow_items
-	validates :total, presence: true
 	has_many :inflow_items
 	accepts_nested_attributes_for :inflow_items
+	alias_attribute :items, :inflow_items
+	validates :total, presence: true
 
 	def generate_total
 		total = 0

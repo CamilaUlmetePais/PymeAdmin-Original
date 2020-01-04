@@ -1,20 +1,6 @@
 class NotificationsController < ApplicationController
 	before_action :set_notification, only: [:show, :edit, :update, :destroy]
 
-	def index
-  	@notifications = Notification.all
-	end
-
-	def show
-	end
-
-	def edit
-	end
-
-	def new
-		@notification = Notification.new
-	end
-
 	def create
 		@notification = Notification.new(notification_params)
 		respond_to do |format|
@@ -27,6 +13,28 @@ class NotificationsController < ApplicationController
 		end
 	end
 
+	def destroy
+		@notification.destroy
+		respond_to do |format|
+			format.html { redirect_to notifications_path, notice: { message: I18n.t('activerecord.controllers.actions.destroyed', model_name: I18n.t('activerecord.models.notification.one') ), html_class: 'danger' } }
+			format.json { head :no_content }
+		end
+	end
+
+	def edit
+	end
+
+	def index
+  	@notifications = Notification.all
+	end
+
+	def new
+		@notification = Notification.new
+	end
+
+	def show
+	end
+
 	def update
 		respond_to do |format|
 			if @notification.update(notification_params)
@@ -36,14 +44,6 @@ class NotificationsController < ApplicationController
 				format.html { render :edit }
 				format.json { render json: @notification.errors, status: :unprocessable_entity }
 			end
-		end
-	end
-
-	def destroy
-		@notification.destroy
-		respond_to do |format|
-			format.html { redirect_to notifications_path, notice: { message: I18n.t('activerecord.controllers.actions.destroyed', model_name: I18n.t('activerecord.models.notification.one') ), html_class: 'danger' } }
-			format.json { head :no_content }
 		end
 	end
 

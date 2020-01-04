@@ -6,12 +6,12 @@ Rails.application.routes.draw do
   		post 'mass_stock_update'
   	end
   end
-  resources :suppliers
   resources :inflows
-  resources :outflows
   resources :notifications
+  resources :outflows
+  resources :suppliers
   resources :supplies
   resources :supply_product_links
- 	get 'take', to: 'pages#take', as: :take
  	get 'statistics', to: 'pages#statistics', as: :statistics
+  get 'take', to: 'pages#take', as: :take
 end

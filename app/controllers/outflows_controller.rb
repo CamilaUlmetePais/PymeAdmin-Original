@@ -1,22 +1,6 @@
 class OutflowsController < ApplicationController
   before_action :set_outflow, only: [:show, :edit, :update, :destroy]
 
-  # GET /outflows
-  # GET /outflows.json
-  def index
-    @outflows = Outflow.all
-  end
-
-  # GET /outflows/new
-  def new
-    @outflow = Outflow.new
-    @outflow.items.build
-  end
-
-  # GET /outflows/1/edit
-  def edit
-  end
-
   # POST /outflows
   # POST /outflows.json
   def create
@@ -34,6 +18,32 @@ class OutflowsController < ApplicationController
     end
   end
 
+  # DELETE /outflows/1
+  # DELETE /outflows/1.json
+  def destroy
+    @outflow.destroy
+    respond_to do |format|
+      format.html { redirect_to outflows_path, notice: { message: I18n.t('activerecord.controllers.actions.destroyed', model_name: I18n.t('activerecord.models.outflow.one') ), html_class: 'danger' } }
+      format.json { head :no_content }
+    end
+  end
+
+  # GET /outflows/1/edit
+  def edit
+  end
+
+  # GET /outflows
+  # GET /outflows.json
+  def index
+    @outflows = Outflow.all
+  end
+
+  # GET /outflows/new
+  def new
+    @outflow = Outflow.new
+    @outflow.items.build
+  end
+
   # PATCH/PUT /outflows/1
   # PATCH/PUT /outflows/1.json
   def update
@@ -45,16 +55,6 @@ class OutflowsController < ApplicationController
         format.html { render :edit }
         format.json { render json: @outflow.errors, status: :unprocessable_entity }
       end
-    end
-  end
-
-  # DELETE /outflows/1
-  # DELETE /outflows/1.json
-  def destroy
-    @outflow.destroy
-    respond_to do |format|
-      format.html { redirect_to outflows_path, notice: { message: I18n.t('activerecord.controllers.actions.destroyed', model_name: I18n.t('activerecord.models.outflow.one') ), html_class: 'danger' } }
-      format.json { head :no_content }
     end
   end
 

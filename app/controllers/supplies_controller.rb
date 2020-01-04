@@ -1,38 +1,14 @@
 class SuppliesController < ApplicationController
 	before_action :set_supply, only: [:show, :edit, :update, :destroy]
 
-	def index
-		@supplies = Supply.all
-	end
-
-	def new
-		@supply = Supply.new
-	end
-
-	def edit
-	end
-
-	def create
-		@supply = Supply.new(supply_params)
-
-		respond_to do |format|
-			if @supply.save
+  def create
+    @supply = Supply.new(supply_params)
+    respond_to do |format|
+      if @supply.save
         format.html { redirect_to supplies_path, notice: { message: I18n.t('activerecord.controllers.actions.created', model_name: I18n.t('activerecord.models.supply.one') ), html_class: 'success' } }
         format.json { render :show, status: :created, location: @supply }
       else
         format.html { render :new }
-        format.json { render json: @supply.errors, status: :unprocessable_entity }
-      end
-    end
-  end
-
-  def update
-    respond_to do |format|
-      if @supply.update(supply_params)
-        format.html { redirect_to supplies_path, notice: { message: I18n.t('activerecord.controllers.actions.updated', model_name: I18n.t('activerecord.models.supply.one') ), html_class: 'success' } }
-        format.json { render :show, status: :ok, location: @supply }
-      else
-        format.html { render :edit }
         format.json { render json: @supply.errors, status: :unprocessable_entity }
       end
     end
@@ -46,6 +22,28 @@ class SuppliesController < ApplicationController
     end
   end
 
+  def edit
+  end
+
+	def index
+		@supplies = Supply.all
+	end
+
+	def new
+		@supply = Supply.new
+	end
+
+  def update
+    respond_to do |format|
+      if @supply.update(supply_params)
+        format.html { redirect_to supplies_path, notice: { message: I18n.t('activerecord.controllers.actions.updated', model_name: I18n.t('activerecord.models.supply.one') ), html_class: 'success' } }
+        format.json { render :show, status: :ok, location: @supply }
+      else
+        format.html { render :edit }
+        format.json { render json: @supply.errors, status: :unprocessable_entity }
+      end
+    end
+  end
 
  private
    def set_supply

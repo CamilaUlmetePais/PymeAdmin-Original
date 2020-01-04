@@ -1,16 +1,5 @@
 class PagesController < ApplicationController
 
-	def take
-		@inflows = Inflow.all
-		@outflows = Outflow.all
-		@variables = {
-			cash_inflows: @inflows.where(cash: true),
-			cash_outflows: @outflows.where(cash: true),
-			inflow_total: @inflows.sum('total'),
-			outflow_total: @outflows.sum('total')
-		}
-	end
-
 	def statistics
 		inflows_total = Inflow.all.sum('total')
 		outflows_total = Outflow.all.sum('total')
@@ -29,5 +18,16 @@ class PagesController < ApplicationController
 			operative_expenses: operative_expenses,
 			op_ex_by_supplier: op_ex_by_supplier
 			}
+	end
+
+	def take
+		@inflows = Inflow.all
+		@outflows = Outflow.all
+		@variables = {
+			cash_inflows: @inflows.where(cash: true),
+			cash_outflows: @outflows.where(cash: true),
+			inflow_total: @inflows.sum('total'),
+			outflow_total: @outflows.sum('total')
+		}
 	end
 end

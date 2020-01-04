@@ -1,10 +1,10 @@
 class Outflow < ApplicationRecord
-	alias_attribute :items, :outflow_items
-	belongs_to :supplier
 	has_many :outflow_items, dependent: :destroy
+	belongs_to :supplier
+	alias_attribute :items, :outflow_items
+	accepts_nested_attributes_for :outflow_items, allow_destroy: true
 	validates :total, :paid, :supplier_id, presence: true
 	validates :total, numericality: { greater_than: 0 }
-	accepts_nested_attributes_for :outflow_items, allow_destroy: true
 
 	def balance
 		self.paid - self.total

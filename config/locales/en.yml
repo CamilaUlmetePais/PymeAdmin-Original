@@ -86,6 +86,72 @@ en:
       supply_product_link:
         one: Supply-to-Product Link
         other: Supply-to-Product Links
+  helpers:
+    select:
+      prompt: Please select
+    submit:
+      create: Create %{model}
+      submit: Save %{model}
+      update: Update %{model}
+    label:
+      product:
+        name: Name
+        price: Price
+        promotion_price: Promotion price
+        unit: Unit
+        stock: Stock
+      supplier:
+        name: Name
+        phone_number: Phone number
+        account_balance: Account balance
+      notification:
+        title: Title
+        text: Text
+        done: Done
+      inflow:
+        total: Total
+        cash: Cash
+      inflow_item:
+        quantity: Quantity
+        product_id: Product
+        inflow_id: Inflow ID
+      outflow:
+        total: Amount
+        paid: Paid
+        cash: Cash
+        notes: Notes
+        supplier_id: Supplier
+      outflow_item:
+        quantity: Quantity
+        outflow_id: Outflow ID
+        supply_id: Supply ID
+      supply:
+        name: Name
+        price: Price
+        unit: Unit
+        stock: Stock
+      supply_product_link:
+        product: Product ID
+        supply: Supply ID
+    links:
+      new_inflow: New Inflow
+      new_item: New Item
+      new_outflow: New Outflow
+      new_product: New Product
+      new_supplier: New Supplier
+      new_supply: New Supply
+      new_notification: New Notification
+      auto_stock: Automatic stock configuration
+      new_supply_product_link: New Supply-Product links
+    buttons:
+      show: Show
+      edit: Edit
+      destroy: Destroy
+      are_you_sure: Are you sure?
+      back: Back
+      add: Add new item
+      remove: Remove
+      update_stock: Update stock
   views:
     body:
       outflows:
@@ -257,72 +323,6 @@ en:
       header:
         one: 1 error prohibited this %{model} from being saved
         other: "%{count} errors prohibited this %{model} from being saved"
-  helpers:
-    select:
-      prompt: Please select
-    submit:
-      create: Create %{model}
-      submit: Save %{model}
-      update: Update %{model}
-    label:
-      product:
-        name: Name
-        price: Price
-        promotion_price: Promotion price
-        unit: Unit
-        stock: Stock
-      supplier:
-        name: Name
-        phone_number: Phone number
-        account_balance: Account balance
-      notification:
-        title: Title
-        text: Text
-        done: Done
-      inflow:
-        total: Total
-        cash: Cash
-      inflow_item:
-        quantity: Quantity
-        product_id: Product
-        inflow_id: Inflow ID
-      outflow:
-        total: Amount
-        paid: Paid
-        cash: Cash
-        notes: Notes
-        supplier_id: Supplier
-      outflow_item:
-        quantity: Quantity
-        outflow_id: Outflow ID
-        supply_id: Supply ID
-      supply:
-        name: Name
-        price: Price
-        unit: Unit
-        stock: Stock
-      supply_product_link:
-        product: Product ID
-        supply: Supply ID
-    links:
-      new_inflow: New Inflow
-      new_item: New Item
-      new_outflow: New Outflow
-      new_product: New Product
-      new_supplier: New Supplier
-      new_supply: New Supply
-      new_notification: New Notification
-      auto_stock: Automatic stock configuration
-      new_supply_product_link: New Supply-Product links
-    buttons:
-      show: Show
-      edit: Edit
-      destroy: Destroy
-      are_you_sure: Are you sure?
-      back: Back
-      add: Add new item
-      remove: Remove
-      update_stock: Update stock
   number:
     currency:
       format:

@@ -4,15 +4,14 @@ class Product < ApplicationRecord
 	validates :name, :price, :unit, presence: true
 	validates :price, numericality: { greater_than: 0 }
 	validates :name, uniqueness: { case_sensitive: false }
-  # deleted promotion_price validation for the time being
+
+	def units_sold
+		self.inflow_items.sum('quantity')
+	end
 
 	def update_stock(quantity)
 		value = self.stock + quantity
 		self.update_attributes(stock: value)
-	end
-
-	def units_sold
-		self.inflow_items.sum('quantity')
 	end
 
 	def sales_total
