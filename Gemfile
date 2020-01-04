@@ -37,6 +37,7 @@ gem 'bootstrap', '~> 4.4.1'
 gem 'bootswatch'
 gem 'simple_form'
 
+
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 
