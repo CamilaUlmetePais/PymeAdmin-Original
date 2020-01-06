@@ -1,11 +1,17 @@
-
 <div class="fields">
-  <fieldset>
-    <%= builder.label I18n.t('activerecord.models.inflow_item.other') %> <br />
-    <%= builder.label :quantity %>
-    <%= builder.number_field :quantity %>
-    <%= builder.label :product_id %>
-    <%= builder.number_field :product_id %> <br / >
-  	<%= link_to_remove_fields I18n.t('helpers.buttons.remove'), builder %>
-  </fieldset>
+	<fieldset>
+	  <div class="row">
+	    <div class="col-4">
+		    <%= builder.input :quantity %>
+		  </div>
+		  <div class="col-4">
+		    <%= builder.input :product_id, collection: @products, prompt: I18n.t('simple_form.prompts.defaults.product') %>
+		  </div>
+		  <div class="col-4">
+		  	<button type="button" class="btn btn-outline-primary btn-sm btn-center">
+		  		<%= link_to_remove_fields I18n.t('helpers.buttons.remove'), builder %>
+		  	</button>
+		  </div>
+		</div>
+	</fieldset>
 </div>

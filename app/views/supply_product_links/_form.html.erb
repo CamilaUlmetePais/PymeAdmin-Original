@@ -2,9 +2,20 @@
   <div class="row">
     <div class="col-4">
       <%= f.error_notification %>
-      <%= f.input :product_id  %>
-      <%= f.input :supply_id %>
-      <%= f.button :submit, class: "btn-primary" %>
+      <%= f.input :product_id, collection: @products, input_html: { id: 'product_id' }, prompt: I18n.t('simple_form.prompts.defaults.product') %>
+      <%= f.input :supply_id, collection: @supplies, input_html: { id: 'supply_id' }, prompt: I18n.t('simple_form.prompts.defaults.supply') %>
     </div>
   </div>
+
+	<div class="row">
+		<div class="col-3">
+			<%= f.button :submit, class: "btn-primary" %>
+		</div>
+		<div class="col-3">
+			<button type="button" class="btn btn-outline-primary">
+				<%= link_to I18n.t('helpers.buttons.back'), supply_product_links_path %>
+			</button>
+		</div>
+	</div>
+
 <% end %>

@@ -1,12 +1,19 @@
 <%= simple_form_for(@product, html: { class: 'form-vertical' }) do |f| %>
 	<div class="row">
-		<div class="col-4">
+		<div class="col-6">
 			<%= f.error_notification %>
 			<%= f.input :name  %>
 			<%= f.input :price %>
-			<%= f.input :unit %>
+			<%= f.input :unit, collection: ['kg','u'], prompt: I18n.t('simple_form.prompts.defaults.unit') %>
 			<%= f.input :stock %>
 			<%= f.button :submit, class: "btn-primary" %>
+		</div>
+	</div>
+	<div class="row mt-2 mb-2">
+		<div class="col-3">
+			<button type="button" class="btn btn-outline-primary">
+				<%= link_to I18n.t('helpers.buttons.back'), products_path %>
+			</button>
 		</div>
 	</div>
 <% end %>

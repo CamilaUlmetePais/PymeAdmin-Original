@@ -1,5 +1,14 @@
-<h1><%= I18n.t('helpers.links.new_outflow') %></h1>
+<div class="container-fluid">
+	<div class="row">
+		<div class="col-6">
+			<h1><%= I18n.t('helpers.links.new_outflow') %></h1>
+		</div>
+	</div>
 
-<%= render 'form', outflow: @outflow %>
+	<div class="row mb-2">
+		<div class="col-12">
+			<%= render 'form', outflow: @outflow %>
+		</div>
+	</div>
 
-<%= link_to I18n.t('helpers.buttons.back'), outflows_path %>
+</div>

@@ -1,6 +1,17 @@
-<h1> <%=I18n.t('views.headers.edit', model: I18n.t('activerecord.models.inflow.one') )%> </h1>
+<div class="container-fluid">
+	<div class="row">
+		<div class="col-6">
+			<h1><%=I18n.t('views.headers.edit', model: I18n.t('activerecord.models.inflow.one') )%> </h1>
+		</div>
+	</div>
 
-<%= render 'form', inflow: @inflow %>
+	<div class="row">
+		<div class="col-12">
+			<%= render 'form', inflow: @inflow %>
+		</div>
+	</div>
 
-<%= link_to I18n.t('helpers.buttons.show'), @inflow %> |
-<%= link_to I18n.t('helpers.buttons.back'), inflows_path %>
+	<script type="text/javascript">
+	  <%= render "shared/select2.js" %>
+	</script>
+</div>

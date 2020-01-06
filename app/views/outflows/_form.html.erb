@@ -1,39 +1,68 @@
-<%= form_for(outflow) do |f| %>
-  <% if outflow.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(outflow.errors.count, "error") %> prohibited this outflow from being saved:</h2>
-
-      <ul>
-      <% outflow.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
-      <% end %>
-      </ul>
+<%= simple_form_for(@outflow, html: { class: 'form-vertical' }) do |f| %>
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-6">
+        <%= render 'shared/errors', klass: outflow %>
+      </div>
     </div>
-  <% end %>
 
-  <p><strong><%= I18n.t('views.body.outflows.outflow_guide') %></strong></p>
-  <p><strong><%= I18n.t('views.body.outflows.operative_expenses_guide') %></strong></p>
+    <div class="fields">
+      <div class="row">
+        <div class="col-4">
+          <%= f.input :total %>
+        </div>
+        <div class="col-4">
+          <%= f.input :paid %>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-4">
+          <%= f.input :supplier_id %>
+        </div>
+        <div class="col-4 mt-5">
+          <%= f.input :cash %>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-4">
+          <%= f.input :notes %>
+        </div>
+      </div>
+    </div>
 
-  <div class="fields">
-    <%= f.label :total %>
-    <%= f.number_field :total %>
-    <%= f.label :paid %>
-    <%= f.number_field :paid %>
-    <%= f.label :cash %>
-    <%= f.check_box :cash %>
-    <%= f.label :notes %>
-    <%= f.text_area :notes %>
-    <%= f.label :supplier_id %>
-    <%= f.number_field :supplier_id %>
-  </div>
+    <div class="row">
+      <div class="col-6">
+        <h4><%= I18n.t('activerecord.models.outflow_item.other') %></h4>
+      </div>
+    </div>
 
-   <%= f.fields_for :outflow_items do |builder| %>
-    <%= render "outflows/outflow_items_fields", :builder => builder %>
-  <% end %>
+    <div class="row">
+      <div class="col-12">
+        <%= f.simple_fields_for :outflow_items do |builder| %>
+          <%= render "outflows/outflow_items_fields", :builder => builder %>
+        <% end %>
+      </div>
+    </div>
 
-  <p><%= link_to_add_fields I18n.t('helpers.buttons.add'), f, :outflow_items %></p>
+    <div class="row">
+      <div class="col-2">
+        <button type="button" class="btn btn-outline-primary">
+          <%= link_to_add_fields I18n.t('helpers.buttons.add'), f, :outflow_items %>
+        </button>
+      </div>
+    </div>
+    <div class="row mt-5">
+      <div class="col-3">
+        <%= f.button :submit, class: "btn-primary" %>
+      </div>
+    </div>
+    <div class="row mt-2 mb-2">
+      <div class="col-3">
+        <button type="button" class="btn btn-outline-primary">
+          <%= link_to I18n.t('helpers.buttons.back'), outflows_path %>
+        </button>
+      </div>
+    </div>
 
-  <div class="actions">
-    <%= f.submit %>
   </div>
 <% end %>

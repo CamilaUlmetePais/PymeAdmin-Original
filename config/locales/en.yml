@@ -46,6 +46,7 @@ en:
         cash: Cash
         notes: Notes
         supplier_id: Supplier
+        items: Items
       outflow_items:
         quantity: Quantity
         outflow_id: Outflow
@@ -154,9 +155,6 @@ en:
       update_stock: Update stock
   views:
     body:
-      outflows:
-        outflow_guide: To register debt paid, input a positive value. To register debt acquired, input a negative value.
-        operative_expenses_guide: To register payment of operative expenses, select the "Operative expenses" product as the only item, and set the quantity equal to the billed total.
       pages:
         statistics:
           gross_income: Gross income
@@ -181,6 +179,9 @@ en:
           cash_total: Cash total
       index:
         items: Items
+      suppliers:
+        history: Transactions history
+        date: Date
     headers:
       edit: Edit %{model}
       pages:

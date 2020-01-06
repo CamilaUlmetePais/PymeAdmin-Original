@@ -41,6 +41,7 @@ class InflowsController < ApplicationController
   def new
     @inflow = Inflow.new
     @inflow.items.build
+    @products = Product.all
   end
 
   # PATCH/PUT /inflows/1
