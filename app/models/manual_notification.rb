@@ -1,0 +1,2 @@
+class ManualNotification < Notification
+end
