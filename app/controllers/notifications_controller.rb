@@ -2,10 +2,13 @@ class NotificationsController < ApplicationController
 	before_action :set_notification, only: [:show, :edit, :update, :destroy]
 
 	def create
-		@notification = Notification.new(notification_params)
+		@notification = ManualNotification.new(notification_params)
 		respond_to do |format|
 			if @notification.save
-				format.html {redirect_to notifications_path, notice: {message: I18n.t('activerecord.controllers.actions.created', model_name: I18n.t('activerecord.models.notification.one') ) } }
+				format.html {redirect_to notifications_path, notice: {
+					message: I18n.t('activerecord.controllers.actions.created',
+						model_name: I18n.t('activerecord.models.notification.one') ) }
+				}
 			else
 				format.html { render :new }
 				format.json { render json: @notification.errors, status: :unprocessable_entity }
@@ -16,7 +19,10 @@ class NotificationsController < ApplicationController
 	def destroy
 		@notification.destroy
 		respond_to do |format|
-			format.html { redirect_to notifications_path, notice: { message: I18n.t('activerecord.controllers.actions.destroyed', model_name: I18n.t('activerecord.models.notification.one') ) } }
+			format.html { redirect_to notifications_path, notice: {
+				message: I18n.t('activerecord.controllers.actions.destroyed',
+					model_name: I18n.t('activerecord.models.notification.one') ) }
+			}
 			format.json { head :no_content }
 		end
 	end
@@ -25,11 +31,11 @@ class NotificationsController < ApplicationController
 	end
 
 	def index
-  	@notifications = Notification.all
+  	@notifications = ManualNotification.all
 	end
 
 	def new
-		@notification = Notification.new
+		@notification = ManualNotification.new
 	end
 
 	def show
@@ -38,7 +44,10 @@ class NotificationsController < ApplicationController
 	def update
 		respond_to do |format|
 			if @notification.update(notification_params)
-				format.html { redirect_to notifications_path, notice: { message: I18n.t('activerecord.controllers.actions.updated', model_name: I18n.t('activerecord.models.notification.one') ) } }
+				format.html { redirect_to notifications_path, notice: {
+					message: I18n.t('activerecord.controllers.actions.updated',
+						model_name: I18n.t('activerecord.models.notification.one') ) }
+				}
 				format.json { render :show, status: :ok, location: @notification }
 			else
 				format.html { render :edit }
@@ -50,7 +59,7 @@ class NotificationsController < ApplicationController
 	private
 
 		def set_notification
-			@notification = Notification.find(params[:id])
+			@notification = ManualNotification.find(params[:id])
 		end
 
 		def notification_params

@@ -5,7 +5,10 @@ class SuppliesController < ApplicationController
     @supply = Supply.new(supply_params)
     respond_to do |format|
       if @supply.save
-        format.html { redirect_to supplies_path, notice: { message: I18n.t('activerecord.controllers.actions.created', model_name: I18n.t('activerecord.models.supply.one') ) } }
+        format.html { redirect_to supplies_path, notice: {
+          message: I18n.t('activerecord.controllers.actions.created',
+            model_name: I18n.t('activerecord.models.supply.one') ) }
+        }
         format.json { render :show, status: :created, location: @supply }
       else
         format.html { render :new }
@@ -17,7 +20,10 @@ class SuppliesController < ApplicationController
   def destroy
     @supply.destroy
     respond_to do |format|
-      format.html { redirect_to supplies_path, notice: { message: I18n.t('activerecord.controllers.actions.destroyed', model_name: I18n.t('activerecord.models.supply.one') ) } }
+      format.html { redirect_to supplies_path, notice: {
+        message: I18n.t('activerecord.controllers.actions.destroyed',
+          model_name: I18n.t('activerecord.models.supply.one') ) }
+      }
       format.json { head :no_content }
     end
   end
@@ -36,7 +42,10 @@ class SuppliesController < ApplicationController
   def update
     respond_to do |format|
       if @supply.update(supply_params)
-        format.html { redirect_to supplies_path, notice: { message: I18n.t('activerecord.controllers.actions.updated', model_name: I18n.t('activerecord.models.supply.one') ) } }
+        format.html { redirect_to supplies_path, notice: {
+          message: I18n.t('activerecord.controllers.actions.updated',
+            model_name: I18n.t('activerecord.models.supply.one') ) }
+        }
         format.json { render :show, status: :ok, location: @supply }
       else
         format.html { render :edit }

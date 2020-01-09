@@ -7,8 +7,11 @@ class InflowsController < ApplicationController
     @inflow = Inflow.new(inflow_params)
     respond_to do |format|
       if @inflow.save
-        @inflow.update_stocks
-        format.html { redirect_to inflows_path, notice: { message: I18n.t('activerecord.controllers.actions.created', model_name: I18n.t('activerecord.models.inflow.one') ) } }
+        @inflow.substract_stock
+        format.html { redirect_to inflows_path, notice: {
+          message: I18n.t('activerecord.controllers.actions.created',
+            model_name: I18n.t('activerecord.models.inflow.one') ) }
+        }
         format.json { render :show, status: :created, location: @inflow }
       else
         format.html { render :new }
@@ -20,9 +23,13 @@ class InflowsController < ApplicationController
   # DELETE /inflows/1
   # DELETE /inflows/1.json
   def destroy
+    @inflow.restore_stock
     @inflow.destroy
     respond_to do |format|
-      format.html { redirect_to inflows_path, notice: { message: I18n.t('activerecord.controllers.actions.destroyed', model_name: I18n.t('activerecord.models.inflow.one') ) } }
+      format.html { redirect_to inflows_path, notice: {
+        message: I18n.t('activerecord.controllers.actions.destroyed',
+          model_name: I18n.t('activerecord.models.inflow.one') ) }
+      }
       format.json { head :no_content }
     end
   end
@@ -49,7 +56,11 @@ class InflowsController < ApplicationController
   def update
     respond_to do |format|
       if @inflow.update(inflow_params)
-        format.html { redirect_to inflows_path, notice: { message: I18n.t('activerecord.controllers.actions.updated', model_name: I18n.t('activerecord.models.inflow.one') ) } }
+
+        format.html { redirect_to inflows_path, notice: {
+          message: I18n.t('activerecord.controllers.actions.updated',
+            model_name: I18n.t('activerecord.models.inflow.one') ) }
+        }
         format.json { render :show, status: :ok, location: @inflow }
       else
         format.html { render :edit }

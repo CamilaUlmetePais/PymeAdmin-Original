@@ -9,7 +9,10 @@ class OutflowsController < ApplicationController
       if @outflow.save
         @outflow.update_stocks
         @outflow.supplier.update_balance(@outflow)
-        format.html { redirect_to outflows_path, notice: { message: I18n.t('activerecord.controllers.actions.created', model_name: I18n.t('activerecord.models.outflow.one') ) } }
+        format.html { redirect_to outflows_path, notice: {
+          message: I18n.t('activerecord.controllers.actions.created',
+            model_name: I18n.t('activerecord.models.outflow.one') ) }
+        }
         format.json { render :show, status: :created, location: @outflow }
       else
         format.html { render :new }
@@ -23,7 +26,10 @@ class OutflowsController < ApplicationController
   def destroy
     @outflow.destroy
     respond_to do |format|
-      format.html { redirect_to outflows_path, notice: { message: I18n.t('activerecord.controllers.actions.destroyed', model_name: I18n.t('activerecord.models.outflow.one') ) } }
+      format.html { redirect_to outflows_path, notice: {
+        message: I18n.t('activerecord.controllers.actions.destroyed',
+          model_name: I18n.t('activerecord.models.outflow.one') ) }
+      }
       format.json { head :no_content }
     end
   end
@@ -49,7 +55,10 @@ class OutflowsController < ApplicationController
   def update
     respond_to do |format|
       if @outflow.update(outflow_params)
-        format.html { redirect_to outflows_path, notice: { message: I18n.t('activerecord.controllers.actions.updated', model_name: I18n.t('activerecord.models.outflow.one') ) } }
+        format.html { redirect_to outflows_path, notice: {
+          message: I18n.t('activerecord.controllers.actions.updated',
+            model_name: I18n.t('activerecord.models.outflow.one') ) }
+        }
         format.json { render :show, status: :ok, location: @outflow }
       else
         format.html { render :edit }

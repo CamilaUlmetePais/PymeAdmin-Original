@@ -13,6 +13,7 @@ module PymeAdmin
     # -- all .rb files in that directory are automatically loaded.
     config.i18n.available_locales = [:en, :es]
 		config.i18n.default_locale = :en
+		config.autoload_paths += %W(#{Rails.root}/app/models/notification)
   end
 end
 

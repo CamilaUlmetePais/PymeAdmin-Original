@@ -16,6 +16,7 @@
             <th><%= I18n.t('activerecord.attributes.products.price') %></th>
             <th><%= I18n.t('activerecord.attributes.products.unit') %></th>
             <th><%= I18n.t('activerecord.attributes.products.stock') %></th>
+            <th><%= I18n.t('activerecord.attributes.products.notification_threshold') %></th>
             <th colspan="3"></th>
           </tr>
         </thead>
@@ -28,6 +29,7 @@
               <td>$<%= product.price %></td>
               <td><%= product.unit %></td>
               <td><%= product.stock %></td>
+              <td><%= product.notification_threshold %></td>
               <td>
                 <button type="button" class="btn btn-success btn sm">
                   <%= link_to I18n.t('helpers.buttons.edit'), edit_product_path(product), class: 'white-text'%>

@@ -1,3 +1,3 @@
 class Notification < ApplicationRecord
-	validates :title, :text,
+	validates :title, :text, presence: true
 end

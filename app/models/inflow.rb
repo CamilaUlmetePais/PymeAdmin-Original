@@ -12,10 +12,24 @@ class Inflow < ApplicationRecord
 		total
 	end
 
-	def update_stocks
+	def restore_stock
+		self.update_stocks(false)
+	end
+
+	def substract_stock
+		self.update_stocks(true)
+	end
+
+	def update_stocks(substract)
 		self.items.each do |item|
-			value = item.quantity * -1
+			if substract
+				value = -item.quantity
+			else
+				value = item.quantity
+			end
 			item.product.update_stock(value)
 		end
 	end
 end
+
+
