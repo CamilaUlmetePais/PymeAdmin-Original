@@ -7,7 +7,6 @@ class OutflowsController < ApplicationController
     @outflow = Outflow.new(outflow_params)
     respond_to do |format|
       if @outflow.save
-        @outflow.update_stocks
         @outflow.supplier.update_balance(@outflow)
         format.html { redirect_to outflows_path, notice: {
           message: I18n.t('activerecord.controllers.actions.created',

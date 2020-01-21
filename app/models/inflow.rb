@@ -22,7 +22,7 @@ class Inflow < ApplicationRecord
 
 	def update_stocks(substract)
 		self.items.each do |item|
-			if substract
+			if substract && !item.quantity.nil?
 				value = -item.quantity
 			else
 				value = item.quantity

@@ -55,8 +55,15 @@ class InflowsController < ApplicationController
   # PATCH/PUT /inflows/1.json
   def update
     respond_to do |format|
-      if @inflow.update(inflow_params)
+      successful = false
 
+      @inflow.transaction do
+        @inflow.restore_stock
+        successful = @inflow.update(inflow_params)
+        @inflow.substract_stock
+      end
+
+      if successful
         format.html { redirect_to inflows_path, notice: {
           message: I18n.t('activerecord.controllers.actions.updated',
             model_name: I18n.t('activerecord.models.inflow.one') ) }

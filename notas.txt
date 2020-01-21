@@ -1,5 +1,6 @@
 Notas
--	Restore/Substract Stock Outflow
+-	RSpec
+
 - Call autonotifications in controller
 - Bootstrap
 	- Simple Forms: Notifications: force notifications_path
@@ -16,6 +17,10 @@ Notas
 			index method within controller, Project.all  -x-> custom query
 	- Agregar scopes manuales a statistics y take
 	- Auto eliminación de Notificaciones
+
+
+	Gamuza: Guardar una variable en un hidden field para que cada uno de los renders tenga un id unico (la otra es poner el horario)
+	En el onclick sumarle una llamada al js de select2 para ESE (this) select rendereado
 
 -----------------------------------------------------------------------------------------------------------------------------------------
 
