@@ -2,6 +2,27 @@ require 'rails_helper'
 
 RSpec.describe AutoNotification, type: :model do
 
+	context "Stock_alert method" do
+		it "creates a notification when a product's stock falls below the stipulated threshold" do
+			@product     = create(:product, stock: 20, notification_threshold: 5)
+			@inflow      = create(:inflow)
+			@inflow_item = create(:inflow_item, quantity: 16)
+
+			stock_alert(@product)
+			# Expect: create notification
+		end
+	end
+
+	context "Balance_alert method" do
+		it "creates a notification when a supplier's account_balance falls below the stipulated threshold" do
+			@supplier = create(:supplier, notification_threshold: -100)
+			@outflow  = create(:outflow, total: -120)
+
+			balance_alert(@supplier)
+			# Expect: create notification
+		end
+	end
+
 end
 
 =begin

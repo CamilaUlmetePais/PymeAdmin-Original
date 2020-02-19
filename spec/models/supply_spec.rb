@@ -28,12 +28,6 @@ RSpec.describe Supply, type: :model do
 		end
 	end
 
-	context "Get_operative_expenses method" do
-		xit "calculates the cost of operative expenses" do
-			@supply.get_operative_expenses
-		end
-	end
-
 	context "Update_stock method" do
 		it "updates the 'stock' attribute" do
 			@supply        = create(:supply, stock: 10)
@@ -46,16 +40,3 @@ RSpec.describe Supply, type: :model do
 	end
 
 end
-
-=begin
-
-	def get_operative_expenses
-		self.suppliers.uniq.map{|supplier| supplier.get_expenses(self.id, self.name)}
-	end
-
-	def update_stock(quantity)
-		value = self.stock + quantity
-		self.update_attributes(stock: value)
-	end
-
-=end

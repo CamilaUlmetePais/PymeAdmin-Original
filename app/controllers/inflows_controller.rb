@@ -8,10 +8,12 @@ class InflowsController < ApplicationController
     respond_to do |format|
       if @inflow.save
         @inflow.substract_stock
-        format.html { redirect_to inflows_path, notice: {
-          message: I18n.t('activerecord.controllers.actions.created',
-            model_name: I18n.t('activerecord.models.inflow.one') ) }
-        }
+        format.html { redirect_to inflows_path,
+                      notice: {
+                        message: I18n.t('activerecord.controllers.actions.created',
+                        model_name: I18n.t('activerecord.models.inflow.one') )
+                      }
+                    }
         format.json { render :show, status: :created, location: @inflow }
       else
         format.html { render :new }
@@ -26,10 +28,12 @@ class InflowsController < ApplicationController
     @inflow.restore_stock
     @inflow.destroy
     respond_to do |format|
-      format.html { redirect_to inflows_path, notice: {
-        message: I18n.t('activerecord.controllers.actions.destroyed',
-          model_name: I18n.t('activerecord.models.inflow.one') ) }
-      }
+      format.html { redirect_to inflows_path,
+                    notice: {
+                      message: I18n.t('activerecord.controllers.actions.destroyed',
+                      model_name: I18n.t('activerecord.models.inflow.one') )
+                    }
+                  }
       format.json { head :no_content }
     end
   end
@@ -46,7 +50,7 @@ class InflowsController < ApplicationController
 
   # GET /inflows/new
   def new
-    @inflow = Inflow.new
+    @inflow   = Inflow.new
     @inflow.items.build
     @products = Product.all
   end
@@ -64,10 +68,12 @@ class InflowsController < ApplicationController
       end
 
       if successful
-        format.html { redirect_to inflows_path, notice: {
-          message: I18n.t('activerecord.controllers.actions.updated',
-            model_name: I18n.t('activerecord.models.inflow.one') ) }
-        }
+        format.html { redirect_to inflows_path,
+                      notice: {
+                        message: I18n.t('activerecord.controllers.actions.updated',
+                        model_name: I18n.t('activerecord.models.inflow.one') )
+                      }
+                    }
         format.json { render :show, status: :ok, location: @inflow }
       else
         format.html { render :edit }

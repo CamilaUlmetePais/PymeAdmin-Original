@@ -1,15 +1,15 @@
 class PagesController < ApplicationController
 
 	def statistics
-		inflows_total = Inflow.all.sum('total')
-		outflows_total = Outflow.all.sum('total')
-		supplies = Supply.all
-		consumables = supplies.where.not(unit: "$")
+		inflows_total      = Inflow.all.sum('total')
+		outflows_total     = Outflow.all.sum('total')
+		supplies           = Supply.all
+		consumables        = supplies.where.not(unit: "$")
 		operative_expenses = supplies - consumables
-		op_ex_by_supplier = operative_expenses.map{|supply| supply.get_operative_expenses}.flatten
+		op_ex_by_supplier  = operative_expenses.map{|supply| supply.get_operative_expenses}.flatten
 
-		@products = Product.all
-		@suppliers = Supplier.all
+		@products   = Product.all
+		@suppliers  = Supplier.all
 		@statistics = {
 			gross_income: inflows_total,
 			total_expenses: outflows_total,
@@ -21,8 +21,8 @@ class PagesController < ApplicationController
 	end
 
 	def take
-		@inflows = Inflow.all
-		@outflows = Outflow.all
+		@inflows   = Inflow.all
+		@outflows  = Outflow.all
 		@variables = {
 			cash_inflows: @inflows.where(cash: true),
 			cash_outflows: @outflows.where(cash: true),

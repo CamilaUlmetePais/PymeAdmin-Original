@@ -12,18 +12,16 @@
     </div>
 
     <div class="row">
-      <div class="col-12">
+      <div class="col-12 inflow_items">
         <%= f.simple_fields_for :inflow_items do |builder| %>
-          <%= render "inflows/inflow_items_fields", builder: builder %>
-        <% end %>
-      </div>
-    </div>
+          <%= render "inflows/inflow_item_fields", f: builder %>
 
-    <div class="row">
-      <div class="col-12">
-        <button type="button" class="btn btn-outline-primary">
-          <%= link_to_add_fields I18n.t('helpers.links.new_item'), f, :inflow_items %>
-        </button>
+          <div class="links">
+            <button type="button" class="btn btn-outline-primary">
+              <%= link_to_add_association I18n.t('helpers.links.new_item'), f, :inflow_items %>
+            </button>
+          </div>
+        <% end %>
       </div>
     </div>
 

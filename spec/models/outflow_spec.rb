@@ -35,28 +35,16 @@ RSpec.describe Outflow, type: :model do
 		end
 	end
 
-	context "Update_stocks method" do
-		it " " do
-			# ???????????????
+	context "Link_update method" do
+		it "updates a product's stock if it's associated to a supply" do
+			@supply        = create(:supply)
+			@product       = create(:product, stock: 0)
+			@s_p_link      = create(:supply_product_link)
+			@outflow       = create(:outflow)
+			@outflow_item1 = create(:outflow_item, quantity: 5)
+
+			@product.stock == 5
 		end
 	end
 
 end
-
-=begin
-	def update_stocks
-		self.items.each do |item|
-			link_update(item)
-		end
-	end
-
-	def link_update(outflow_item)
-		link = SupplyProductLink.find_by(supply_id: item.supply.id)
-		if link.nil?
-			item.supply.update_stock(item.quantity)
-		else
-			Product.find(link.product_id).update_stock(item.quantity)
-		end
-	end
-
-=end

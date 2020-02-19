@@ -1,11 +1,11 @@
 class Supply < ApplicationRecord
-	has_many :outflow_items
-	has_many :outflows, through: :outflow_items
-	has_many :suppliers, through: :outflows
+	has_many        :outflow_items
+	has_many        :outflows, through: :outflow_items
+	has_many        :suppliers, through: :outflows
 	alias_attribute :items, :outflow_items
-	validates :name, :price, :unit, :stock, presence: true
-	validates :price, numericality: { greater_than: 0 }
-	validates :name, uniqueness: { case_sensitive: false }
+	validates       :name, :price, :unit, :stock, presence: true
+	validates       :price, numericality: { greater_than: 0 }
+	validates       :name, uniqueness: { case_sensitive: false }
 
   # Calculates Cost of Goods Sold
 	def cogs

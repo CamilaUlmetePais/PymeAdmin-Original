@@ -1,23 +1,20 @@
 Notas
--	RSpec
-
-- Call autonotifications in controller
-- Bootstrap
-	- Simple Forms: Notifications: force notifications_path
+- CAMBIO DE PRECIOS: QUE NO AFECTE PREVIAS COMPRAS - VENTAS NI ESTADISTICAS
+- Generate_total method (inflow) call on controller to set value -- after_save?
 - Notifications
-	- Types: low stock - balance alert - client orders
-	- auto generation (ls - ba)
-	- 2 tables for index, manual vs auto
-- Stock management
-	- Inflows --> products
-	- Stock update --> supplies
-	- Mass supply update
+	- Bootstrap
+		- Simple Forms: Notifications: force notifications_path
+		- Index: 3 tables, ordered by: lower stock, lower balance, closer due date.
+	- AutoNotifications
+		- Calls on controller
+		- Create tables?
+	- Manual Notifications
 - Scopes
   - Limitar index a últimas n entradas para evitar carga lenta, dar opción a cargar de a n cantidad por vez
 			index method within controller, Project.all  -x-> custom query
 	- Agregar scopes manuales a statistics y take
 	- Auto eliminación de Notificaciones
-
+- Paginación
 
 	Gamuza: Guardar una variable en un hidden field para que cada uno de los renders tenga un id unico (la otra es poner el horario)
 	En el onclick sumarle una llamada al js de select2 para ESE (this) select rendereado

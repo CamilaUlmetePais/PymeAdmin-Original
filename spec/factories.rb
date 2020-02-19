@@ -40,7 +40,7 @@ FactoryBot.define do
 		price { 2 }
 		unit { "kg" }
 		stock { 100 }
-		notification_threshold { 2 }
+		notification_threshold { 10 }
 	end
 
 	factory :supplier do
@@ -54,7 +54,7 @@ FactoryBot.define do
 		name { "Test" }
 		price { 125 }
 		unit { "kg" }
-		stock { 165.45 }
+		stock { 100 }
 	end
 
 	factory :supply_product_link do
