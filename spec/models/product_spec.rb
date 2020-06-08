@@ -25,7 +25,7 @@ RSpec.describe Product, type: :model do
 		end
 	end
 
-	context "Stock_update method" do
+	context "update_stock" do
 		it "updates the product's stock attribute" do
 			@product = create(:product, stock: 100)
 			@product.update_stock(50)
@@ -33,7 +33,7 @@ RSpec.describe Product, type: :model do
 		end
 	end
 
-	context "Sales_total method" do
+	context "Sales_total" do
 		it "calculates total money made from sales of a product" do
 			@product     = create(:product, price: 5)
 			@inflow      = create(:inflow)

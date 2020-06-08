@@ -15,8 +15,8 @@ RSpec.describe Supply, type: :model do
 		it { should validate_uniqueness_of(:name).case_insensitive }
 	end
 
-	context "Cogs and units_bought methods" do
-		it "calculates the cost of goods sold (COGS)" do
+	context "Cogs and units_bought" do
+		it "calculates the amount of units bought and the cost of goods sold (COGS)" do
 			@supply        = create(:supply, price: 2)
 			@outflow       = create(:outflow)
 			@outflow_item1 = create(:outflow_item, quantity: 5)

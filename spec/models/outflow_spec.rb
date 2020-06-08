@@ -15,14 +15,14 @@ RSpec.describe Outflow, type: :model do
 		it { should validate_numericality_of(:total).is_greater_than(0) }
 	end
 
-	context "Balance method" do
+	context "Balance" do
 		it "Calculates the value to be parsed to Supplier.account_balance" do
 			@outflow = create(:outflow, paid: 100, total: 120)
 			@outflow.balance == -20
 		end
 	end
 
-	context "Generate_total method" do
+	context "Generate_total" do
 		it "Generates the value for the 'total' attribute by adding subtotals" do
 			@supply        = create(:supply, price: 5)
 			@outflow       = create(:outflow)
@@ -35,7 +35,7 @@ RSpec.describe Outflow, type: :model do
 		end
 	end
 
-	context "Link_update method" do
+	context "Link_update" do
 		it "updates a product's stock if it's associated to a supply" do
 			@supply        = create(:supply)
 			@product       = create(:product, stock: 0)
