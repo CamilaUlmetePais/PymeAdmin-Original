@@ -1,13 +1,14 @@
-<div class="fields">
-	<fieldset>
-		<div class="field">
-		  <%= f.label :stock %>
-		  <%= f.number_field :stock,  name: "product[mass_stock][#{number}][stock]", id: "product_mass_stock_#{number}_stock"  %>
-		</div>
+<%= simple_form_for(@product, html: { class: 'form-vertical' }) do |f| %>
 
-		<div class="field">
-		  <%= f.label :product_id %>
-		  <%= f.number_field :product_id, name: "product[mass_stock][#{number}][product_id]", id: "product_mass_stock_#{number}_product_id" %>
-		</div>
-	</fieldset>
+<div class="row">
+	<div class="col-4">
+	  <%= f.input :name %>
+	</div>
+
+	<div class="col-4">
+	  <%= f.input :product_id %>
+	</div>
+
 </div>
+
+<% end %>

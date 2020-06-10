@@ -1,5 +1,18 @@
 Notas
 
+- Mass stock update bug "no implicit conversion of Symbol into Integer"
+	cómo generar un Simple Form con multiple fields que devuelva como array de Hashes.
+
+ 	products = product_params[:mass_stock] --> Esto tiene que ser un array de Hashes
+    products.each do |parameters| ---> para poder hacer .each sobre el array
+      unless parameters[:product_id].empty? || parameters[:stock].empty?
+        product = Product.find(parameters[:product_id].to_i)
+        product.update_stock(parameters[:stock].to_i)
+      end
+    end
+
+
+
 - Bootstrap
 	- Simple Forms: inflows, outflows, mass stock update
 	Inside your views, use the 'simple_form_for' with the Bootstrap form
