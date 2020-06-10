@@ -41,7 +41,7 @@ class ProductsController < ApplicationController
   end
 
   def mass_stock_update
-    products = product_params[:mass_stock].to_h.values
+    products = product_params[:mass_stock]
     products.each do |parameters|
       unless parameters[:product_id].empty? || parameters[:stock].empty?
         product = Product.find(parameters[:product_id].to_i)

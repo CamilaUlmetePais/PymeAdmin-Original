@@ -8,6 +8,13 @@
     </div>
   </div>
 
+  <div class="row mb-2">
+    <button type="button" class="btn btn-primary btn-lg">
+      <%= link_to I18n.t('helpers.links.new_inflow'), new_inflow_path, class: 'white-text' %>
+    </button>
+  </div>
+  <br>
+
   <div class="row">
     <div class='col-md-6'>
       <table class='table table-light'>
@@ -48,11 +55,5 @@
     </div>
   </div>
   <br>
-
-  <div class="row">
-    <button type="button" class="btn btn-primary btn-lg">
-      <%= link_to I18n.t('helpers.links.new_inflow'), new_inflow_path, class: 'white-text' %>
-    </button>
-  </div>
 
 </div>

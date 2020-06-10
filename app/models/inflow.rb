@@ -19,3 +19,4 @@ class Inflow < ApplicationRecord
 		end
 	end
 end
+
