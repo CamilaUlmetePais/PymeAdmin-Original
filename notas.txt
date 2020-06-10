@@ -1,5 +1,9 @@
-Notas
+AHORA: 
+- Bug en update_stock??? 
+
+SIGUE:
 - CAMBIO DE PRECIOS: QUE NO AFECTE PREVIAS COMPRAS - VENTAS NI ESTADISTICAS
+  - child model of product/supply, with price history
 - Generate_total method (inflow) call on controller to set value -- after_save?
 - Notifications
 	- Bootstrap
@@ -18,8 +22,6 @@ Notas
 
 	Gamuza: Guardar una variable en un hidden field para que cada uno de los renders tenga un id unico (la otra es poner el horario)
 	En el onclick sumarle una llamada al js de select2 para ESE (this) select rendereado
-
------------------------------------------------------------------------------------------------------------------------------------------
 
 - JavaScript
 	- Calcular total y subtotal automáticamente
@@ -45,4 +47,3 @@ Notas
 				      password: *password
 				      password_confirmation: *confirmation
 		- Traducción a español
-- GitHub portfolio: config git.ignore

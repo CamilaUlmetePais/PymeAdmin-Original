@@ -1,0 +1,17 @@
+<div class="fields">
+	<fieldset>
+	  <div class="row">
+	    <div class="col-4">
+		    <%= builder.input :quantity %>
+		  </div>
+		  <div class="col-4">
+		    <%= builder.input :product_id, collection: @products, prompt: I18n.t('simple_form.prompts.defaults.product') %>
+		  </div>
+		  <div class="col-4">
+		  	<button type="button" class="btn btn-outline-primary btn-sm btn-center">
+		  		<%= link_to_remove_fields I18n.t('helpers.buttons.remove'), builder %>
+		  	</button>
+		  </div>
+		</div>
+	</fieldset>
+</div>
