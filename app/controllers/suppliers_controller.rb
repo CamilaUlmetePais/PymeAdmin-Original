@@ -8,7 +8,12 @@ class SuppliersController < ApplicationController
 
     respond_to do |format|
       if @supplier.save
-        format.html { redirect_to suppliers_path, notice: { message: I18n.t('activerecord.controllers.actions.created', model_name: I18n.t('activerecord.models.supplier.one') ), html_class: 'success' } }
+        format.html { redirect_to suppliers_path,
+                      notice: {
+                        message: I18n.t('activerecord.controllers.actions.created',
+                        model_name: I18n.t('activerecord.models.supplier.one') )
+                      }
+                    }
         format.json { render :show, status: :created, location: @supplier }
       else
         format.html { render :new }
@@ -22,7 +27,12 @@ class SuppliersController < ApplicationController
   def destroy
     @supplier.destroy
     respond_to do |format|
-      format.html { redirect_to suppliers_path, notice: { message: I18n.t('activerecord.controllers.actions.destroyed', model_name: I18n.t('activerecord.models.supplier.one') ), html_class: 'danger' } }
+      format.html { redirect_to suppliers_path,
+                    notice: {
+                      message: I18n.t('activerecord.controllers.actions.destroyed',
+                      model_name: I18n.t('activerecord.models.supplier.one') )
+                    }
+                  }
       format.json { head :no_content }
     end
   end
@@ -52,7 +62,12 @@ class SuppliersController < ApplicationController
   def update
     respond_to do |format|
       if @supplier.update(supplier_params)
-        format.html { redirect_to suppliers_path, notice: { message: I18n.t('activerecord.controllers.actions.updated', model_name: I18n.t('activerecord.models.supplier.one') ), html_class: 'success' } }
+        format.html { redirect_to suppliers_path,
+                      notice: {
+                        message: I18n.t('activerecord.controllers.actions.updated',
+                        model_name: I18n.t('activerecord.models.supplier.one') )
+                      }
+                    }
         format.json { render :show, status: :ok, location: @supplier }
       else
         format.html { render :edit }
@@ -69,6 +84,6 @@ class SuppliersController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def supplier_params
-      params.require(:supplier).permit(:name, :phone_number, :account_balance)
+      params.require(:supplier).permit(:name, :phone_number, :account_balance, :notification_threshold)
     end
 end

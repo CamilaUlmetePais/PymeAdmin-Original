@@ -7,8 +7,13 @@ class InflowsController < ApplicationController
     @inflow = Inflow.new(inflow_params)
     respond_to do |format|
       if @inflow.save
-        @inflow.update_stocks
-        format.html { redirect_to inflows_path, notice: { message: I18n.t('activerecord.controllers.actions.created', model_name: I18n.t('activerecord.models.inflow.one') ), html_class: 'success' } }
+        @inflow.substract_stock
+        format.html { redirect_to inflows_path,
+                      notice: {
+                        message: I18n.t('activerecord.controllers.actions.created',
+                        model_name: I18n.t('activerecord.models.inflow.one') )
+                      }
+                    }
         format.json { render :show, status: :created, location: @inflow }
       else
         format.html { render :new }
@@ -20,9 +25,15 @@ class InflowsController < ApplicationController
   # DELETE /inflows/1
   # DELETE /inflows/1.json
   def destroy
+    @inflow.restore_stock
     @inflow.destroy
     respond_to do |format|
-      format.html { redirect_to inflows_path, notice: { message: I18n.t('activerecord.controllers.actions.destroyed', model_name: I18n.t('activerecord.models.inflow.one') ), html_class: 'danger'} }
+      format.html { redirect_to inflows_path,
+                    notice: {
+                      message: I18n.t('activerecord.controllers.actions.destroyed',
+                      model_name: I18n.t('activerecord.models.inflow.one') )
+                    }
+                  }
       format.json { head :no_content }
     end
   end
@@ -39,16 +50,30 @@ class InflowsController < ApplicationController
 
   # GET /inflows/new
   def new
-    @inflow = Inflow.new
+    @inflow   = Inflow.new
     @inflow.items.build
+    @products = Product.all
   end
 
   # PATCH/PUT /inflows/1
   # PATCH/PUT /inflows/1.json
   def update
     respond_to do |format|
-      if @inflow.update(inflow_params)
-        format.html { redirect_to inflows_path, notice: { message: I18n.t('activerecord.controllers.actions.updated', model_name: I18n.t('activerecord.models.inflow.one') ), html_class: 'success'} }
+      successful = false
+
+      @inflow.transaction do
+        @inflow.restore_stock
+        successful = @inflow.update(inflow_params)
+        @inflow.substract_stock
+      end
+
+      if successful
+        format.html { redirect_to inflows_path,
+                      notice: {
+                        message: I18n.t('activerecord.controllers.actions.updated',
+                        model_name: I18n.t('activerecord.models.inflow.one') )
+                      }
+                    }
         format.json { render :show, status: :ok, location: @inflow }
       else
         format.html { render :edit }
@@ -65,8 +90,8 @@ class InflowsController < ApplicationController
     # Never trust parameters from the scary internet, only allow the white list through.
     def inflow_params
       params.require(:inflow).permit(
-        :total, :cash, :_destroy,
-        inflow_items_attributes: [:quantity, :product_id ]
+        :total, :cash, :_destroy, :id,
+        inflow_items_attributes: [:id, :quantity, :product_id, :_destroy]
       )
     end
 end

@@ -21,6 +21,7 @@
             <th><%= I18n.t('activerecord.attributes.outflows.cash') %></th>
             <th><%= I18n.t('activerecord.attributes.outflows.notes') %></th>
             <th><%= I18n.t('activerecord.attributes.outflows.supplier_id') %></th>
+            <th><%= I18n.t('activerecord.attributes.outflows.items') %></th>
             <th colspan="3"></th>
           </tr>
         </thead>
@@ -34,7 +35,7 @@
               <td><%= outflow.notes %></td>
               <td><%= outflow.supplier.name %></td>
               <td><% outflow.items.each do |item| %>
-                      <span class="badge badge-primary small-top-margin"><%= item.list %></span>
+                    <span class="badge badge-primary small-top-margin"><%= item.list %></span>
                   <% end %>
               </td>
               <td>
@@ -55,5 +56,4 @@
     </div>
   </div>
   <br>
-
 </div>

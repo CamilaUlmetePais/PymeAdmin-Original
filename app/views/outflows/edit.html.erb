@@ -1,6 +1,13 @@
-<h1><%= I18n.t('views.headers.edit', model: I18n.t('activerecord.models.outflow.one') ) %></h1>
+<div class="container-fluid">
+	<div class="row">
+		<div class="col-6">
+			<h1><%= I18n.t('views.headers.edit', model: I18n.t('activerecord.models.outflow.one') ) %></h1>
+		</div>
+	</div>
 
-<%= render 'form', outflow: @outflow %>
-
-<%= link_to I18n.t('helpers.buttons.show'), @outflow %> |
-<%= link_to I18n.t('helpers.buttons.back'), outflows_path %>
+	<div class="row">
+		<div class="col-12">
+			<%= render 'form', outflow: @outflow %>
+		</div>
+	</div>
+</div>

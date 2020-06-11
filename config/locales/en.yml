@@ -10,168 +10,177 @@ en:
       messages:
         record_invalid: 'Validation failed: %{errors}'
         restrict_dependent_destroy:
-          has_one: Cannot delete record because a dependent %{record} exists
           has_many: Cannot delete record because dependent %{record} exist
+          has_one: Cannot delete record because a dependent %{record} exists
     controllers:
        actions:
         created: " %{model_name} was successfully created."
-        updated: " %{model_name} was successfully updated."
         destroyed: " %{model_name} was successfully deleted."
         stock_updated: Stock was successfully updated.
+        updated: " %{model_name} was successfully updated."
     attributes:
-      products:
-        name: Name
-        price: Price
-        promotion_price: Promotion price
-        unit: Unit
-        stock: Stock
-      suppliers:
-        name: Name
-        phone_number: Phone number
-        account_balance: Account balance
-      notifications:
-        title: Title
-        text: Text
-        done: Done
       inflows:
         total: Total
         cash: Cash
       inflow_items:
-        quantity: Quantity
-        product_id: Product
         inflow_id: Inflow ID
-      outflows:
-        total: Total
-        paid: Paid
-        cash: Cash
-        notes: Notes
-        supplier_id: Supplier
-      outflow_items:
+        product_id: Product
         quantity: Quantity
+      notifications:
+        done: Done
+        text: Text
+        title: Title
+      outflows:
+        cash: Cash
+        items: Items
+        notes: Notes
+        paid: Paid
+        supplier_id: Supplier
+        total: Total
+      outflow_items:
         outflow_id: Outflow
+        quantity: Quantity
         supply_id: Supply
+      products:
+        name: Name
+        notification_threshold: Notification Threshold
+        price: Price
+        stock: Stock
+        unit: Unit
       supplies:
         name: Name
         price: Price
-        unit: Unit
         stock: Stock
+        unit: Unit
+      suppliers:
+        account_balance: Account balance
+        name: Name
+        notification_threshold: Notification Threshold
+        phone_number: Phone number
       supply_product_links:
         product_id: Product
         supply_id: Supply
     models:
-      product:
-        one: Product
-        other: Products
-      supplier:
-        one: Supplier
-        other: Suppliers
-      notification:
-        one: Notification
-        other: Notifications
       inflow:
         one: Inflow
         other: Inflows
       inflow_item:
         one: Inflow item
         other: Inflow items
+      notification:
+        one: Notification
+        other: Notifications
       outflow:
         one: Outflow
         other: Outflows
       outflow_item:
         one: Outflow item
         other: Outflow items
+      product:
+        one: Product
+        other: Products
+      supplier:
+        one: Supplier
+        other: Suppliers
       supply:
         one: Supply
         other: Supplies
       supply_product_link:
         one: Supply-to-Product Link
         other: Supply-to-Product Links
+  auto_notification:
+    stock_alert:
+      title: 'Low Stock: %{product}'
+      text: 'Your stock of %{product} has dropped to %{stock}. Consider re-stocking soon.'
+    balance_alert:
+      title: 'Balance Alert: %{supplier}'
+      text: 'Remember to prioritize paying %{supplier}. Your balance is at $ %{balance}, %{difference} below the threshold.'
   helpers:
+    buttons:
+      add: Add new item
+      are_you_sure: Are you sure?
+      back: Back
+      destroy: Destroy
+      edit: Edit
+      remove: Remove
+      show: Show
+      update_stock: Update stock
+    label:
+      inflow:
+        cash: Cash
+        total: Total
+      inflow_item:
+        inflow_id: Inflow ID
+        product_id: Product
+        quantity: Quantity
+      notification:
+        done: Done
+        text: Text
+        title: Title
+      outflow:
+        total: Amount
+        cash: Cash
+        notes: Notes
+        paid: Paid
+        supplier_id: Supplier
+      outflow_item:
+        outflow_id: Outflow ID
+        quantity: Quantity
+        supply_id: Supply ID
+      product:
+        name: Name
+        notification_threshold: Notification Threshold
+        price: Price
+        stock: Stock
+        unit: Unit
+      supplier:
+        account_balance: Account balance
+        name: Name
+        phone_number: Phone number
+      supply:
+        name: Name
+        notification_threshold: Notification Threshold
+        price: Price
+        stock: Stock
+        unit: Unit
+      supply_product_link:
+        product: Product ID
+        supply: Supply ID
+    links:
+      auto_stock: Automatic stock configuration
+      new_inflow: New Inflow
+      new_item: New Item
+      new_notification: New Notification
+      new_outflow: New Outflow
+      new_product: New Product
+      new_supplier: New Supplier
+      new_supply: New Supply
+      new_supply_product_link: New Supply-Product links
     select:
       prompt: Please select
     submit:
       create: Create %{model}
       submit: Save %{model}
       update: Update %{model}
-    label:
-      product:
-        name: Name
-        price: Price
-        promotion_price: Promotion price
-        unit: Unit
-        stock: Stock
-      supplier:
-        name: Name
-        phone_number: Phone number
-        account_balance: Account balance
-      notification:
-        title: Title
-        text: Text
-        done: Done
-      inflow:
-        total: Total
-        cash: Cash
-      inflow_item:
-        quantity: Quantity
-        product_id: Product
-        inflow_id: Inflow ID
-      outflow:
-        total: Amount
-        paid: Paid
-        cash: Cash
-        notes: Notes
-        supplier_id: Supplier
-      outflow_item:
-        quantity: Quantity
-        outflow_id: Outflow ID
-        supply_id: Supply ID
-      supply:
-        name: Name
-        price: Price
-        unit: Unit
-        stock: Stock
-      supply_product_link:
-        product: Product ID
-        supply: Supply ID
-    links:
-      new_inflow: New Inflow
-      new_item: New Item
-      new_outflow: New Outflow
-      new_product: New Product
-      new_supplier: New Supplier
-      new_supply: New Supply
-      new_notification: New Notification
-      auto_stock: Automatic stock configuration
-      new_supply_product_link: New Supply-Product links
-    buttons:
-      show: Show
-      edit: Edit
-      destroy: Destroy
-      are_you_sure: Are you sure?
-      back: Back
-      add: Add new item
-      remove: Remove
-      update_stock: Update stock
   views:
     body:
-      outflows:
-        outflow_guide: To register debt paid, input a positive value. To register debt acquired, input a negative value.
-        operative_expenses_guide: To register payment of operative expenses, select the "Operative expenses" product as the only item, and set the quantity equal to the billed total.
+      index:
+        items: Items
       pages:
         statistics:
+          balance: Balance
+          exp_per_supplier: Expenses per supplier
           gross_income: Gross income
+          percentage: Percentage
+          quantity: Quantity
+          sales_per_product: Sales per product
+          supplier_name: Supplier
+          supplier_op_ex: Expenses
+          supply_name: Supply
+          total: Total
           total_expenses: Total expenses
           total_cogs: Total cost of goods sold
           total_operative_expenses: Total operative expenses
-          balance: Balance
-          sales_per_product: Sales per product
-          quantity: Quantity
-          total: Total
-          percentage: Percentage
-          exp_per_supplier: Expenses per supplier
-          supply_name: Supply
-          supplier_name: Supplier
-          supplier_op_ex: Expenses
         take:
           balance: Balance
           cash_inflows: Cash inflows
@@ -179,8 +188,9 @@ en:
           cash_inflows_total: Cash inflows total
           cash_outflows_total: Cash outflows total
           cash_total: Cash total
-      index:
-        items: Items
+      suppliers:
+        history: Transactions history
+        date: Date
     headers:
       edit: Edit %{model}
       pages:

@@ -1,7 +1,7 @@
 class Supplier < ApplicationRecord
-	has_many :outflows
-	has_many :outflow_items, through: :outflows
-	has_many :supplies, through: :outflow_items
+	has_many  :outflows
+	has_many  :outflow_items, through: :outflows
+	has_many  :supplies, through: :outflow_items
 	validates :name, :account_balance, presence: true
 	validates :name, uniqueness: { case_sensitive: false }
 

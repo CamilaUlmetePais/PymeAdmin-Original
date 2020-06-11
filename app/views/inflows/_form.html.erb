@@ -1,23 +1,46 @@
-<%= form_for(inflow) do |f| %>
-  <div class="row">
-    <%= render 'shared/errors', klass: inflow %>
-  </div>
+<%= simple_form_for(@inflow, html: { class: 'form-vertical' }) do |f| %>
+    <div class="row">
+      <div class="col-6">
+        <%= render 'shared/errors', klass: inflow %>
+      </div>
+    </div>
 
-  <div class="fields">
-    <%= f.label :total %>
-    <%= f.number_field :total %> <br />
-    <%= f.label :cash %>
-    <%= f.check_box :cash %>
-  </div>
+    <div class="row">
+      <div class="col-6">
+        <h4><%= I18n.t('activerecord.models.inflow_item.other') %></h4>
+      </div>
+    </div>
 
-  <%= f.fields_for :inflow_items do |builder| %>
-    <%= render "inflows/inflow_items_fields", :builder => builder %>
-  <% end %>
+    <div class="row">
+      <div class="col-12 inflow_items">
+        <%= f.simple_fields_for :inflow_items do |builder| %>
+          <%= render "inflows/inflow_item_fields", f: builder %>
 
-  <p><%= link_to_add_fields I18n.t('helpers.links.new_item'), f, :inflow_items %></p>
+          <div class="links">
+            <button type="button" class="btn btn-outline-primary">
+              <%= link_to_add_association I18n.t('helpers.links.new_item'), f, :inflow_items %>
+            </button>
+          </div>
+        <% end %>
+      </div>
+    </div>
 
-  <div class="actions">
-    <%= f.submit %>
-    <%= link_to I18n.t('helpers.buttons.back'), inflows_path %>
-  </div>
+    <div class="row">
+      <div class="col-4">
+        <div class="fields mb-2 mt-4">
+            <%= f.input :total %>
+            <%= f.input :cash %>
+        </div>
+      </div>
+    </div>
+
+    <div class="row mb-2">
+      <%= f.button :submit, class: "btn-primary" %>
+    </div>
+    <div class="row mb-2">
+      <button type="button" class="btn btn-outline-primary">
+        <%= link_to I18n.t('helpers.buttons.back'), inflows_path %>
+      </button>
+    </div>
+
 <% end %>
