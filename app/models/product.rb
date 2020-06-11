@@ -14,6 +14,8 @@ class Product < ApplicationRecord
 		self.update_attributes(stock: value)
 	end
 
+
+
 	def sales_total
 		self.units_sold * self.price
 	end

@@ -11,6 +11,7 @@ Notas
       end
     end
 
+  maybe: write the data in controller or model method as a Hash? so the simple form params end up inside a hash? and therefore multiple inputs become an array of hashes?
 
 
 - Bootstrap
