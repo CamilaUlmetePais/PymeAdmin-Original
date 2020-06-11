@@ -2,19 +2,16 @@
   <div class="fields">
     <fieldset>
       <div class="row">
-
         <div class="col-4">
           <div class="field">
-            <%= f.input :stock, input_html:{ name: "product[mass_stock][#{number}][stock]", id: "product_mass_stock_#{number}_stock" }  %>
+            <%= f.input :quantity %>
           </div>
         </div>
-
         <div class="col-4">
           <div class="field">
-            <%= f.input :product_id, input_html:{ name: "product[mass_stock][#{number}][product_id]", id: "product_mass_stock_#{number}_product_id" } %>
+            <%= f.input :product, as collection:  %>
           </div>
         </div>
-
       </div>
     </fieldset>
   </div>
