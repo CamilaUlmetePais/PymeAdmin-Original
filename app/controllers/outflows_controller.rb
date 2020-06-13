@@ -28,6 +28,7 @@ class OutflowsController < ApplicationController
   # DELETE /outflows/1.json
   def destroy
     @outflow.restore_stock
+    @outflow.supplier.restore_balance(@outflow)
     @outflow.destroy
     respond_to do |format|
       format.html { redirect_to outflows_path,
@@ -68,8 +69,10 @@ class OutflowsController < ApplicationController
 
       @outflow.transaction do
         @outflow.restore_stock
+        @outflow.supplier.restore_balance(@outflow)
         successful = @outflow.update(outflow_params)
         @outflow.add_stock
+        @outflow.supplier.update_balance(@outflow)
       end
 
       if successful

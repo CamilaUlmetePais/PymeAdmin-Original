@@ -40,4 +40,4 @@ outflow_item1 = {quantity: 500, supply_id: 4, outflow_id: 1 }
 outflow_item2 = {quantity: 10, supply_id: 3, outflow_id: 1 }
 outflow_item3 = {quantity: 20, supply_id: 7, outflow_id: 2 }
 Outflow.create({total: 500, paid: 500, cash: true, supplier_id: 4, outflow_items_attributes: [outflow_item1]})
-Outflow.create({total: 2150, paid: 1000, cash: true, notes: "faltó pagar una parte" , supplier_id: 1, outflow_items_attributes: [outflow_item2, outflow_item3]})
+Outflow.create({total: 2150, paid: 2150, cash: true , supplier_id: 1, outflow_items_attributes: [outflow_item2, outflow_item3]})

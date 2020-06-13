@@ -26,8 +26,8 @@
         <tbody>
           <% @supply_product_links.each do |supply_product_link| %>
             <tr>
-              <td><%= supply_product_link.product_id %></td>
-              <td><%= supply_product_link.supply_id %></td>
+              <td><%= Product.find(supply_product_link.product_id).name %></td>
+              <td><%= Product.find(supply_product_link.supply_id).name %></td>
               <td>
                 <button type="button" class="btn btn-danger btn-sm">
                   <%= link_to I18n.t('helpers.buttons.destroy'), supply_product_link, class: 'white-text',

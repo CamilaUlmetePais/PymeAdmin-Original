@@ -39,7 +39,6 @@ class SuppliersController < ApplicationController
 
   # GET /suppliers/1/edit
   def edit
-    @supplier = Supplier.new
   end
 
   # GET /suppliers
