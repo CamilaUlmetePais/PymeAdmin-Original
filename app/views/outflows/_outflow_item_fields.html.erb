@@ -1,0 +1,18 @@
+<div class="container-fluid">
+  <div class="fields">
+    <fieldset>
+      <div class="row">
+  	    <div class="col-4">
+          <div class="field">
+    			  <%= f.input :quantity %>
+          </div>
+    		</div>
+    		<div class="col-4">
+          <div class="field">
+    			  <%= f.input :supply_id, collection: @supplies %>
+          </div>
+    		</div>
+  		</div>
+    </fieldset>
+  </div>
+</div>
