@@ -16,8 +16,6 @@ class Product < ApplicationRecord
 		end
 	end
 
-
-
 	def sales_total
 		self.units_sold * self.price
 	end

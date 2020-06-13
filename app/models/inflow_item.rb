@@ -8,10 +8,6 @@ class InflowItem < ApplicationRecord
 		self.product.name + ": " + self.quantity.to_s + self.product.unit.to_s
 	end
 
-	def subtotal
-		self.quantity * self.product.price
-	end
-
 	def to_h
 		attributes
 	end

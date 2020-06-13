@@ -31,7 +31,6 @@ gem 'sass-rails', '~> 5.0'
 gem 'sprockets-rails', :require => 'sprockets/railtie'
 gem 'bootstrap', '~> 4.4.1'
 gem 'bootswatch'
-gem "select2-rails"
 gem 'simple_form'
 gem 'cocoon'
 

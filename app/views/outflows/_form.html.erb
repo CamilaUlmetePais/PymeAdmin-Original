@@ -6,27 +6,25 @@
       </div>
     </div>
 
-    <div class="fields">
-      <div class="row">
-        <div class="col-4">
-          <%= f.input :total %>
-        </div>
-        <div class="col-4">
-          <%= f.input :paid %>
-        </div>
+    <div class="row">
+      <div class="col-4">
+        <%= f.input :total %>
       </div>
-      <div class="row">
-        <div class="col-4">
-          <%= f.input :supplier_id %>
-        </div>
-        <div class="col-4 mt-5">
-          <%= f.input :cash %>
-        </div>
+      <div class="col-4">
+        <%= f.input :paid %>
       </div>
-      <div class="row">
-        <div class="col-4">
-          <%= f.input :notes %>
-        </div>
+    </div>
+    <div class="row">
+      <div class="col-4">
+        <%= f.input :supplier_id, collection: @suppliers %>
+      </div>
+      <div class="col-4 mt-5">
+        <%= f.input :cash %>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-4">
+        <%= f.input :notes %>
       </div>
     </div>
 
@@ -37,20 +35,18 @@
     </div>
 
     <div class="row">
-      <div class="col-12">
+      <div class="col-12 outflow_items">
         <%= f.simple_fields_for :outflow_items do |builder| %>
-          <%= render "outflows/outflow_items_fields", :builder => builder %>
+          <%= render "outflow_item_fields", f: builder %>
+          <div class="links">
+            <button type="button" class="btn btn-outline-primary">
+              <%= link_to_add_association I18n.t('helpers.links.new_item'), f, :outflow_items %>
+            </button>
+          </div>
         <% end %>
       </div>
     </div>
 
-    <div class="row">
-      <div class="col-2">
-        <button type="button" class="btn btn-outline-primary">
-          <%= link_to_add_fields I18n.t('helpers.buttons.add'), f, :outflow_items %>
-        </button>
-      </div>
-    </div>
     <div class="row mt-5">
       <div class="col-3">
         <%= f.button :submit, class: "btn-primary" %>

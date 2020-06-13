@@ -11,11 +11,29 @@ class Outflow < ApplicationRecord
 	end
 
 	def generate_total
-		total = 0
+		self.total = 0
 		self.items.each do |item|
-			total += item.subtotal
+			self.total += item.subtotal
 		end
-		total
+	end
+
+	def restore_stock
+		self.update_stock(false)
+	end
+
+	def add_stock
+		self.update_stock(true)
+	end
+
+	def update_stock(add)
+		self.items.each do |item|
+			if add && !item.quantity.nil?
+				value = item.quantity
+			else
+				value = -item.quantity
+			end
+			item.supply.update_stock(value)
+		end
 	end
 
 	def update_stocks

@@ -5,6 +5,7 @@ class InflowsController < ApplicationController
   # POST /inflows.json
   def create
     @inflow = Inflow.new(inflow_params)
+    @inflow.total = generate_inflow_total(inflow_params)
     respond_to do |format|
       if @inflow.save
         @inflow.substract_stock
@@ -40,6 +41,7 @@ class InflowsController < ApplicationController
 
   # GET /inflows/1/edit
   def edit
+    @products = Product.all
   end
 
   # GET /inflows
@@ -87,11 +89,20 @@ class InflowsController < ApplicationController
       @inflow = Inflow.find(params[:id])
     end
 
-    # Never trust parameters from the scary internet, only allow the white list through.
     def inflow_params
       params.require(:inflow).permit(
         :total, :cash, :_destroy, :id,
         inflow_items_attributes: [:id, :quantity, :product_id, :_destroy]
       )
+    end
+
+# Temporary method until javascript subtotal functionality is working in view.
+    def generate_inflow_total(params)
+      total = 0
+      params[:inflow_items_attributes].to_h.values.each do |item|
+        product = Product.find(item[:product_id])
+        total += item[:quantity].to_f * product.price
+      end
+      total
     end
 end

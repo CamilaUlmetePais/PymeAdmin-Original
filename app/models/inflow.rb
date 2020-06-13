@@ -1,15 +1,15 @@
 class Inflow < ApplicationRecord
+	before_update :generate_total
 	has_many :inflow_items
 	accepts_nested_attributes_for :inflow_items, allow_destroy: true, reject_if: :all_blank
 	alias_attribute :items, :inflow_items
 	validates :total, presence: true
 
 	def generate_total
-		total = 0
+		self.total = 0
 		self.items.each do |item|
-			total += item.subtotal
+			self.total += item.subtotal
 		end
-		total
 	end
 
 	def restore_stock
