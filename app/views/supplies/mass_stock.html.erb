@@ -1,0 +1,24 @@
+<div class= "container-fluid">
+  <div class= "row">
+    <div class= "col-6">
+      <h1><%= I18n.t('views.headers.products.mass_stock') %></h1>
+    </div>
+  </div>
+
+  <div class= "row">
+    <div class= "col-12">
+      <%= simple_form_for :supply, url: 'mass_stock_update', authenticity_token: true do |f| %>
+        <% 10.times do |n| %>
+          <%= f.simple_fields_for :mass_stock do |builder| %>
+
+          <% end %>
+        <% end %>
+    </div>
+  </div>
+
+
+
+
+
+
+</div>
