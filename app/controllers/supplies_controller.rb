@@ -41,6 +41,7 @@ class SuppliesController < ApplicationController
 	end
 
   def mass_stock
+    @supplies = Supply.all
   end
 
   def mass_stock_update
@@ -48,7 +49,7 @@ class SuppliesController < ApplicationController
     supplies.each do |parameters|
       unless parameters[:supply_id].empty? || parameters[:stock].empty?
         supply = Supply.find(parameters[:supply_id].to_i)
-        supply.update_stock(parameters[:stock].to_i)
+        supply.mass_stock_update(parameters[:stock].to_i)
       end
     end
     respond_to do |format|

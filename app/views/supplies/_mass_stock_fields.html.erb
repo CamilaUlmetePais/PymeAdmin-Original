@@ -1,0 +1,18 @@
+<div class="container-fluid">
+  <div class="fields">
+    <fieldset>
+      <div class="row">
+        <div class="col-6">
+          <div class="field">
+            <%= f.input :stock, input_html:{ name: "supply[mass_stock][#{number}][stock]", id: "supply_mass_stock_#{number}_stock" } %>
+          </div>
+        </div>
+        <div class="col-6">
+          <div class="field">
+            <%= f.input :supply_id, input_html:{ name: "supply[mass_stock][#{number}][supply_id]", id: "supply_mass_stock_#{number}_supply_id" }, collection: @supplies %>
+          </div>
+        </div>
+      </div>
+    </fieldset>
+  </div>
+</div>

@@ -17,6 +17,10 @@ class Supply < ApplicationRecord
 		self.suppliers.uniq.map{|supplier| supplier.get_expenses(self.id, self.name)}
 	end
 
+	def mass_stock_update(quantity)
+		self.update_attributes(stock: quantity)
+	end
+
 	def units_bought
 		self.outflow_items.sum('quantity')
 	end

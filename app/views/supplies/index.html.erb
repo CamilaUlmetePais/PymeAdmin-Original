@@ -7,7 +7,10 @@
 	<br>
 
 	<div class="row">
-		<button type="button" class="btn btn-primary btn-lg"><%= link_to I18n.t('helpers.links.new_supply'), new_supply_path, class: 'white-text' %></button>
+		<div class="col-12">
+			<button type="button" class="btn btn-primary btn-lg"><%= link_to I18n.t('helpers.links.new_supply'), new_supply_path, class: 'white-text' %></button>
+			<button type="button" class="btn btn-primary btn-lg"><%= link_to I18n.t('helpers.buttons.update_stock'), mass_stock_supplies_path, class: 'white-text' %></button>
+		</div>
 	</div>
 
 	<div class="row">

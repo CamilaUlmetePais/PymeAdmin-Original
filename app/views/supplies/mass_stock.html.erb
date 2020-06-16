@@ -1,24 +1,23 @@
-<div class= "container-fluid">
-  <div class= "row">
-    <div class= "col-6">
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-6">
       <h1><%= I18n.t('views.headers.products.mass_stock') %></h1>
     </div>
   </div>
 
-  <div class= "row">
-    <div class= "col-12">
+  <div class="row">
+    <div class="col-12">
       <%= simple_form_for :supply, url: 'mass_stock_update', authenticity_token: true do |f| %>
         <% 10.times do |n| %>
           <%= f.simple_fields_for :mass_stock do |builder| %>
-
+            <%= render 'mass_stock_fields', number: n, f: builder %>
           <% end %>
         <% end %>
+        <%= f.button :submit, class: "btn-primary" %>
+        <button type="button" class="btn btn-outline-primary">
+          <%= link_to I18n.t('helpers.buttons.back'), supplies_path %>
+        </button>
+      <% end %>
     </div>
   </div>
-
-
-
-
-
-
 </div>
