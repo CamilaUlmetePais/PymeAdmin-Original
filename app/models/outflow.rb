@@ -7,6 +7,13 @@ class Outflow < ApplicationRecord
 	validates :total, :paid, :supplier_id, presence: true
 	validates :total, numericality: { greater_than: 0 }
 
+	
+	def add_stock
+		self.items.each do |item|
+			item.add_stock
+		end
+	end
+
 	def generate_total
 		self.total = 0
 		self.items.each do |item|
@@ -15,37 +22,9 @@ class Outflow < ApplicationRecord
 	end
 
 	def restore_stock
-		self.update_stock(false)
-	end
-
-	def add_stock
-		self.update_stock(true)
-	end
-
-	def update_stock(add)
 		self.items.each do |item|
-			if add && !item.quantity.nil?
-				value = item.quantity
-			else
-				value = -item.quantity
-			end
-			item.supply.update_stock(value)
+			item.restore_stock
 		end
 	end
-
-	def update_stocks
-		self.items.each do |item|
-			link_update(item)
-		end
-	end
-
-	def link_update(outflow_item)
-		link = SupplyProductLink.find_by(supply_id: item.supply.id)
-		if link.nil?
-			item.supply.update_stock(item.quantity)
-		else
-			Product.find(link.product_id).update_stock(item.quantity)
-		end
-	end
-
+	
 end

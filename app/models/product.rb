@@ -10,10 +10,8 @@ class Product < ApplicationRecord
 	end
 
 	def update_stock(quantity)
-		unless quantity.nil?
-			value = self.stock + quantity
-			self.update_attributes(stock: value)
-		end
+		value = self.stock + quantity
+		self.update_attributes(stock: value)
 	end
 
 	def sales_total

@@ -1,5 +1,6 @@
 class SuppliesController < ApplicationController
 	before_action :set_supply, only: [:show, :edit, :update, :destroy]
+  skip_before_action :verify_authenticity_token, only: [:mass_stock_update]
 
   def create
     @supply = Supply.new(supply_params)
@@ -39,6 +40,24 @@ class SuppliesController < ApplicationController
 		@supplies = Supply.all
 	end
 
+  def mass_stock
+  end
+
+  def mass_stock_update
+    supplies = supply_params[:mass_stock].to_h.values
+    supplies.each do |parameters|
+      unless parameters[:supply_id].empty? || parameters[:stock].empty?
+        supply = Supply.find(parameters[:supply_id].to_i)
+        supply.update_stock(parameters[:stock].to_i)
+      end
+    end
+    respond_to do |format|
+      format.html { redirect_to supplies_path,
+                      notice: I18n.t('activerecord.controllers.actions.stock_updated')
+                  }
+    end
+  end
+
 	def new
 		@supply = Supply.new
 	end
@@ -66,6 +85,6 @@ class SuppliesController < ApplicationController
    end
 
    def supply_params
-     params.require(:supply).permit(:name, :price, :unit, :stock)
+     params.require(:supply).permit(:name, :price, :unit, :stock, mass_stock: [:supply_id, :stock])
    end
 end
