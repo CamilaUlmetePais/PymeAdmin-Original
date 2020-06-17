@@ -54,7 +54,9 @@ class SuppliesController < ApplicationController
     end
     respond_to do |format|
       format.html { redirect_to supplies_path,
-                      notice: I18n.t('activerecord.controllers.actions.stock_updated')
+                      notice: {
+                        message: I18n.t('activerecord.controllers.actions.stock_updated')
+                      }
                   }
     end
   end

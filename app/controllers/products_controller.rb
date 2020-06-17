@@ -48,20 +48,34 @@ class ProductsController < ApplicationController
   end
 
   def mass_stock
+    @products = Product.all
   end
 
   def mass_stock_update
     products = product_params[:mass_stock].to_h.values
-    products.each do |parameters|
-      unless parameters[:product_id].empty? || parameters[:stock].empty?
-        product = Product.find(parameters[:product_id].to_i)
-        product.update_stock(parameters[:stock].to_i)
+    success = false
+
+    ActiveRecord::Base.transaction do
+      products.each do |parameters|
+        unless parameters[:product_id].empty? || parameters[:stock].empty?
+          @product = Product.find(parameters[:product_id].to_i)
+          success = product.update_stock(parameters[:stock].to_i)
+        end
       end
     end
+
     respond_to do |format|
-      format.html { redirect_to products_path,
-                    notice: I18n.t('activerecord.controllers.actions.stock_updated')
-                  }
+      if success
+        format.html { redirect_to products_path,
+                      notice: {
+                        message: I18n.t('activerecord.controllers.actions.stock_updated')
+                      }
+                    }
+      else
+        format.html {
+          redirect_to mass_stock_products_path, notice: { message: 'EL FORM ESTA COMO EL ORTO PEDAZO DE SALAME' }
+        }
+      end
     end
   end
 
