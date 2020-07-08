@@ -51,18 +51,14 @@ class ProductsController < ApplicationController
   end
 
   def mass_stock_update
-    products = product_params[:mass_stock].to_h.values
-    products.each do |parameters|
+    @products = product_params[:mass_stock].to_h.values
+    @products.each do |parameters|
       unless parameters[:product_id].empty? || parameters[:stock].empty?
         product = Product.find(parameters[:product_id].to_i)
         product.update_stock(parameters[:stock].to_i)
       end
     end
-    respond_to do |format|
-      format.html { redirect_to products_path,
-                    notice: I18n.t('activerecord.controllers.actions.stock_updated')
-                  }
-    end
+    redirect_to products_path
   end
 
   # GET /products/new

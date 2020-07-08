@@ -46,17 +46,13 @@ class SuppliesController < ApplicationController
 
   def mass_stock_update
     supplies = supply_params[:mass_stock].to_h.values
-    supplies.each do |parameters|
-      unless parameters[:supply_id].empty? || parameters[:stock].empty?
-        supply = Supply.find(parameters[:supply_id].to_i)
-        supply.mass_stock_update(parameters[:stock].to_i)
+      supplies.each do |parameters|
+        unless parameters[:supply_id].empty? || parameters[:stock].empty?
+          supply = Supply.find(parameters[:supply_id].to_i)
+          supply.mass_stock_update(parameters[:stock].to_i)
+        end
       end
-    end
-    respond_to do |format|
-      format.html { redirect_to supplies_path,
-                      notice: I18n.t('activerecord.controllers.actions.stock_updated')
-                  }
-    end
+    redirect_to supplies_path,
   end
 
 	def new
