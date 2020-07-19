@@ -40,20 +40,22 @@ class SuppliesController < ApplicationController
 		@supplies = Supply.all
 	end
 
-  def mass_stock
-    @supplies = Supply.all
-  end
+  # unused for now; left code in case it is required by client in the future.
 
-  def mass_stock_update
-    supplies = supply_params[:mass_stock].to_h.values
-      supplies.each do |parameters|
-        unless parameters[:supply_id].empty? || parameters[:stock].empty?
-          supply = Supply.find(parameters[:supply_id].to_i)
-          supply.mass_stock_update(parameters[:stock].to_i)
-        end
-      end
-    redirect_to supplies_path
-  end
+  # def mass_stock
+  #   @supplies = Supply.all
+  # end
+
+  # def mass_stock_update
+  #   supplies = supply_params[:mass_stock].to_h.values
+  #     supplies.each do |parameters|
+  #       unless parameters[:supply_id].empty? || parameters[:stock].empty?
+  #         supply = Supply.find(parameters[:supply_id].to_i)
+  #         supply.mass_stock_update(parameters[:stock].to_i)
+  #       end
+  #     end
+  #   redirect_to supplies_path
+  # end
 
 	def new
 		@supply = Supply.new
