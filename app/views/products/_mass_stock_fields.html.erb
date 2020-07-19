@@ -1,4 +1,7 @@
 <div class="container-fluid">
+
+  <%= render 'shared/mass_submit_error', notice: notice %>
+
   <div class="fields">
     <fieldset>
       <div class="row">
@@ -9,7 +12,7 @@
         </div>
         <div class="col-6">
           <div class="field">
-            <%= f.input :product_id, input_html:{ name: "product[mass_stock][#{number}][product_id]", id: "product_mass_stock_#{number}_product_id" } %>
+            <%= f.input :product_id, input_html:{ name: "product[mass_stock][#{number}][product_id]", id: "product_mass_stock_#{number}_product_id" }, collection: @products %>
           </div>
         </div>
       </div>

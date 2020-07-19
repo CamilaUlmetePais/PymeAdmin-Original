@@ -40,3 +40,4 @@ RSpec.describe Outflow, type: :model do
 		end
 	end
 end
+

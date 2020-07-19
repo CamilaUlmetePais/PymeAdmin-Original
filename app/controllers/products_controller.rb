@@ -48,6 +48,7 @@ class ProductsController < ApplicationController
   end
 
   def mass_stock
+    @products = Product.all
   end
 
   def mass_stock_update
