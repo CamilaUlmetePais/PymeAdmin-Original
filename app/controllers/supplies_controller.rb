@@ -52,7 +52,7 @@ class SuppliesController < ApplicationController
           supply.mass_stock_update(parameters[:stock].to_i)
         end
       end
-    redirect_to supplies_path,
+    redirect_to supplies_path
   end
 
 	def new

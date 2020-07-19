@@ -7,7 +7,7 @@ RSpec.describe OutflowItem, type: :model do
 		it { should belong_to(:supply) }
 	end
 
-  context "List method" do
+  context "list method" do
     it "creates a concatenated string with its attributes for improved legibility" do
       @supply            = create(:supply, unit: "kg")
       @outflow           = create(:outflow)
@@ -16,7 +16,7 @@ RSpec.describe OutflowItem, type: :model do
     end
   end
 
-  context "Subtotal method" do
+  context "subtotal method" do
     it "calculates the subtotal for an outflow in process" do
       @supply                = create(:supply, price: 5)
       @outflow               = create(:outflow)

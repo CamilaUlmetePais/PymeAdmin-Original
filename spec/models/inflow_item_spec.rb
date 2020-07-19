@@ -2,18 +2,18 @@ require 'rails_helper'
 
 RSpec.describe InflowItem, type: :model do
 
-	context "ActiveRecord Associations" do
+	context "ActiveRecord associations" do
 		it { should belong_to(:inflow).optional }
 		it { should belong_to(:product) }
 	end
 
-	context "Validations" do
+	context "validations" do
 		it { should validate_presence_of(:quantity) }
 		it { should validate_presence_of(:product_id) }
 		it { should validate_numericality_of(:quantity).is_greater_than(0)}
 	end
 
-	context "List method" do
+	context "list method" do
 		it "creates a concatenated string with its attributes for improved legibility" do
 			@product          = create(:product, unit: "kg")
 			@inflow           = create(:inflow)
@@ -22,7 +22,7 @@ RSpec.describe InflowItem, type: :model do
 		end
 	end
 
-	context "Subtotal method" do
+	context "subtotal method" do
 		it "calculates the a partial subtotal for an inflow in process" do
 			@product              = create(:product, price: 5)
 			@inflow               = create(:inflow)
