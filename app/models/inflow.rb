@@ -1,4 +1,5 @@
 class Inflow < ApplicationRecord
+	after_save :notification?
 	before_update :generate_total
 	has_many :inflow_items
 	accepts_nested_attributes_for :inflow_items, allow_destroy: true, reject_if: :all_blank
@@ -9,6 +10,12 @@ class Inflow < ApplicationRecord
 		self.total = 0
 		self.items.each do |item|
 			self.total += item.subtotal
+		end
+	end
+
+	def notification?
+		items.each do |item|
+			AutoNotification.stock_alert(item.product)
 		end
 	end
 
