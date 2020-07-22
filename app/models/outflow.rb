@@ -1,5 +1,4 @@
 class Outflow < ApplicationRecord
-	after_save :notification?
 	before_update :generate_total
 	has_many :outflow_items, dependent: :destroy
 	belongs_to :supplier
@@ -22,10 +21,8 @@ class Outflow < ApplicationRecord
 		end
 	end
 
-	def notification?
-		items.each do |item|
-			AutoNotification.balance_alert(item.supplier)
-		end
+	def notification_builder
+		AutoNotification.balance_alert(supplier) if supplier.notification?
 	end
 
 	def restore_stock

@@ -10,6 +10,7 @@ class OutflowsController < ApplicationController
       if @outflow.save
         @outflow.supplier.update_balance(@outflow)
         @outflow.add_stock
+        @outflow.notification_builder
         format.html { redirect_to outflows_path,
                       notice: {
                         message: I18n.t('activerecord.controllers.actions.created',
@@ -73,6 +74,7 @@ class OutflowsController < ApplicationController
         successful = @outflow.update(outflow_params)
         @outflow.add_stock
         @outflow.supplier.update_balance(@outflow)
+        @outflow.notification_builder
       end
 
       if successful

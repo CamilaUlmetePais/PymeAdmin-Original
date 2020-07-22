@@ -9,6 +9,7 @@ class InflowsController < ApplicationController
     respond_to do |format|
       if @inflow.save
         @inflow.substract_stock
+        @inflow.notification_builder
         format.html { redirect_to inflows_path,
                       notice: {
                         message: I18n.t('activerecord.controllers.actions.created',
@@ -67,6 +68,7 @@ class InflowsController < ApplicationController
         @inflow.restore_stock
         successful = @inflow.update(inflow_params)
         @inflow.substract_stock
+        @inflow.notification_builder
       end
 
       if successful

@@ -5,6 +5,10 @@ class Product < ApplicationRecord
 	validates       :price, numericality: { greater_than: 0 }
 	validates       :name, uniqueness: { case_sensitive: false }
 
+	def notification?
+		self.stock <= self.notification_threshold
+	end
+
 	def units_sold
 		self.inflow_items.sum('quantity')
 	end
