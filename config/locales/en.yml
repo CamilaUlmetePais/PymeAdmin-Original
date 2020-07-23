@@ -201,6 +201,9 @@ en:
         statistics: Statistics
       products:
         mass_stock: Stock update
+      notifications:
+        manual_notifications: Customer Orders
+        auto_notifications: System Alerts
   date:
     abbr_day_names:
     - Sun

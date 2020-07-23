@@ -7,7 +7,7 @@
 	<br>
 
 	<div class="row">
-		<div class="col-12 offset-6" >
+		<div class="col-12" >
 			<button type="button" class="btn btn-primary btn-lg"><%= link_to I18n.t('helpers.links.new_notification'), new_notification_path, class: 'white-text' %></button>
 		</div>
 	</div>
@@ -15,21 +15,24 @@
 
 	<div class="row">
 		<div class='col-6'>
+			<h4><%= I18n.t('views.headers.notifications.manual_notifications') %></h4>
 		  <table class='table table-light'>
 				<thead>
 					<tr>
 						<th><%= I18n.t('activerecord.attributes.notifications.title') %></th>
 						<th><%= I18n.t('activerecord.attributes.notifications.text') %></th>
+						<th><%= I18n.t('activerecord.attributes.notifications.due_date')%></th>
 						<th><%= I18n.t('activerecord.attributes.notifications.done') %></th>
 						<th colspan="3"> </th>
 					</tr>
 				</thead>
 
 				<tbody>
-					<% @auto_notifications.order(created_at: :desc).each do |notification| %>
+					<% @manual_notifications.order(due_date: :asc).each do |notification| %>
 						<tr>
 							<td><%= notification.title %></td>
 							<td><%= notification.text %></td>
+							<td><%= I18n.l(notification.due_date, format: :long) %></td>
 							<td><%= notification.done %></td>
 							<td>
 								<button type='button' class='btn btn-primary btn-sm'>
@@ -54,23 +57,22 @@
 		</div>
 
 		<div class='col-6'>
+			<h4><%= I18n.t('views.headers.notifications.auto_notifications') %></h4>
 		  <table class='table table-light'>
 				<thead>
 					<tr>
 						<th><%= I18n.t('activerecord.attributes.notifications.title') %></th>
 						<th><%= I18n.t('activerecord.attributes.notifications.text') %></th>
-						<th><%= I18n.t('activerecord.attributes.notifications.due_date')%></th>
 						<th><%= I18n.t('activerecord.attributes.notifications.done') %></th>
 						<th colspan="3"> </th>
 					</tr>
 				</thead>
 
 				<tbody>
-					<% @manual_notifications.order(created_at: :desc).each do |notification| %>
+					<% @auto_notifications.order(created_at: :desc).each do |notification| %>
 						<tr>
 							<td><%= notification.title %></td>
 							<td><%= notification.text %></td>
-							<td><%= I18n.l(notification.due_date, format: :long) %></td>
 							<td><%= notification.done %></td>
 							<td>
 								<button type='button' class='btn btn-primary btn-sm'>
