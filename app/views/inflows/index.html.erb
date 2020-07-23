@@ -23,6 +23,8 @@
             <th><%= I18n.t('activerecord.attributes.inflows.total') %></th>
             <th><%= I18n.t('activerecord.attributes.inflows.cash') %></th>
             <th><%= I18n.t('views.body.index.items') %></th>
+            <th><%= I18n.t('activerecord.attributes.inflows.created_at') %></th>
+            <th><%= I18n.t('activerecord.attributes.inflows.last_updated') %></th>
             <th colspan="3"></th>
           </tr>
         </thead>
@@ -37,6 +39,8 @@
                   <span class="badge badge-primary small-top-margin"><%= item.list %></span>
                 <% end %>
               </td>
+              <td><%= I18n.l(inflow.created_at, format: :short) %></td>
+              <td><%= I18n.l(inflow.updated_at, format: :short) %></td>
               <td>
                 <button type='button' class='btn btn-success btn sm'>
                   <%= link_to I18n.t('helpers.buttons.edit'), edit_inflow_path(inflow), class: 'white-text' %>

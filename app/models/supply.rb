@@ -4,6 +4,7 @@ class Supply < ApplicationRecord
 	has_many        :suppliers, through: :outflows
 	alias_attribute :items, :outflow_items
 	validates       :name, :price, :unit, :stock, presence: true
+	validates 			:stock, numericality: true
 	validates       :price, numericality: { greater_than: 0 }
 	validates       :name, uniqueness: { case_sensitive: false }
 

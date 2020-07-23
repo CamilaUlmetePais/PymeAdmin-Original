@@ -6,12 +6,15 @@
 	</div>
 	<br>
 
-	<div class="row mb-2">
-		<button type="button" class="btn btn-primary btn-lg"><%= link_to I18n.t('helpers.links.new_notification'), new_notification_path, class: 'white-text' %></button>
+	<div class="row">
+		<div class="col-12 offset-6" >
+			<button type="button" class="btn btn-primary btn-lg"><%= link_to I18n.t('helpers.links.new_notification'), new_notification_path, class: 'white-text' %></button>
+		</div>
 	</div>
+	<br>
 
 	<div class="row">
-		<div class='col-md-6'>
+		<div class='col-6'>
 		  <table class='table table-light'>
 				<thead>
 					<tr>
@@ -23,14 +26,14 @@
 				</thead>
 
 				<tbody>
-					<% @notifications.order(created_at: :desc).each do |notification| %>
+					<% @auto_notifications.order(created_at: :desc).each do |notification| %>
 						<tr>
 							<td><%= notification.title %></td>
 							<td><%= notification.text %></td>
 							<td><%= notification.done %></td>
 							<td>
 								<button type='button' class='btn btn-primary btn-sm'>
-									<%= link_to I18n.t('helpers.buttons.show'), notification, class: 'white-text' %>
+									<%= link_to I18n.t('helpers.buttons.show'), notification_path(notification), class: 'white-text' %>
 								</button>
 							</td>
 							<td>
@@ -40,7 +43,48 @@
 							</td>
 							<td>
 								<button type='button' class='btn btn-danger btn-sm'>
-									<%= link_to I18n.t('helpers.buttons.destroy'), notification,
+									<%= link_to I18n.t('helpers.buttons.destroy'), notification_path(notification),
+									method: :delete, data: { confirm: I18n.t('helpers.buttons.are_you_sure') }, class: 'white-text' %>
+								</button>
+							</td>
+						</tr>
+					<% end %>
+				</tbody>
+			</table>
+		</div>
+
+		<div class='col-6'>
+		  <table class='table table-light'>
+				<thead>
+					<tr>
+						<th><%= I18n.t('activerecord.attributes.notifications.title') %></th>
+						<th><%= I18n.t('activerecord.attributes.notifications.text') %></th>
+						<th><%= I18n.t('activerecord.attributes.notifications.due_date')%></th>
+						<th><%= I18n.t('activerecord.attributes.notifications.done') %></th>
+						<th colspan="3"> </th>
+					</tr>
+				</thead>
+
+				<tbody>
+					<% @manual_notifications.order(created_at: :desc).each do |notification| %>
+						<tr>
+							<td><%= notification.title %></td>
+							<td><%= notification.text %></td>
+							<td><%= I18n.l(notification.due_date, format: :long) %></td>
+							<td><%= notification.done %></td>
+							<td>
+								<button type='button' class='btn btn-primary btn-sm'>
+									<%= link_to I18n.t('helpers.buttons.show'), notification_path(notification), class: 'white-text' %>
+								</button>
+							</td>
+							<td>
+								<button type='button' class='btn btn-success btn-sm'>
+									<%= link_to I18n.t('helpers.buttons.edit'), edit_notification_path(notification), class: 'white-text' %>
+								</button>
+							</td>
+							<td>
+								<button type='button' class='btn btn-danger btn-sm'>
+									<%= link_to I18n.t('helpers.buttons.destroy'), notification_path(notification),
 									method: :delete, data: { confirm: I18n.t('helpers.buttons.are_you_sure') }, class: 'white-text' %>
 								</button>
 							</td>
@@ -50,5 +94,7 @@
 			</table>
 		</div>
 	</div>
+
+
 	<br>
 </div>

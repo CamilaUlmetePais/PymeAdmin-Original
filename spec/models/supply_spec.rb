@@ -6,16 +6,17 @@ RSpec.describe Supply, type: :model do
 		it { should have_many(:outflow_items) }
 	end
 
-	context "Validations" do
+	context "validations" do
 		it { should validate_presence_of(:name) }
 		it { should validate_presence_of(:price) }
 		it { should validate_presence_of(:unit) }
 		it { should validate_presence_of(:stock) }
+		it { should validate_numericality_of(:stock) }
 		it { should validate_numericality_of(:price).is_greater_than(0) }
 		it { should validate_uniqueness_of(:name).case_insensitive }
 	end
 
-	context "Cogs and units_bought" do
+	context "cogs and units_bought" do
 		it "calculates the amount of units bought and the cost of goods sold (COGS)" do
 			@supply        = create(:supply, price: 2)
 			@outflow       = create(:outflow)
@@ -28,7 +29,7 @@ RSpec.describe Supply, type: :model do
 		end
 	end
 
-	context "Update_stock method" do
+	context "update_stock method" do
 		it "updates the 'stock' attribute" do
 			@supply        = create(:supply, stock: 10)
 			@outflow       = create(:outflow)

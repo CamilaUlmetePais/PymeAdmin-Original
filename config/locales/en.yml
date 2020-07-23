@@ -22,6 +22,8 @@ en:
       inflows:
         total: Total
         cash: Cash
+        created_at: Created at
+        last_updated: Last updated at
       inflow_items:
         inflow_id: Inflow ID
         product_id: Product
@@ -30,6 +32,7 @@ en:
         done: Done
         text: Text
         title: Title
+        due_date: Due Date
       outflows:
         cash: Cash
         items: Items

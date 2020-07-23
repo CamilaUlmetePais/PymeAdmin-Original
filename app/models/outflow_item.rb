@@ -1,6 +1,8 @@
 class OutflowItem < ApplicationRecord
   belongs_to :outflow, optional: true
   belongs_to :supply
+  validates  :quantity, :supply_id, presence: true
+  validates  :quantity, numericality: { greater_than: 0 }
 
   # Adds stock to supplies and corresponding linked products.
   def add_stock

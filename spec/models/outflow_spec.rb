@@ -12,7 +12,8 @@ RSpec.describe Outflow, type: :model do
 		it { should validate_presence_of(:total) }
 		it { should validate_presence_of(:paid) }
 		it { should validate_presence_of(:supplier_id) }
-		it { should validate_numericality_of(:total).is_greater_than(0) }
+		it { should validate_numericality_of(:total) }
+		it { should validate_numericality_of(:paid) }
 	end
 
 	context "add_stock and restore_stock methods" do
@@ -37,6 +38,18 @@ RSpec.describe Outflow, type: :model do
 			@outflow_item3 = create(:outflow_item, quantity: 2)
 			@outflow.generate_total
 			@outflow.total == 50
+		end
+	end
+
+	context "notification_builder method" do
+		it "calls for the creation of a notification if conditions given in Supplier are true" do
+			@supplier = create(:supplier, account_balance: 0, notification_threshold: -100)
+			@last_notification = AutoNotification.last
+
+			@outflow = create(:outflow, total: 300, paid: 100)
+			AutoNotification.balance_alert(@supplier)
+
+			expect(AutoNotification.last).not_to eq(@last_notification)
 		end
 	end
 end

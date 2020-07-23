@@ -2,13 +2,14 @@ require 'rails_helper'
 
 RSpec.describe Inflow, type: :model do
 
-	context "ActiveRecord Associations" do
+	context "ActiveRecord associations" do
 		it { should have_many(:inflow_items) }
 		it { should accept_nested_attributes_for(:inflow_items).allow_destroy(true) }
 	end
 
-	context "calidations" do
+	context "validations" do
 		it { should validate_presence_of(:total) }
+		it { should validate_numericality_of(:total) }
 	end
 
 	context "generate_total method" do
@@ -20,6 +21,19 @@ RSpec.describe Inflow, type: :model do
 			@inflow_item3 = create(:inflow_item, quantity: 2)
 			@inflow.generate_total
 			@inflow.total == 20
+		end
+	end
+
+	context "notification_builder method" do
+		it "calls for the creation of a notification if conditions given in Product are true" do
+			@product = create(:product, stock: 10, notification_threshold: 5)
+			@last_notification = AutoNotification.last
+
+			@inflow = create(:inflow)
+			@inflow_item1 = create(:inflow_item, quantity: 7)
+			AutoNotification.stock_alert(@product)
+
+			expect(AutoNotification.last).not_to eq(@last_notification)
 		end
 	end
 

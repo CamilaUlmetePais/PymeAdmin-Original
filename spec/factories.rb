@@ -61,6 +61,4 @@ FactoryBot.define do
 		product_id { 1 }
 		supply_id { 1 }
 	end
-
 end
-

@@ -35,7 +35,9 @@ class NotificationsController < ApplicationController
 	end
 
 	def index
-  	@notifications = ManualNotification.all
+  	@notifications = Notification.all
+  	@manual_notifications = ManualNotification.all
+  	@auto_notifications = AutoNotification.all
 	end
 
 	def new
@@ -65,11 +67,11 @@ class NotificationsController < ApplicationController
 	private
 
 		def set_notification
-			@notification = ManualNotification.find(params[:id])
+			@notification = Notification.find(params[:id])
 		end
 
 		def notification_params
-			params.require(:notification).permit(:title, :text, :done)
+			params.require(:notification).permit(:title, :text, :done, :due_date)
 		end
 
 end

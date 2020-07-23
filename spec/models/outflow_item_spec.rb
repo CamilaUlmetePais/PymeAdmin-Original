@@ -2,10 +2,16 @@ require 'rails_helper'
 
 RSpec.describe OutflowItem, type: :model do
 
-	context "ActiveRecord Associations" do
+	context "ActiveRecord associations" do
 		it { should belong_to(:outflow).optional }
 		it { should belong_to(:supply) }
 	end
+
+  context "validations" do
+    it { should validate_presence_of (:quantity) }
+    it { should validate_presence_of (:supply_id) }
+    it { should validate_numericality_of(:quantity).is_greater_than(0)}
+  end
 
   context "list method" do
     it "creates a concatenated string with its attributes for improved legibility" do

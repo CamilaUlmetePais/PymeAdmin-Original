@@ -4,6 +4,7 @@ class Inflow < ApplicationRecord
 	accepts_nested_attributes_for :inflow_items, allow_destroy: true, reject_if: :all_blank
 	alias_attribute :items, :inflow_items
 	validates :total, presence: true
+	validates :total, numericality: true
 
 	def generate_total
 		self.total = 0
