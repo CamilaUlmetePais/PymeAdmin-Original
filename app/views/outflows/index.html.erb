@@ -39,6 +39,11 @@
                   <% end %>
               </td>
               <td>
+                <button type='button' class='btn btn-primary btn'>
+                  <%= link_to I18n.t('helpers.buttons.show'), outflow_path(outflow), class: 'white-text' %>
+                </button>
+              </td>
+              <td>
                 <button type='button' class='btn btn-success btn-sm'>
                   <%= link_to I18n.t('helpers.buttons.edit'), edit_outflow_path(outflow), class: 'white-text' %>
                 </button>

@@ -58,6 +58,9 @@ class InflowsController < ApplicationController
     @products = Product.all
   end
 
+  def show
+  end
+
   # PATCH/PUT /inflows/1
   # PATCH/PUT /inflows/1.json
   def update

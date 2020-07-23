@@ -62,6 +62,9 @@ class OutflowsController < ApplicationController
     @suppliers = Supplier.all
   end
 
+  def show
+  end
+
   # PATCH/PUT /outflows/1
   # PATCH/PUT /outflows/1.json
   def update

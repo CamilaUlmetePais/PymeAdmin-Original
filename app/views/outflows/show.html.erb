@@ -1,0 +1,23 @@
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-4">
+      <div class="jumbotron">
+        <h3><%= ENV["COMPANY_NAME"] %></h3>
+        <p><%= ENV['COMPANY_OWNER'] %></p>
+        <p><%= ENV['COMPANY_OWNER_CUIT'] %></p>
+        <p><%= ENV['COMPANY_ADDRESS'] %></p>
+        <p><%= ENV['COMPANY_PHONE'] %></p>
+        <p><%= I18n.l(@outflow.created_at, format: :default) %></p>
+        <hr class="my-4">
+        <h4><%= ENV['RECEIPT_MESSAGE'] %></h4>
+        <h6><%= @outflow.supplier.name %></h6>
+        <% @outflow.items.each do |item| %>
+          <p><%= item.receipt_list %></p>
+        <% end %>
+        <hr class="my-4">
+        <p><%= I18n.t('activerecord.attributes.outflows.total') %>:  $<%= @outflow.total %></p>
+        <p><%= I18n.t('activerecord.attributes.outflows.paid') %>:   $<%= @outflow.paid %></p>
+      </div>
+    </div>
+  </div>
+</div>

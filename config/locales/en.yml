@@ -40,6 +40,8 @@ en:
         paid: Paid
         supplier_id: Supplier
         total: Total
+        created_at: Created at
+        last_updated: Last updated at
       outflow_items:
         outflow_id: Outflow
         quantity: Quantity
@@ -397,7 +399,7 @@ en:
   time:
     am: am
     formats:
-      default: "%a, %d %b %Y %H:%M:%S %z"
+      default: "%a, %d %b %Y %H:%M:%S"
       long: "%d %B %Y, %H:%M"
       short: "%d/%m/%y %H:%M"
     pm: pm

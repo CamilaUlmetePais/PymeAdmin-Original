@@ -42,12 +42,17 @@
               <td><%= I18n.l(inflow.created_at, format: :short) %></td>
               <td><%= I18n.l(inflow.updated_at, format: :short) %></td>
               <td>
-                <button type='button' class='btn btn-success btn sm'>
+                <button type='button' class='btn btn-primary btn'>
+                  <%= link_to I18n.t('helpers.buttons.show'), inflow_path(inflow), class: 'white-text' %>
+                </button>
+              </td>
+              <td>
+                <button type='button' class='btn btn-success btn'>
                   <%= link_to I18n.t('helpers.buttons.edit'), edit_inflow_path(inflow), class: 'white-text' %>
                 </button>
               </td>
               <td>
-                <button type='button' class='btn btn-danger btn sm'>
+                <button type='button' class='btn btn-danger btn'>
                   <%= link_to I18n.t('helpers.buttons.destroy'), inflow, class: 'white-text',
                     method: :delete, data: { confirm: I18n.t('helpers.buttons.are_you_sure') }%>
                 </button>

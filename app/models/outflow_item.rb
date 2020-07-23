@@ -20,6 +20,10 @@ class OutflowItem < ApplicationRecord
 		self.supply.name + ": " + self.quantity.to_s + self.supply.unit.to_s
 	end
 
+  def receipt_list
+    self.supply.name + ": " + self.quantity.to_s + self.supply.unit + " x $" + self.supply.price.to_s + " = $" + (self.supply.price * self.quantity).to_s
+  end
+
   # On delete or edit, restores supply and corresponding linked product stock to previous value.
   def restore_stock
     link = SupplyProductLink.find_by(supply_id: self.supply.id)
