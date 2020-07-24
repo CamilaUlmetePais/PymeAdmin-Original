@@ -17,7 +17,7 @@ class OutflowItem < ApplicationRecord
   end
 
   def list
-		self.supply.name + ": " + self.quantity.to_s + self.supply.unit.to_s
+		self.supply.name + ": " + self.quantity.to_s + "  " + self.supply.unit.to_s
 	end
 
   def receipt_list

@@ -1,19 +1,16 @@
 <div class='container-fluid'>
   <%= render 'shared/notice', notice: notice %>
 
-  <div class="row">
-    <div class="col-6">
+  <div class="row mb-2 mt-2">
+    <div class="col-10">
       <h1> <%= I18n.t('activerecord.models.inflow.other') %> </h1>
-      <br>
+    </div>
+    <div class="col-2">
+      <button type="button" class="btn btn-primary btn-lg">
+        <%= link_to I18n.t('helpers.links.new_inflow'), new_inflow_path, class: 'white-text' %>
+      </button>
     </div>
   </div>
-
-  <div class="row mb-2">
-    <button type="button" class="btn btn-primary btn-lg">
-      <%= link_to I18n.t('helpers.links.new_inflow'), new_inflow_path, class: 'white-text' %>
-    </button>
-  </div>
-  <br>
 
   <div class="row">
     <div class='col-md-12'>
@@ -32,8 +29,8 @@
         <tbody>
           <% @inflows.order(created_at: :desc).each do |inflow| %>
             <tr>
-              <td>$<%= inflow.total %></td>
-              <td><%= inflow.cash %></td>
+              <td>$ <%= inflow.total %></td>
+              <td><%= checkbox(inflow.cash) %></td>
               <td>
                 <% inflow.items.each do |item| %>
                   <span class="badge badge-primary small-top-margin"><%= item.list %></span>
@@ -42,17 +39,17 @@
               <td><%= I18n.l(inflow.created_at, format: :short) %></td>
               <td><%= I18n.l(inflow.updated_at, format: :short) %></td>
               <td>
-                <button type='button' class='btn btn-primary btn'>
+                <button type='button' class='btn btn-primary btn-sm'>
                   <%= link_to I18n.t('helpers.buttons.show'), inflow_path(inflow), class: 'white-text' %>
                 </button>
               </td>
               <td>
-                <button type='button' class='btn btn-success btn'>
+                <button type='button' class='btn btn-success btn-sm'>
                   <%= link_to I18n.t('helpers.buttons.edit'), edit_inflow_path(inflow), class: 'white-text' %>
                 </button>
               </td>
               <td>
-                <button type='button' class='btn btn-danger btn'>
+                <button type='button' class='btn btn-danger btn-sm'>
                   <%= link_to I18n.t('helpers.buttons.destroy'), inflow, class: 'white-text',
                     method: :delete, data: { confirm: I18n.t('helpers.buttons.are_you_sure') }%>
                 </button>

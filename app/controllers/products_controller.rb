@@ -67,6 +67,9 @@ class ProductsController < ApplicationController
     @product = Product.new
   end
 
+  def show
+  end
+
   # PATCH/PUT /products/1
   # PATCH/PUT /products/1.json
   def update

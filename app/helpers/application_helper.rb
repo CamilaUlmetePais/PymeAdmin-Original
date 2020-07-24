@@ -1,4 +1,12 @@
 module ApplicationHelper
+  def checkbox(boolean)
+    if boolean
+      image_tag("black_check.png", size: "30x30")
+    else
+      image_tag("black_empty.png", size: "30x30")
+    end
+  end
+
   def link_to_add_fields(name, f, association)
     new_object = f.object.class.reflect_on_association(association).klass.new
     fields = f.fields_for(association, new_object, :child_index => "new_#{association}") do |builder|

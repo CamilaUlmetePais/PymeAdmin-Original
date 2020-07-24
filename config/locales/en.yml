@@ -193,9 +193,9 @@ en:
           cash_inflows_total: Cash inflows total
           cash_outflows_total: Cash outflows total
           cash_total: Cash total
-      suppliers:
+      show:
         history: Transactions history
-        date: Date
+        date: Created at
     headers:
       edit: Edit %{model}
       pages:
@@ -238,8 +238,8 @@ en:
     - Saturday
     formats:
       default: "%d/%m/%Y"
-      long: "%A %e of %B, %Y"
-      short: "%d/%b"
+      long: "%A %d of %m, %Y"
+      short: "%d/%m"
     month_names:
     - January
     - February
@@ -399,9 +399,9 @@ en:
   time:
     am: am
     formats:
-      default: "%a, %d %b %Y %H:%M:%S"
-      long: "%d %B %Y, %H:%M"
-      short: "%d/%m/%y %H:%M"
+      default: "%a, %d/%m/%Y %H:%M:%S"
+      long: "%d/%m/%Y, %H:%M:%S"
+      short: "%d/%m/%Y %H:%M"
     pm: pm
 
 

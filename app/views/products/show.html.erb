@@ -1,0 +1,78 @@
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-6">
+      <h1><%= @product.name %></h1>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-3">
+      <h5><%= I18n.t('activerecord.attributes.products.price') %>:  </h5>
+    </div>
+    <div class="col-3">
+      $<%= @product.price %>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-3">
+      <h5><%= I18n.t('activerecord.attributes.products.stock') %>:  </h5>
+    </div>
+    <div class="col-3">
+      <%= @product.stock %><%= @product.unit %>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-3">
+      <h5><%= I18n.t('activerecord.attributes.products.notification_threshold') %>:  </h5>
+    </div>
+    <div class="col-3">
+      <%= @product.notification_threshold %><%= @product.unit %>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-3">
+      <button type="button" class="btn btn-outline-success">
+        <%= link_to I18n.t('helpers.buttons.edit'), edit_product_path(@product) %>
+      </button>
+    </div>
+    <div class="col-3">
+      <button type="button" class="btn btn-outline-primary">
+        <%= link_to I18n.t('helpers.buttons.back'), products_path %>
+      </button>
+    </div>
+  </div>
+  <br>
+
+  <div class="row">
+    <div class="col-6">
+      <h4><%= I18n.t('views.body.show.history') %></h4>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-9">
+      <table class="table table-light">
+        <thead>
+          <tr>
+            <th><%= I18n.t('activerecord.attributes.inflows.created_at') %></th>
+            <th><%= I18n.t('activerecord.attributes.inflow_items.quantity') %></th>
+            <th><%= I18n.t('activerecord.attributes.inflows.total') %></th>
+            <th colspan="3"></th>
+          </tr>
+        </thead>
+
+        <tbody>
+          <% @product.inflow_items.order(created_at: :desc).each do |item| %>
+            <tr>
+              <td><%= I18n.l(item.created_at, format: :short) %></td>
+              <td><%= item.quantity %>  <%= item.product.unit %></td>
+              <td>$<%= item.quantity * item.product.price %></td>
+            </tr>
+          <% end %>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+</div>

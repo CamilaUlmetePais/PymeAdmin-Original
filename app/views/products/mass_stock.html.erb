@@ -1,5 +1,5 @@
 <div class="container-fluid">
-	<div class="row">
+	<div class="row mt-2 mb-2">
 		<div class="col-6">
 			<h1><%= I18n.t('views.headers.products.mass_stock') %></h1>
 		</div>
@@ -13,16 +13,19 @@
 				    <%= render 'mass_stock_fields', number: n, f: builder %>
 				  <% end %>
 				<% end %>
-			  <%= f.button :submit, class: "btn-primary" %>
-			<% end %>
 		</div>
 	</div>
 
-	<div class="row">
-		<div class="col-3">
+	<div class="row mb-6 mt-2">
+		<div class="col-6">
+			<%= f.button :submit, class: "btn-primary" %>
+			<% end %>
+		</div>
+		<div class="col-6">
 			<button type="button" class="btn btn-outline-primary">
 				<%= link_to I18n.t('helpers.buttons.back'), products_path %>
 			</button>
 		</div>
 	</div>
+	<br>
 </div>

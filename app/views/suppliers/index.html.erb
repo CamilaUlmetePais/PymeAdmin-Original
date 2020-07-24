@@ -1,20 +1,20 @@
 <div class='container-fluid'>
   <%= render 'shared/notice', notice: notice %>
 
-  <div class="row">
-    <h1><%= I18n.t('activerecord.models.supplier.other') %></h1>
+  <div class="row mt-2 mb-2">
+    <div class="col-7">
+      <h1><%= I18n.t('activerecord.models.supplier.other') %></h1>
+    </div>
+    <div class="col-2">
+      <button type="button" class="btn btn-primary btn-lg"><%= link_to I18n.t('helpers.links.new_supplier') , new_supplier_path, class: 'white-text' %></button>
+    </div>
   </div>
 
-  <div class="row mb-2">
-    <button type="button" class="btn btn-primary btn-lg"><%= link_to I18n.t('helpers.links.new_supplier') , new_supplier_path, class: 'white-text' %></button>
-  </div>
-
   <div class="row">
-    <div class='col-12'>
+    <div class='col-9'>
       <table class='table table-light'>
         <thead>
           <tr>
-            <th> ID </th>
             <th><%= I18n.t('activerecord.attributes.suppliers.name') %></th>
             <th><%= I18n.t('activerecord.attributes.suppliers.phone_number') %></th>
             <th><%= I18n.t('activerecord.attributes.suppliers.account_balance') %></th>
@@ -26,11 +26,10 @@
         <tbody>
           <% @suppliers.order(name: :asc).each do |supplier| %>
             <tr>
-              <td><%= supplier.id %></td>
               <td><%= supplier.name %></td>
               <td><%= supplier.phone_number %></td>
-              <td>$<%= supplier.account_balance %></td>
-              <td><%= supplier.notification_threshold %></td>
+              <td>$ <%= supplier.account_balance %></td>
+              <td>$ <%= supplier.notification_threshold %></td>
               <td>
                 <button type="button" class="btn btn-primary btn-sm">
                   <%= link_to I18n.t('helpers.buttons.show'), supplier, class: 'white-text' %>

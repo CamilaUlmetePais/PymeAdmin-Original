@@ -29,18 +29,20 @@
       <div class="col-4">
         <div class="fields mb-2 mt-4">
             <%= f.input :total %>
-            <%= f.input :cash %>
+            <%= f.input :cash, input_html: { checked: true } %>
         </div>
       </div>
     </div>
 
     <div class="row mb-2">
-      <%= f.button :submit, class: "btn-primary" %>
-    </div>
-    <div class="row mb-2">
-      <button type="button" class="btn btn-outline-primary">
-        <%= link_to I18n.t('helpers.buttons.back'), inflows_path %>
-      </button>
+      <div class="col-3">
+        <%= f.button :submit, class: "btn-primary" %>
+      </div>
+      <div class="col-3">
+        <button type="button" class="btn btn-outline-primary">
+          <%= link_to I18n.t('helpers.buttons.back'), inflows_path %>
+        </button>
+      </div>
     </div>
   </div>
 <% end %>

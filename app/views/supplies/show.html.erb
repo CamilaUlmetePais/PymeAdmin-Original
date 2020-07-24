@@ -1,0 +1,70 @@
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-6">
+      <h1><%= @supply.name %></h1>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-3">
+      <h5><%= I18n.t('activerecord.attributes.supplies.price') %>:  </h5>
+    </div>
+    <div class="col-3">
+      $<%= @supply.price %>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-3">
+      <h5><%= I18n.t('activerecord.attributes.supplies.stock') %>:  </h5>
+    </div>
+    <div class="col-3">
+      <%= @supply.stock %><%= @supply.unit %>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-3">
+      <button type="button" class="btn btn-outline-success">
+        <%= link_to I18n.t('helpers.buttons.edit'), edit_supply_path(@supply) %>
+      </button>
+    </div>
+    <div class="col-3">
+      <button type="button" class="btn btn-outline-primary">
+        <%= link_to I18n.t('helpers.buttons.back'), supplies_path %>
+      </button>
+    </div>
+  </div>
+  <br>
+
+  <div class="row">
+    <div class="col-6">
+      <h4><%= I18n.t('views.body.show.history') %></h4>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-9">
+      <table class="table table-light">
+        <thead>
+          <tr>
+            <th><%= I18n.t('activerecord.attributes.outflows.created_at') %></th>
+            <th><%= I18n.t('activerecord.attributes.outflow_items.quantity') %></th>
+            <th><%= I18n.t('activerecord.attributes.outflows.total') %></th>
+            <th colspan="3"></th>
+          </tr>
+        </thead>
+
+        <tbody>
+          <% @supply.outflow_items.order(created_at: :desc).each do |item| %>
+            <tr>
+              <td><%= I18n.l(item.created_at, format: :short) %></td>
+              <td><%= item.quantity %>  <%= item.supply.unit %></td>
+              <td>$<%= item.quantity * item.supply.price %></td>
+            </tr>
+          <% end %>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+</div>

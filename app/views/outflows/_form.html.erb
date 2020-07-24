@@ -19,7 +19,7 @@
         <%= f.input :supplier_id, collection: @suppliers %>
       </div>
       <div class="col-4 mt-5">
-        <%= f.input :cash %>
+        <%= f.input :cash, input_html: { checked: true }  %>
       </div>
     </div>
     <div class="row">
@@ -47,12 +47,10 @@
       </div>
     </div>
 
-    <div class="row mt-5">
+    <div class="row mt-2">
       <div class="col-3">
         <%= f.button :submit, class: "btn-primary" %>
       </div>
-    </div>
-    <div class="row mt-2 mb-2">
       <div class="col-3">
         <button type="button" class="btn btn-outline-primary">
           <%= link_to I18n.t('helpers.buttons.back'), outflows_path %>

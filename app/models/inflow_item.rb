@@ -5,7 +5,7 @@ class InflowItem < ApplicationRecord
 	validates  :quantity, numericality: { greater_than: 0 }
 
 	def list
-		self.product.name + ":  " + self.quantity.to_s + self.product.unit.to_s
+		self.product.name + ":  " + self.quantity.to_s + "  " + self.product.unit.to_s
 	end
 
 	def receipt_list

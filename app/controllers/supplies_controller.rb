@@ -61,6 +61,9 @@ class SuppliesController < ApplicationController
 		@supply = Supply.new
 	end
 
+  def show
+  end
+
   def update
     respond_to do |format|
       if @supply.update(supply_params)

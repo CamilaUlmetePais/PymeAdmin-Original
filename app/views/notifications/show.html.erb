@@ -4,28 +4,20 @@
 			<%= render 'shared/notice', notice: notice %>
 		</div>
 	</div>
-	<br>
 
-	<div class="row">
+	<div class="row mt-3">
 		<div class="col-6">
 			<div class="card border-primary mb-3" style="max-width: 20rem;">
 			  <div class="card-header"><h4><%= @notification.title %></h4></div>
 			  <div class="card-body">
 			    <p class="card-text"><%= @notification.text %></p>
+			    <p class="card-text"><%= I18n.t('activerecord.attributes.notifications.due_date') %>:
+			    	<%= I18n.l(@notification.due_date, format: :short) %></p>
+			    <p class="card-text"><%= I18n.t('activerecord.attributes.notifications.done')%> <%=checkbox(@notification.done) %></p>
 			  </div>
 			</div>
 		</div>
 	</div>
-
-	<div class="row">
-		<div class="col-1">
-			<strong><%= I18n.t('activerecord.attributes.notifications.done') %></strong>
-		</div>
-		<div class="col-1">
-			<%= @notification.done %>
-		</div>
-	</div>
-	<br>
 
 	<div class="row mb-2">
 		<div class="col-2">
