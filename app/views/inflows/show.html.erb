@@ -3,11 +3,11 @@
     <div class="col-4">
       <div class="jumbotron">
         <h3><%= ENV["COMPANY_NAME"] %></h3>
-        <p><%= ENV['COMPANY_OWNER'] %></p>
-        <p><%= ENV['COMPANY_OWNER_CUIT'] %></p>
-        <p><%= ENV['COMPANY_ADDRESS'] %></p>
-        <p><%= ENV['COMPANY_PHONE'] %></p>
-        <p><%= I18n.l(@inflow.created_at, format: :default) %></p>
+        <p class="mb-0"><%= ENV['COMPANY_OWNER'] %></p>
+        <p class="mb-0"><%= ENV['COMPANY_OWNER_CUIT'] %></p>
+        <p class="mb-0"><%= ENV['COMPANY_ADDRESS'] %></p>
+        <p class="mb-0"><%= ENV['COMPANY_PHONE'] %></p>
+        <p class="mb-0"><%= I18n.l(@inflow.created_at, format: :default) %></p>
         <hr class="my-4">
         <% @inflow.items.each do |item| %>
           <p><%= item.receipt_list %></p>
