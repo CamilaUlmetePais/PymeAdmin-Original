@@ -44,7 +44,7 @@ class ProductsController < ApplicationController
   # GET /products
   # GET /products.json
   def index
-    @products = Product.all
+    @products = Product.order(:name).page(params[:page]).per(25)
   end
 
   def mass_stock
@@ -68,6 +68,7 @@ class ProductsController < ApplicationController
   end
 
   def show
+    @transactions = @product.inflow_items.order(:created_at).page(params[:page]).per(1)
   end
 
   # PATCH/PUT /products/1

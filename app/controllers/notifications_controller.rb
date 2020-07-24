@@ -35,9 +35,9 @@ class NotificationsController < ApplicationController
 	end
 
 	def index
-  	@notifications = Notification.all
-  	@manual_notifications = ManualNotification.all
-  	@auto_notifications = AutoNotification.all
+  	@notifications = Notification.last_60_days.order(:created_at).page(params[:page])
+  	@manual_notifications = ManualNotification.last_60_days.order(:created_at).page(params[:page])
+  	@auto_notifications = AutoNotification.last_60_days.order(:created_at).page(params[:page])
 	end
 
 	def new

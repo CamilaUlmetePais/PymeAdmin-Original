@@ -58,7 +58,7 @@
         </thead>
 
         <tbody>
-          <% @supplier.outflows.each do |outflow| %>
+          <% @transactions.each do |outflow| %>
             <tr>
               <td>$<%= outflow.total %></td>
               <td>$<%= outflow.paid %></td>
@@ -73,5 +73,6 @@
 	    </table>
 	  </div>
 	</div>
-
+  <%= paginate @transactions %>
+  <br>
 </div>

@@ -1,4 +1,5 @@
 class AutoNotification < Notification
+
 	def self.stock_alert(product)
 		params = {
 			title: I18n.t('auto_notification.stock_alert.title', product: product.name),

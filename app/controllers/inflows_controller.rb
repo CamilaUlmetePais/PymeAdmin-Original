@@ -48,7 +48,7 @@ class InflowsController < ApplicationController
   # GET /inflows
   # GET /inflows.json
   def index
-    @inflows = Inflow.all
+    @inflows = Inflow.order(:created_at).page(params[:page])
   end
 
   # GET /inflows/new

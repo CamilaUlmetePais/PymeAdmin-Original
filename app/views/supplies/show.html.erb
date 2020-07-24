@@ -55,7 +55,7 @@
         </thead>
 
         <tbody>
-          <% @supply.outflow_items.order(created_at: :desc).each do |item| %>
+          <% @transactions.order(created_at: :desc).each do |item| %>
             <tr>
               <td><%= I18n.l(item.created_at, format: :short) %></td>
               <td><%= item.quantity %>  <%= item.supply.unit %></td>
@@ -66,5 +66,6 @@
       </table>
     </div>
   </div>
-
+  <%= paginate @transactions %>
+  <br>
 </div>

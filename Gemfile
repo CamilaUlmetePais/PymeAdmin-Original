@@ -33,6 +33,8 @@ gem 'bootstrap', '~> 4.4.1'
 gem 'bootswatch'
 gem 'simple_form'
 gem 'cocoon'
+gem 'kaminari'
+gem 'kaminari-bootstrap', '~> 3.0.1'
 
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development

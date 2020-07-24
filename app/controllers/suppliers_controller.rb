@@ -44,7 +44,7 @@ class SuppliersController < ApplicationController
   # GET /suppliers
   # GET /suppliers.json
   def index
-    @suppliers = Supplier.all
+    @suppliers = Supplier.order(:name).page(params[:page]).per(25)
   end
 
   # GET /suppliers/new
@@ -55,6 +55,7 @@ class SuppliersController < ApplicationController
   # GET /suppliers/1
   # GET /suppliers/1.json
   def show
+    @transactions = @supplier.outflows.order(:created_at).page(params[:page])
   end
 
   # PATCH/PUT /suppliers/1

@@ -6,6 +6,7 @@ class Inflow < ApplicationRecord
 	validates :total, presence: true
 	validates :total, numericality: true
 
+
 	def generate_total
 		self.total = 0
 		self.items.each do |item|
