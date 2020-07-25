@@ -45,10 +45,6 @@ class ProductsController < ApplicationController
   # GET /products.json
   def index
     @products = Product.order(:name).page(params[:page]).per(25)
-    #@products = Product.all
-    #empty = product_params[:created_at_from].empty? && product_params[:created_at_to].empty?
-    #@products = @products.scope(product_params[:created_at_from],product_params[:created_at_to]) unless empty
-    #@products.order(:name).page(params[:page]).per(25)
   end
 
   def mass_stock

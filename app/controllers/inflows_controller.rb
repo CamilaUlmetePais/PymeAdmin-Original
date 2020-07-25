@@ -48,7 +48,10 @@ class InflowsController < ApplicationController
   # GET /inflows
   # GET /inflows.json
   def index
-    @inflows = Inflow.order(:created_at).page(params[:page])
+    #@inflows = Inflow.order(:created_at).page(params[:page])
+    @inflows = Inflow.all.order(created_at: :desc).page(params[:page])
+    search_dates unless search_params.empty?
+    @inflows.order(created_at: :desc).page(params[:page])
   end
 
   # GET /inflows/new
@@ -99,6 +102,15 @@ class InflowsController < ApplicationController
         :total, :cash, :_destroy, :id,
         inflow_items_attributes: [:id, :quantity, :product_id, :_destroy]
       )
+    end
+
+    def search_params
+      params.require(:inflow).permit(:created_at_from, :created_at_to)
+    end
+
+    def search_dates
+      empty = search_params[:created_at_from].empty? && search_params[:created_at_to].empty?
+      @inflows = @inflows.date_range(search_params[:created_at_from], search_params[:created_at_to]) unless empty
     end
 
 # Temporary method until javascript subtotal functionality is working in view.

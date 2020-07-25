@@ -12,6 +12,22 @@
     </div>
   </div>
 
+  <div class="row mt-1 mb-1">
+    <%= simple_form_for(:inflow, wrapper: :inline_form, html: { class: "form-inline" },
+      url: inflows_path, method: :get) do |f| %>
+      <%= f.error_notification %>
+        <div class="col-4">
+          <%= f.input :created_at_from, as: :date %>
+        </div>
+        <div class="col-4">
+          <%= f.input :created_at_to, as: :date %>
+        </div>
+        <div class="col-4">
+          <%= f.button :submit, I18n.t('helpers.buttons.search'), class: "btn-primary" %>
+        </div>
+    <% end %>
+  </div>
+
   <div class="row">
     <div class='col-md-12'>
       <table class='table table-light'>
@@ -27,7 +43,7 @@
         </thead>
 
         <tbody>
-          <% @inflows.order(created_at: :desc).each do |inflow| %>
+          <% @inflows.each do |inflow| %>
             <tr>
               <td>$ <%= inflow.total %></td>
               <td><%= checkbox(inflow.cash) %></td>

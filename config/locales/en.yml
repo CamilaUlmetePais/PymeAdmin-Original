@@ -110,6 +110,7 @@ en:
       remove: Remove
       show: Show
       update_stock: Update stock
+      search: Search
     label:
       inflow:
         cash: Cash
