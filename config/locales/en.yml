@@ -162,6 +162,10 @@ en:
       new_supplier: New Supplier
       new_supply: New Supply
       new_supply_product_link: New Supply-Product links
+    search:
+      by_date: 'Search by date:'
+      from: Date from
+      to: Date to
     select:
       prompt: Please select
     submit:

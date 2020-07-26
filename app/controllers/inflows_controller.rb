@@ -50,7 +50,7 @@ class InflowsController < ApplicationController
   def index
     #@inflows = Inflow.order(:created_at).page(params[:page])
     @inflows = Inflow.all.order(created_at: :desc).page(params[:page])
-    search_dates unless search_params.empty?
+    search_dates unless search_params.nil?
     @inflows.order(created_at: :desc).page(params[:page])
   end
 
@@ -105,12 +105,16 @@ class InflowsController < ApplicationController
     end
 
     def search_params
-      params.require(:inflow).permit(:created_at_from, :created_at_to)
+      params.require(:inflow).permit(:created_at_from, :created_at_to) unless params[:inflow].nil?
     end
 
     def search_dates
       empty = search_params[:created_at_from].empty? && search_params[:created_at_to].empty?
-      @inflows = @inflows.date_range(search_params[:created_at_from], search_params[:created_at_to]) unless empty
+      unless empty
+        start_date = DateTime.strptime(search_params[:created_at_from], '%m/%d/%Y')
+        end_date = DateTime.strptime(search_params[:created_at_to], '%m/%d/%Y')
+        @inflows = @inflows.date_range(start_date, end_date)
+      end
     end
 
 # Temporary method until javascript subtotal functionality is working in view.
