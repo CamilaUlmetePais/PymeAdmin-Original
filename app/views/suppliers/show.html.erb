@@ -44,6 +44,25 @@
 		</div>
 	</div>
 
+  <div class="row mt-1 mb-2">
+    <%= simple_form_for(:supplier, wrapper: :inline_form, html: { class: "form-inline col-12" },
+        url: supplier_path(@supplier), method: :get) do |f| %>
+      <%= f.error_notification %>
+      <div class="col-2">
+        <h5><%= I18n.t('helpers.search.by_date') %></h5>
+      </div>
+      <div class="col-2">
+        <%= f.input :created_at_from, id: 'created_at_from', placeholder: I18n.t('helpers.search.from'), input_html: {value: ''} %>
+      </div>
+      <div class="col-2">
+        <%= f.input :created_at_to, id: 'created_at_to', placeholder: I18n.t('helpers.search.to'), input_html: {value: ''} %>
+      </div>
+      <div class="col-2">
+        <%= f.button :submit, I18n.t('helpers.buttons.search'), class: "btn-primary" %>
+      </div>
+    <% end %>
+  </div>
+
 	<div class="row">
 		<div class="col-9">
 			<table class='table table-light'>
@@ -76,3 +95,10 @@
   <%= paginate @transactions %>
   <br>
 </div>
+
+<script>
+  $( function() {
+    $( "#supplier_created_at_from" ).datepicker();
+    $( "#supplier_created_at_to" ).datepicker();
+  } );
+</script>

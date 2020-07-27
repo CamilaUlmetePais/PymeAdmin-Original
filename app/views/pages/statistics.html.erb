@@ -41,8 +41,8 @@
 					<% @products.each do |product| %>
 						<tr>
 							<td><%= product.name %></td>
-							<td><%= product.units_sold %></td>
-							<td>$<%= product.sales_total %></td>
+							<td><%= product.units_sold %>  <%= product.unit %></td>
+							<td>$<%= product.sales_total.round(2) %></td>
 							<td><%= percent_of(product.sales_total, @statistics[:gross_income]).round(2) %>%</td>
 						</tr>
 					<%end%>
@@ -102,7 +102,7 @@
 					<% @statistics[:consumables].each do |consumable| %>
 						<tr>
 							<td><%= consumable.name %></td>
-							<td><%= consumable.units_bought %></td>
+							<td><%= consumable.units_bought %>  <%= consumable.unit %></td>
 							<td>$<%= consumable_total(consumable) %></td>
 							<td><%= percent_of(consumable_total(consumable), total_cogs(@statistics[:consumables])).round(2) %>%</td>
 						</tr>

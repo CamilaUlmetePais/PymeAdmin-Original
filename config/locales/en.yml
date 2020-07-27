@@ -166,6 +166,9 @@ en:
       by_date: 'Search by date:'
       from: Date from
       to: Date to
+      cash: Cash
+      card: Card
+      date: Date
     select:
       prompt: Please select
     submit:

@@ -50,6 +50,7 @@ class InflowsController < ApplicationController
   def index
     @inflows = Inflow.all.order(created_at: :desc).page(params[:page])
     search_dates unless search_params.nil?
+    search_cash unless search_params.nil?
     @inflows.order(created_at: :desc).page(params[:page])
   end
 
@@ -104,7 +105,11 @@ class InflowsController < ApplicationController
     end
 
     def search_params
-      params.require(:inflow).permit(:created_at_from, :created_at_to) unless params[:inflow].nil?
+      params.require(:inflow).permit(:created_at_from, :created_at_to, :cash) unless params[:inflow].nil?
+    end
+
+    def search_cash
+      @inflows = @inflows.cash_scope( helpers.true?(search_params[:cash]) ) unless search_params[:cash].empty?
     end
 
     def search_dates

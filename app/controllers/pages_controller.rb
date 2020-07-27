@@ -23,11 +23,24 @@ class PagesController < ApplicationController
 	def take
 		@inflows   = Inflow.all
 		@outflows  = Outflow.all
+		scope_entries unless search_params.nil?
 		@variables = {
 			cash_inflows: @inflows.where(cash: true),
 			cash_outflows: @outflows.where(cash: true),
 			inflow_total: @inflows.sum('total'),
 			outflow_total: @outflows.sum('total')
 		}
+	end
+
+	private
+
+	def search_params
+		params.require(:pages).permit(:date) unless params[:pages].nil?
+	end
+
+	def scope_entries
+		date = DateTime.strptime(search_params[:date], '%m/%d/%Y')
+		@inflows = @inflows.date_range(date, date.end_of_day) unless search_params[:date].empty?
+		@outflows = @outflows.date_range(date, date.end_of_day) unless search_params[:date].empty?
 	end
 end

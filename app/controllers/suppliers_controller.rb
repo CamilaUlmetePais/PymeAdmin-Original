@@ -55,7 +55,9 @@ class SuppliersController < ApplicationController
   # GET /suppliers/1
   # GET /suppliers/1.json
   def show
-    @transactions = @supplier.outflows.order(:created_at).page(params[:page])
+    @transactions = @supplier.outflows.order(created_at: :desc).page(params[:page])
+    search_dates unless search_params.nil?
+    @transactions.order(created_at: :desc).page(params[:page])
   end
 
   # PATCH/PUT /suppliers/1
@@ -86,5 +88,18 @@ class SuppliersController < ApplicationController
     # Never trust parameters from the scary internet, only allow the white list through.
     def supplier_params
       params.require(:supplier).permit(:name, :phone_number, :account_balance, :notification_threshold)
+    end
+
+    def search_params
+      params.require(:supplier).permit(:created_at_from, :created_at_to) unless params[:supplier].nil?
+    end
+
+    def search_dates
+      empty = search_params[:created_at_from].empty? && search_params[:created_at_to].empty?
+      unless empty
+        start_date = DateTime.strptime(search_params[:created_at_from], '%m/%d/%Y')
+        end_date = DateTime.strptime(search_params[:created_at_to], '%m/%d/%Y')
+        @transactions = @transactions.date_range(start_date, end_date)
+      end
     end
 end
