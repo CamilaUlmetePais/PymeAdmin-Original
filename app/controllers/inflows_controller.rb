@@ -48,7 +48,6 @@ class InflowsController < ApplicationController
   # GET /inflows
   # GET /inflows.json
   def index
-    #@inflows = Inflow.order(:created_at).page(params[:page])
     @inflows = Inflow.all.order(created_at: :desc).page(params[:page])
     search_dates unless search_params.nil?
     @inflows.order(created_at: :desc).page(params[:page])

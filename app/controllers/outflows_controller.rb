@@ -51,7 +51,9 @@ class OutflowsController < ApplicationController
   # GET /outflows
   # GET /outflows.json
   def index
-    @outflows = Outflow.order(:created_at).page(params[:page])
+    @outflows = Outflow.all.order(created_at: :desc).page(params[:page])
+    search_dates unless search_params.nil?
+    @outflows.order(created_at: :desc).page(params[:page])
   end
 
   # GET /outflows/new
@@ -105,6 +107,19 @@ class OutflowsController < ApplicationController
         :total, :paid, :cash, :notes, :supplier_id, :_destroy, :id,
         outflow_items_attributes: [:quantity, :supply_id, :_destroy, :id]
       )
+    end
+
+    def search_params
+      params.require(:outflow).permit(:created_at_from, :created_at_to) unless params[:outflow].nil?
+    end
+
+    def search_dates
+      empty = search_params[:created_at_from].empty? && search_params[:created_at_to].empty?
+      unless empty
+        start_date = DateTime.strptime(search_params[:created_at_from], '%m/%d/%Y')
+        end_date = DateTime.strptime(search_params[:created_at_to], '%m/%d/%Y')
+        @outflows = @outflows.date_range(start_date, end_date)
+      end
     end
 
 # Temporary method until javascript subtotal functionality is working in view.

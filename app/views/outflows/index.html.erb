@@ -10,6 +10,25 @@
     </div>
   </div>
 
+  <div class="row mt-1 mb-1">
+    <%= simple_form_for(:outflow, wrapper: :inline_form, html: { class: "form-inline col-12" },
+      url: outflows_path, method: :get) do |f| %>
+      <%= f.error_notification %>
+      <div class="col-2">
+        <h5><%= I18n.t('helpers.search.by_date') %></h5>
+      </div>
+      <div class="col-2">
+        <%= f.input :created_at_from, id: 'created_at_from', placeholder: I18n.t('helpers.search.from') %>
+      </div>
+      <div class="col-2">
+        <%= f.input :created_at_to, id: 'created_at_to', placeholder: I18n.t('helpers.search.to') %>
+      </div>
+      <div class="col-2">
+        <%= f.button :submit, I18n.t('helpers.buttons.search'), class: "btn-primary" %>
+      </div>
+    <% end %>
+  </div>
+
 
   <div class="row">
     <div class='col-md-12'>
@@ -68,3 +87,10 @@
   <%= paginate @outflows %>
   <br>
 </div>
+
+<script>
+  $( function() {
+    $( "#outflow_created_at_from" ).datepicker();
+    $( "#outflow_created_at_to" ).datepicker();
+  } );
+</script>

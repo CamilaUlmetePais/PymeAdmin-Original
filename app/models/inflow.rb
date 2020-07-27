@@ -6,8 +6,8 @@ class Inflow < ApplicationRecord
 	validates :total, presence: true
 	validates :total, numericality: true
 
-	scope :date_range, -> (date_from, date_to) { where(
-		'created_at >= ? AND created_at <= ?', date_from, date_to) }
+	scope :date_range, -> (start_date, end_date) { where(
+		'created_at >= ? AND created_at <= ?', start_date, end_date) }
 
 	def generate_total
 		self.total = 0

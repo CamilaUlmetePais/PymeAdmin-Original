@@ -7,6 +7,9 @@ class Outflow < ApplicationRecord
 	validates :total, :paid, :supplier_id, presence: true
 	validates :total, :paid, numericality: true
 
+	scope :date_range, -> (start_date, end_date) { where(
+		'created_at >= ? AND created_at <= ?', start_date, end_date) }
+
 
 	def add_stock
 		self.items.each do |item|

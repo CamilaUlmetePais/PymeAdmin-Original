@@ -3,7 +3,7 @@
 
   <div class="row mb-2 mt-2">
     <div class="col-10">
-      <h1> <%= I18n.t('activerecord.models.inflow.other') %> </h1>
+      <h1><%= I18n.t('activerecord.models.inflow.other') %></h1>
     </div>
     <div class="col-2">
       <button type="button" class="btn btn-primary btn-lg">
@@ -17,10 +17,10 @@
       url: inflows_path, method: :get) do |f| %>
       <%= f.error_notification %>
         <div class="col-2">
-          <h4><%= I18n.t('helpers.search.by_date') %></h4>
+          <h5><%= I18n.t('helpers.search.by_date') %></h5>
         </div>
         <div class="col-2">
-          <%= f.input :created_at_from, id: 'created_at_from', placeholder: I18n.t('helpers.search.from') %>
+          <%= f.input :created_at_from, id: 'created_at_from', placeholder: I18n.t('helpers.search.from')%>
         </div>
         <div class="col-2">
           <%= f.input :created_at_to, id: 'created_at_to', placeholder: I18n.t('helpers.search.to') %>
