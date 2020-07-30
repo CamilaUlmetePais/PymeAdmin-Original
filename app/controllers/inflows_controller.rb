@@ -116,7 +116,7 @@ class InflowsController < ApplicationController
       empty = search_params[:created_at_from].empty? && search_params[:created_at_to].empty?
       unless empty
         start_date = DateTime.strptime(search_params[:created_at_from], '%m/%d/%Y')
-        end_date = DateTime.strptime(search_params[:created_at_to], '%m/%d/%Y')
+        end_date = DateTime.strptime(search_params[:created_at_to], '%m/%d/%Y').end_of_day
         @inflows = @inflows.date_range(start_date, end_date)
       end
     end

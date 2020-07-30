@@ -1,7 +1,25 @@
 <div class="container-fluid">
-	<h1><%= I18n.t('views.headers.pages.statistics') %></h1>
-	<br>
+	<div class="row mt-2 mb-2">
+		<div class="col-12">
+			<h1><%= I18n.t('views.headers.pages.statistics') %></h1>
+		</div>
+	</div>
 
+	<div class="row mt-2 mb-3">
+		<%= simple_form_for(:pages, wrapper: :inline_form, html: { class: "form-inline col-12" },
+    url: statistics_path , method: :get) do |f| %>
+    	<%= f.error_notification %>
+			<div class="col-3">
+				<%= f.input :date_from, id: 'date_from', placeholder: I18n.t('helpers.search.from')%>
+			</div>
+			<div class="col-3">
+				<%= f.input :date_to, id: 'date_to', placeholder: I18n.t('helpers.search.to')%>
+			</div>
+			<div class="col-3">
+				<%= f.button :submit, I18n.t('helpers.buttons.search'), class: "btn-primary" %>
+			</div>
+		<% end %>
+	</div>
 
 	<div class='row'>
 		<div class='col-12 col-md-6'>
@@ -147,7 +165,7 @@
 		<br>
 	</div>
 
-	<div class="row">
+	<div class="row mb-5">
 		<div class='col-6 offset-3'>
 			<div class="card text-white bg-primary mb-3">
 				<div class="card-body">
@@ -156,9 +174,11 @@
 			</div>
 		</div>
 	</div>
-
-	<div class='row'>
-		<br>
-	</div>
-
 </div>
+
+<script>
+  $( function() {
+    $( "#pages_date_from" ).datepicker();
+    $( "#pages_date_to" ).datepicker();
+  } );
+</script>
