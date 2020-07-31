@@ -1,8 +1,6 @@
 <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
-	<a class="navbar-brand" href="#">Pyme Admin</a>
-	<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarColor01" aria-controls="navbarColor01" aria-expanded="false" aria-label="Toggle navigation">
-    <span class="navbar-toggler-icon"></span>
-  </button>
+	<h4>PymeAdmin</h4>
+	<%# image_tag("Logotipo_redondo.png", width: '50px') %>
 
 	<div class="collapse navbar-collapse" id="navbarColor01">
     <ul class="navbar-nav mr-auto">
@@ -33,6 +31,24 @@
 			<li class="nav-item">
 				<%= link_to I18n.t('activerecord.models.supply_product_link.other'), supply_product_links_path, class: "nav-link" %>
 			</li>
+			<div class="btn-group">
+			  <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+			  	<% if user_signed_in? %>
+			    	<%= I18n.t('devise.views.signed_in_as')%>  <%= current_user.username %>
+			    <% else %>
+			    	<%= I18n.t('devise.failure.unauthenticated') %>
+			    <% end %>
+			  </button>
+			  <div class="dropdown-menu">
+			  	<% if user_signed_in? %>
+			    	<%= link_to I18n.t('devise.views.edit'), edit_user_registration_path, class: "dropdown-item" %>
+			    	<%= link_to I18n.t('devise.views.logout'), destroy_user_session_path, method: :delete, class: "dropdown-item" %>
+			    <% else %>
+			    	<%= link_to I18n.t('devise.views.login'), new_user_session_path, class: "dropdown-item" %>
+			    	<%# link_to I18n.t('devise.views.sign_up'), new_user_registration_path, class: "dropdown-item" %>
+			    <% end %>
+			  </div>
+			</div>
 		</ul>
 	</div>
 </nav>

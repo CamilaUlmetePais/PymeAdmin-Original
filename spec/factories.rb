@@ -1,4 +1,8 @@
 FactoryBot.define do
+  factory :user do
+    
+  end
+
 
 	factory :inflow do
 		total { 150.25 }
