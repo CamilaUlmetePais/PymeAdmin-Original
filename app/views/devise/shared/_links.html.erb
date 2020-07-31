@@ -1,0 +1,29 @@
+<%- if controller_name != 'sessions' %>
+  <button type="button" class="btn btn-outline-primary">
+    <%= link_to I18n.t('devise.views.login'), new_session_path(resource_name) %>
+  </button>
+<% end %>
+
+<%- if devise_mapping.registerable? && controller_name != 'registrations' %>
+  <button type="button" class="btn btn-outline-primary">
+    <%= link_to I18n.t('devise.views.sign_up'), new_registration_path(resource_name) %>
+  </button>
+<% end %>
+
+<%- if devise_mapping.recoverable? && controller_name != 'passwords' && controller_name != 'registrations' %>
+  <button type="button" class="btn btn-outline-primary">
+    <%= link_to I18n.t('devise.views.forgot_password'), new_password_path(resource_name) %>7
+  </button>
+<% end %>
+
+<%- if devise_mapping.confirmable? && controller_name != 'confirmations' %>
+  <button type="button" class="btn btn-outline-primary">
+    <%= link_to I18n.t('devise.views.no_confirmation_instructions'), new_confirmation_path(resource_name) %>
+  </button>
+<% end %>
+
+<%- if devise_mapping.lockable? && resource_class.unlock_strategy_enabled?(:email) && controller_name != 'unlocks' %>
+  <button type="button" class="btn btn-outline-primary">
+    <%= link_to I18n.t('devise.views.no_unlock_instructions'), new_unlock_path(resource_name) %>
+  </button>
+<% end %>

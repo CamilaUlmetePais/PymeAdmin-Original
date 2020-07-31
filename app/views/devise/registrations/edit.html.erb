@@ -1,0 +1,48 @@
+<div class="container-fluid">
+  <div class="row mt-1 mb-1">
+    <h2><%= I18n.t('devise.views.edit') %></h2>
+  </div>
+
+  <div class="row">
+    <div class="col-6">
+      <%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
+        <%= f.error_notification %>
+
+        <div class="form-inputs">
+          <%= f.input :username %>
+
+          <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
+            <p>Currently waiting confirmation for: <%= resource.unconfirmed_email %></p>
+          <% end %>
+
+          <%= f.input :password,
+                      hint: I18n.t('devise.views.leave_blank'),
+                      required: false,
+                      input_html: { autocomplete: "new-password" } %>
+          <%= f.input :password_confirmation,
+                      required: false,
+                      input_html: { autocomplete: "new-password" } %>
+          <%= f.input :current_password,
+                      hint: I18n.t('devise.views.need_password') ,
+                      required: true,
+                      input_html: { autocomplete: "current-password" } %>
+        </div>
+      </div>
+    </div>
+  <div class="row">
+    <div class="col-4">
+      <div class="form-actions">
+        <%= f.button :submit, I18n.t('devise.views.update') %>
+      </div>
+      <% end %>
+    </div>
+    <div class="col-3">
+      <%= link_to I18n.t('devise.views.back'), :back %>
+    </div>
+  </div>
+
+  <div class="row mt-5 mb-5">
+    <%= link_to I18n.t('devise.views.cancel_account'), registration_path(resource_name), data: { confirm: I18n.t('devise.views.sure') }, method: :delete %>
+  </div>
+
+
