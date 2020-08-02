@@ -7,30 +7,37 @@
     	<li class="nav-item">
 				<%= link_to I18n.t('activerecord.models.inflow.other'), inflows_path, class: "nav-link" %>
 			</li>
-			<li class="nav-item">
-				<%= link_to I18n.t('activerecord.models.outflow.other'), outflows_path, class: "nav-link" %>
-			</li>
-			<li class="nav-item">
-				<%= link_to	I18n.t('activerecord.models.product.other'), products_path, class: "nav-link" %>
-			</li>
-			<li class="nav-item">
-				<%= link_to I18n.t('activerecord.models.supplier.other'), suppliers_path, class: "nav-link" %>
-			</li>
-			<li class="nav-item">
-				<%= link_to I18n.t('activerecord.models.supply.other'), supplies_path, class: "nav-link" %>
-			</li>
-			<li class="nav-item">
-				<%= link_to I18n.t('activerecord.models.notification.other'), notifications_path, class: "nav-link" %>
-			</li>
-			<li class="nav-item">
-				<%= link_to I18n.t('views.headers.pages.take'), take_path, class: "nav-link" %>
-			</li>
-			<li class="nav-item">
-				<%= link_to I18n.t('views.headers.pages.statistics'), statistics_path, class: "nav-link" %>
-			</li>
-			<li class="nav-item">
-				<%= link_to I18n.t('activerecord.models.supply_product_link.other'), supply_product_links_path, class: "nav-link" %>
-			</li>
+			<% unless current_user.nil? %>
+				<% if current_user.admin %>
+					<li class="nav-item">
+						<%= link_to I18n.t('activerecord.models.outflow.other'), outflows_path, class: "nav-link" %>
+					</li>
+					<li class="nav-item">
+						<%= link_to	I18n.t('activerecord.models.product.other'), products_path, class: "nav-link" %>
+					</li>
+					<li class="nav-item">
+						<%= link_to I18n.t('activerecord.models.supplier.other'), suppliers_path, class: "nav-link" %>
+					</li>
+					<li class="nav-item">
+						<%= link_to I18n.t('activerecord.models.supply.other'), supplies_path, class: "nav-link" %>
+					</li>
+					<li class="nav-item">
+						<%= link_to I18n.t('activerecord.models.notification.other'), notifications_path, class: "nav-link" %>
+					</li>
+					<li class="nav-item">
+						<%= link_to I18n.t('activerecord.models.supply_product_link.other'), supply_product_links_path, class: "nav-link" %>
+					</li>
+					<li class="nav-item">
+						<%= link_to I18n.t('views.headers.pages.take'), take_path, class: "nav-link" %>
+					</li>
+					<li class="nav-item">
+						<%= link_to I18n.t('views.headers.pages.statistics'), statistics_path, class: "nav-link" %>
+					</li>
+					<li class="nav-item">
+						<%= link_to I18n.t('prices_calculator.header'), prices_calculator_path, class: "nav-link" %>
+					</li>
+				<% end %>
+			<% end %>
 			<div class="btn-group">
 			  <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
 			  	<% if user_signed_in? %>
@@ -45,7 +52,7 @@
 			    	<%= link_to I18n.t('devise.views.logout'), destroy_user_session_path, method: :delete, class: "dropdown-item" %>
 			    <% else %>
 			    	<%= link_to I18n.t('devise.views.login'), new_user_session_path, class: "dropdown-item" %>
-			    	<%# link_to I18n.t('devise.views.sign_up'), new_user_registration_path, class: "dropdown-item" %>
+			    	<%= link_to I18n.t('devise.views.sign_up'), new_user_registration_path, class: "dropdown-item" %>
 			    <% end %>
 			  </div>
 			</div>

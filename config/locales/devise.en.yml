@@ -6,6 +6,7 @@ en:
       sure: Are you sure?
       back: Back
       cancel_account: Cancel my account
+      change_password: Change password
       edit: Edit profile
       forgot_password: Forgot your password?
       have_an_account: Already have an account?
@@ -15,11 +16,13 @@ en:
       need_password: we need your current password to confirm your changes
       no_confirmation_instructions: Didn't receive confirmation instructions?
       no_unlock_instructions: Didn't receive unlock instructions?
-      register: Don't have an account?
+      register: Create new account
+      resend_unlock: Resend unlock instructions
       send_me_instructions: Send me reset password instructions
       signed_in_as: Signed in as
       sign_up: Sign up
       update: Update
+      user_management: User management
     confirmations:
       confirmed: "Your email address has been successfully confirmed."
       send_instructions: "You will receive an email with instructions for how to confirm your email address in a few minutes."

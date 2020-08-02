@@ -58,24 +58,26 @@
                   <span class="badge badge-primary small-top-margin"><%= item.list %></span>
                 <% end %>
               </td>
-              <td><%= I18n.l(inflow.created_at, format: :short) %></td>
-              <td><%= I18n.l(inflow.updated_at, format: :short) %></td>
+              <td><%= I18n.l(inflow.created_at, format: :long) %></td>
+              <td><%= I18n.l(inflow.updated_at, format: :long) %></td>
               <td>
                 <button type='button' class='btn btn-primary btn-sm'>
                   <%= link_to I18n.t('helpers.buttons.show'), inflow_path(inflow), class: 'white-text' %>
                 </button>
               </td>
-              <td>
-                <button type='button' class='btn btn-success btn-sm'>
-                  <%= link_to I18n.t('helpers.buttons.edit'), edit_inflow_path(inflow), class: 'white-text' %>
-                </button>
-              </td>
-              <td>
-                <button type='button' class='btn btn-danger btn-sm'>
-                  <%= link_to I18n.t('helpers.buttons.destroy'), inflow, class: 'white-text',
-                    method: :delete, data: { confirm: I18n.t('helpers.buttons.are_you_sure') }%>
-                </button>
-              </td>
+              <% if current_user.admin %>
+                <td>
+                  <button type='button' class='btn btn-success btn-sm'>
+                    <%= link_to I18n.t('helpers.buttons.edit'), edit_inflow_path(inflow), class: 'white-text' %>
+                  </button>
+                </td>
+                <td>
+                  <button type='button' class='btn btn-danger btn-sm'>
+                    <%= link_to I18n.t('helpers.buttons.destroy'), inflow, class: 'white-text',
+                      method: :delete, data: { confirm: I18n.t('helpers.buttons.are_you_sure') }%>
+                  </button>
+                </td>
+                <% end %>
             </tr>
           <% end %>
         </tbody>

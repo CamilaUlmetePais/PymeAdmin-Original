@@ -1,0 +1,44 @@
+en:
+  views:
+      admin:
+        user_management: User management
+        username: Username
+        admin_role: Administrator
+      body:
+        index:
+          items: Items
+        pages:
+          statistics:
+            balance: Balance
+            exp_per_supplier: Expenses per supplier
+            gross_income: Gross income
+            percentage: Percentage
+            quantity: Quantity
+            sales_per_product: Sales per product
+            supplier_name: Supplier
+            supplier_op_ex: Expenses
+            supply_name: Supply
+            total: Total
+            total_expenses: Total expenses
+            total_cogs: Total cost of goods sold
+            total_operative_expenses: Total operative expenses
+          take:
+            balance: Balance
+            cash_inflows: Cash inflows
+            cash_outflows: Cash outflows
+            cash_inflows_total: Cash inflows total
+            cash_outflows_total: Cash outflows total
+            cash_total: Cash total
+        show:
+          history: Transactions history
+          date: Created at
+      headers:
+        edit: Edit %{model}
+        pages:
+          take: Take
+          statistics: Statistics
+        products:
+          mass_stock: Stock update
+        notifications:
+          manual_notifications: Customer Orders
+          auto_notifications: System Alerts

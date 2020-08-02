@@ -1,5 +1,6 @@
 class NotificationsController < ApplicationController
 	before_action :set_notification, only: [:show, :edit, :update, :destroy]
+	before_action :authenticate_admin
 
 	def create
 		@notification = ManualNotification.new(notification_params)

@@ -1,3 +1,4 @@
+
 Rails.application.routes.draw do
   devise_for :users
   root to: 'inflows#index'
@@ -20,4 +21,5 @@ Rails.application.routes.draw do
   resources :supply_product_links
  	get 'statistics', to: 'pages#statistics', as: :statistics
   get 'take', to: 'pages#take', as: :take
+  get 'prices_calculator', to: 'pages#prices_calculator', as: :prices_calculator
 end

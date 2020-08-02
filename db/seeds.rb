@@ -42,3 +42,5 @@ outflow_item2 = {quantity: 20, supply_id: 7, outflow_id: 2 }  # subtotal = 20*10
 outflow_item3 = {quantity: 2, supply_id: 8, outflow_id: 2 }   # subtotal = 2*300=600
 Outflow.create({total: 500, paid: 500, cash: true, supplier_id: 4, outflow_items_attributes: [outflow_item1]})
 Outflow.create({total: 2600, paid: 2600, cash: true , supplier_id: 1, outflow_items_attributes: [outflow_item2, outflow_item3]})
+User.create({username: "Administrador", password: "123456", password_confirmation: "123456", admin: true })
+User.create({username: "Caja", password: "123456", password_confirmation: "123456"})

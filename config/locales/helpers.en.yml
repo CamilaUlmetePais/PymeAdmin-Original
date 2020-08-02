@@ -1,0 +1,76 @@
+en:
+  helpers:
+      buttons:
+        add: Add new item
+        are_you_sure: Are you sure?
+        back: Back
+        destroy: Destroy
+        edit: Edit
+        remove: Remove
+        show: Show
+        update_stock: Update stock
+        search: Search
+      label:
+        inflow:
+          cash: Cash
+          total: Total
+        inflow_item:
+          inflow_id: Inflow ID
+          product_id: Product
+          quantity: Quantity
+        notification:
+          done: Done
+          text: Text
+          title: Title
+        outflow:
+          total: Amount
+          cash: Cash
+          notes: Notes
+          paid: Paid
+          supplier_id: Supplier
+        outflow_item:
+          outflow_id: Outflow ID
+          quantity: Quantity
+          supply_id: Supply ID
+        product:
+          name: Name
+          notification_threshold: Notification Threshold
+          price: Price
+          stock: Stock
+          unit: Unit
+        supplier:
+          account_balance: Account balance
+          name: Name
+          phone_number: Phone number
+        supply:
+          name: Name
+          notification_threshold: Notification Threshold
+          price: Price
+          stock: Stock
+          unit: Unit
+        supply_product_link:
+          product: Product ID
+          supply: Supply ID
+      links:
+        auto_stock: Automatic stock configuration
+        new_inflow: New Inflow
+        new_item: New Item
+        new_notification: New Notification
+        new_outflow: New Outflow
+        new_product: New Product
+        new_supplier: New Supplier
+        new_supply: New Supply
+        new_supply_product_link: New Supply-Product links
+      search:
+        by_date: 'Search by date:'
+        from: Date from
+        to: Date to
+        cash: Cash
+        card: Card
+        date: Date
+      select:
+        prompt: Please select
+      submit:
+        create: Create %{model}
+        submit: Save %{model}
+        update: Update %{model}

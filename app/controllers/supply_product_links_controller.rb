@@ -1,5 +1,6 @@
 class SupplyProductLinksController < ApplicationController
 	before_action :set_supply_product_link, only: [:show, :edit, :destroy]
+  before_action :authenticate_admin
 
   def create
     @supply_product_link = SupplyProductLink.new(supply_product_link_params)
