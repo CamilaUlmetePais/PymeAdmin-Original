@@ -1,10 +1,6 @@
 class PagesController < ApplicationController
 	before_action :authenticate_admin
 
-	def prices_calculator
-
-	end
-
 	def statistics
 		@inflows = Inflow.all
 		@outflows = Outflow.all
@@ -41,10 +37,6 @@ class PagesController < ApplicationController
 	end
 
 	private
-	def prices_calculator_params
-		params.require(:pages).permit() unless params[:pages].nil?
-	end
-
 	def take_params
 		params.require(:pages).permit(:date) unless params[:pages].nil?
 	end
