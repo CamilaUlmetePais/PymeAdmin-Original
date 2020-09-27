@@ -3,7 +3,7 @@ class Supplier < ApplicationRecord
 	has_many  :outflow_items, through: :outflows
 	has_many  :supplies, through: :outflow_items
 	validates :name, :account_balance, presence: true
-  validates :account_balance, :notification_threshold, numericality: true
+  	validates :account_balance, numericality: true
 	validates :name, uniqueness: { case_sensitive: false }
 
 	# Supplier -> {supply_id: id, supplier_id: id, expenses: Float}
