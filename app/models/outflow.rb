@@ -1,11 +1,11 @@
 class Outflow < ApplicationRecord
-	before_update :generate_total
-	has_many :outflow_items, dependent: :destroy
-	belongs_to :supplier
-	alias_attribute :items, :outflow_items
+	before_update 								:generate_total
+	has_many 											:outflow_items, dependent: :destroy
+	belongs_to 										:supplier
+	alias_attribute 							:items, :outflow_items
 	accepts_nested_attributes_for :outflow_items, allow_destroy: true, reject_if: :all_blank
-	validates :total, :paid, :supplier_id, presence: true
-	validates :total, :paid, numericality: true
+	validates 										:total, :paid, :supplier_id, presence: true
+	validates 										:total, :paid, numericality: true
 
 	scope :date_range, -> (start_date, end_date) { where(
 		'created_at >= ? AND created_at <= ?', start_date, end_date) }

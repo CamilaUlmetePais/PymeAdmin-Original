@@ -1,4 +1,5 @@
 class Supply < ApplicationRecord
+	belongs_to			:expense_types
 	has_many        :outflow_items
 	has_many        :outflows, through: :outflow_items
 	has_many        :suppliers, through: :outflows
