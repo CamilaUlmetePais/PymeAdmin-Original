@@ -44,3 +44,6 @@ Outflow.create({total: 500, paid: 500, cash: true, supplier_id: 4, outflow_items
 Outflow.create({total: 2600, paid: 2600, cash: true , supplier_id: 1, outflow_items_attributes: [outflow_item2, outflow_item3]})
 User.create({username: "Administrador", password: "123456", password_confirmation: "123456", admin: true, email: 'admin@laraquelita.com'})
 User.create({username: "Caja", password: "123456", password_confirmation: "123456", email: 'caja@laraquelita.com'})
+ExpenseType.create({name: "Costo de bienes para la venta"})
+ExpenseType.create({name: "Costo fijo"})
+ExpenseType.create({name: "Costo extraordinario"})
