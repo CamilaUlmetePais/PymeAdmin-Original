@@ -35,6 +35,7 @@ class SuppliesController < ApplicationController
   end
 
   def edit
+    @expense_types = ExpenseType.all
   end
 
 	def index
@@ -43,6 +44,7 @@ class SuppliesController < ApplicationController
 
 	def new
 		@supply = Supply.new
+    @expense_types = ExpenseType.all
 	end
 
   def show
@@ -72,6 +74,7 @@ class SuppliesController < ApplicationController
    end
 
    def supply_params
-     params.require(:supply).permit(:name, :price, :unit, :stock, mass_stock: [:supply_id, :stock])
+     params.require(:supply).permit(:name, :price, :unit, :stock, :expense_type_id,
+      mass_stock: [:supply_id, :stock])
    end
 end

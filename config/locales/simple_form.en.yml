@@ -31,5 +31,6 @@ en:
         product: Select a product
         supply: Select a supply
         unit: Select a unit of measurement
+        expense_type: Select an expense type
 
 

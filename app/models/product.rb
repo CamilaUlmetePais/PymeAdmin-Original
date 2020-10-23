@@ -1,7 +1,7 @@
 class Product < ApplicationRecord
 	has_many        :inflow_items
 	alias_attribute :items, :inflow_items
-	validates       :name, :price, :unit, presence: true
+	validates       :name, :price, :unit, :chicken, presence: true
 	validates				:stock, numericality: true
 	validates       :price, numericality: { greater_than: 0 }
 	validates       :name, uniqueness: { case_sensitive: false }

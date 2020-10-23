@@ -8,20 +8,47 @@ en:
         index:
           items: Items
         pages:
-          statistics:
-            balance: Balance
-            exp_per_supplier: Expenses per supplier
-            gross_income: Gross income
-            percentage: Percentage
-            quantity: Quantity
-            sales_per_product: Sales per product
-            supplier_name: Supplier
-            supplier_op_ex: Expenses
-            supply_name: Supply
-            total: Total
-            total_expenses: Total expenses
-            total_cogs: Total cost of goods sold
-            total_operative_expenses: Total operative expenses
+          expenses:
+            monthly_expenses_total: Monthly expenses
+            monthly_cost_of_goods_sold: Monthly cost of goods sold
+            monthly_overhead: Monthly overhead
+            monthly_extraordinary_expenses: Monthly extraordinary expenses
+            anual_expenses_total: Anual expenses
+            anual_cost_of_goods_sold: Anual cost of goods sold
+            anual_overhead: Anual overhead
+            anual_extraordinary_expenses: Anual extraordinary expenses
+            overhead_percentage: Overhead percentage
+          product_statistics:
+            product_cost: Product cost per unit flat
+            product_cost_w_overhead: Product cost with included overhead
+            product_profit_margin: Product profit margin per unit
+            monthly_product_sales: Monthly product sales
+            anual_product_sales: Anual product sales
+            daily_product_sales_average: Daily product sales average
+            monthly_product_sales_average: Monthly product sales average
+            anual_product_sales_average: Anual product sales average
+          profit:
+            monthly_profit: Monthly profit
+            anual_profit: Anual profit
+            daily_profit_average: Daily profit average
+            monthly_profit_average: Monthly profit average
+            anual_profit_average: Anual profit average
+          sales:
+            monthly_sales_total: Total monthly sales
+            monthly_sales_cash: Monthly sales in cash
+            monthly_sales_card: Monthly debit sales
+            anual_sales_total: Anual sales
+            anual_sales_cash: Anual cash sales
+            anual_sales_card: Anual debit sales
+            daily_sales_total_average: Daily sales average
+            daily_sales_cash_average: Daily cash sales average
+            daily_sales_card_average: Daily debit sales average
+            monthly_sales_total_average: Monthly sales average
+            monthly_sales_cash_average: Monthly cash sales average
+            monthly_sales_card_average: Monthly debit sales average
+            anual_sales_total_average: Anual sales average
+            anual_sales_cash_average: Anual cash sales average
+            anual_sales_card_average: Anual debit sales average
           take:
             balance: Balance
             cash_inflows: Cash inflows
@@ -35,6 +62,10 @@ en:
       headers:
         edit: Edit %{model}
         pages:
+          expenses: Expenses
+          product_statistics: Product Statistics
+          profit: Profit
+          sales: Sales
           take: Take
           statistics: Statistics
         products:

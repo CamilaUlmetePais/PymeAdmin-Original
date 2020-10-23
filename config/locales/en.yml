@@ -35,6 +35,8 @@ en:
         quantity: Quantity
         supply_id: Supply
       products:
+        chicken: Chicken
+        crate_percentage: Crate Percentage
         name: Name
         notification_threshold: Notification Threshold
         price: Price
@@ -45,6 +47,7 @@ en:
         price: Price
         stock: Stock
         unit: Unit
+        expense_type: Expense type
       suppliers:
         account_balance: Account balance
         name: Name

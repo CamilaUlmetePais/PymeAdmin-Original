@@ -6,6 +6,8 @@
       <%= f.input :name  %>
       <%= f.input :price %>
       <%= f.input :unit, collection: ['kg','u'], prompt: I18n.t('simple_form.prompts.defaults.unit') %>
+      <%= f.input :chicken, input_html: { checked: false } %>
+      <%= f.input :crate_percentage %> %
       <%= f.input :stock %>
       <%= f.input :notification_threshold %>
     </div>

@@ -6,6 +6,7 @@
       <%= f.input :price %>
       <%= f.input :unit, collection: ['u','kg','$'], prompt: I18n.t('simple_form.prompts.defaults.unit') %>
       <%= f.input :stock %>
+      <%= f.input :expense_type_id, collection: @expense_types, prompt: I18n.t('simple_form.prompts.defaults.expense_type')  %>
     </div>
   </div>
 

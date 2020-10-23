@@ -21,6 +21,8 @@
             <th><%= I18n.t('activerecord.attributes.products.name') %></th>
             <th><%= I18n.t('activerecord.attributes.products.price') %></th>
             <th><%= I18n.t('activerecord.attributes.products.stock') %></th>
+            <th><%= I18n.t('activerecord.attributes.products.chicken') %></th>
+            <th><%= I18n.t('activerecord.attributes.products.crate_percentage') %></th>
             <th><%= I18n.t('activerecord.attributes.products.notification_threshold') %></th>
             <th colspan="3"></th>
           </tr>
@@ -32,6 +34,8 @@
               <td><%= product.name %></td>
               <td>$<%= product.price %></td>
               <td><%= product.stock %><%= product.unit %></td>
+              <td><%= checkbox(product.chicken) %></td>
+              <td><%= product.crate_percentage %>%</td>
               <td><%= product.notification_threshold %><%= product.unit %></td>
               <td>
                 <button type="button" class="btn btn-primary btn-sm">

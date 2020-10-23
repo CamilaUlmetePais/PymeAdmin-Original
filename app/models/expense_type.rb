@@ -1,3 +1,3 @@
 class ExpenseType < ApplicationRecord
-  has many      :supplies
+  has_many      :supplies
 end
