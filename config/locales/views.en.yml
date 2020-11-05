@@ -9,24 +9,14 @@ en:
           items: Items
         pages:
           expenses:
-            monthly_expenses_total: Monthly expenses
-            monthly_cost_of_goods_sold: Monthly cost of goods sold
-            monthly_overhead: Monthly overhead
-            monthly_extraordinary_expenses: Monthly extraordinary expenses
-            anual_expenses_total: Anual expenses
-            anual_cost_of_goods_sold: Anual cost of goods sold
-            anual_overhead: Anual overhead
-            anual_extraordinary_expenses: Anual extraordinary expenses
+            total_expenses: Total expenses
+            cogs: Cost of goods sold
+            overhead: Overhead
+            extraordinary_expenses: Extraordinary expenses
             overhead_percentage: Overhead percentage
-          product_statistics:
-            product_cost: Product cost per unit flat
-            product_cost_w_overhead: Product cost with included overhead
-            product_profit_margin: Product profit margin per unit
-            monthly_product_sales: Monthly product sales
-            anual_product_sales: Anual product sales
-            daily_product_sales_average: Daily product sales average
-            monthly_product_sales_average: Monthly product sales average
-            anual_product_sales_average: Anual product sales average
+            average_daily_expenses: Average daily expenses
+            average_monthly_expenses: Average monthly expenses
+            average_yearly_expenses: Average yearly expenses
           profit:
             monthly_profit: Monthly profit
             anual_profit: Anual profit
@@ -63,11 +53,10 @@ en:
         edit: Edit %{model}
         pages:
           expenses: Expenses
-          product_statistics: Product Statistics
           profit: Profit
           sales: Sales
-          take: Take
           statistics: Statistics
+          take: Take
         products:
           mass_stock: Stock update
         notifications:

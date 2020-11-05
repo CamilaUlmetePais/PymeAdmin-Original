@@ -31,12 +31,11 @@
 						<%= link_to I18n.t('views.headers.pages.take'), take_path, class: "nav-link" %>
 					</li>
 					<li class="nav-item dropdown">
-		        <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false"><%= I18n.t('views.headers.pages.statistics')%></a>
+		        <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false"><%= I18n.t('views.headers.pages.statistics') %></a>
 		        <div class="dropdown-menu">
-		          <%= link_to I18n.t('views.headers.pages.expenses'), expenses_path, class: "dropdown-item" %>
-		          <%= link_to I18n.t('views.headers.pages.product_statistics'), product_statistics_path, class: "dropdown-item" %>
-		          <%= link_to I18n.t('views.headers.pages.profit'), profit_path, class: "dropdown-item" %>
-		          <%= link_to I18n.t('views.headers.pages.sales'), sales_path, class: "dropdown-item" %>
+	          	<%= link_to I18n.t('views.headers.pages.expenses'), expenses_path, class: "dropdown-item" %>
+	          	<%= link_to I18n.t('views.headers.pages.profit'), profit_path, class: "dropdown-item" %>
+	          	<%= link_to I18n.t('views.headers.pages.sales'), sales_path, class: "dropdown-item" %>
 		        </div>
 		      </li>
 				<% end %>
