@@ -8,6 +8,7 @@ en:
         index:
           items: Items
         pages:
+          averages: Averages
           expenses:
             total_expenses: Total expenses
             cogs: Cost of goods sold
@@ -18,18 +19,14 @@ en:
             average_monthly_expenses: Average monthly expenses
             average_yearly_expenses: Average yearly expenses
           profit:
-            monthly_profit: Monthly profit
-            anual_profit: Anual profit
+            total_profit: Total profit
             daily_profit_average: Daily profit average
             monthly_profit_average: Monthly profit average
             anual_profit_average: Anual profit average
           sales:
-            monthly_sales_total: Total monthly sales
-            monthly_sales_cash: Monthly sales in cash
-            monthly_sales_card: Monthly debit sales
-            anual_sales_total: Anual sales
-            anual_sales_cash: Anual cash sales
-            anual_sales_card: Anual debit sales
+            total_sales: Total sales
+            cash_sales: Sales in cash
+            card_sales: Sales in debit
             daily_sales_total_average: Daily sales average
             daily_sales_cash_average: Daily cash sales average
             daily_sales_card_average: Daily debit sales average
