@@ -1,52 +1,28 @@
 class PagesController < ApplicationController
 	before_action :authenticate_admin
 
-	def expenses
-    @all_outflows = Outflow.all
-    @outflows = Outflow.all
-    @all_inflows = Inflow.all
+	def statistics
     @inflows = Inflow.all
-    if !search_params.nil?
-  		empty = search_params[:date_from].empty? && search_params[:date_to].empty?
-      unless empty
-        start_date = DateTime.strptime(search_params[:date_from], '%m/%d/%Y').beginning_of_month
-        end_date = DateTime.strptime(search_params[:date_to], '%m/%d/%Y').end_of_month
-        @outflows = @outflows.date_range(start_date, end_date) unless empty
-      end
-    end
-		@variables = {
-    }
-	end
+    @outflows = Outflow.all
+    statistics_range unless statistics_params.nil?
+    inflows_total      = @inflows.sum('total')
+    outflows_total     = @outflows.sum('total')
+    supplies           = Supply.all
+    consumables        = supplies.where.not(unit: "$")
+    operative_expenses = supplies - consumables
+    op_ex_by_supplier  = operative_expenses.map{|supply| supply.get_operative_expenses}.flatten
 
-	def profit
-		@inflows  = Inflow.all
-		@outflows = Outflow.all
-    if !search_params.nil?
-  		empty = search_params[:date_from].empty? && search_params[:date_to].empty?
-      unless empty
-        start_date = DateTime.strptime(search_params[:date_from], '%m/%d/%Y').beginning_of_month
-        end_date = DateTime.strptime(search_params[:date_to], '%m/%d/%Y').end_of_month
-        @outflows = @outflows.date_range(start_date, end_date) unless empty
-        @inflows  = @inflows.date_range(start_date, end_date) unless empty
-      end
-    end
-		@variables = {
-    }
-	end
-
-	def sales
-		@inflows  = Inflow.all
-    if !search_params.nil?
-  		empty = search_params[:date_from].empty? && search_params[:date_to].empty?
-      unless empty
-        start_date = DateTime.strptime(search_params[:date_from], '%m/%d/%Y').beginning_of_month
-        end_date = DateTime.strptime(search_params[:date_to], '%m/%d/%Y').end_of_month
-        @inflows = @inflows.date_range(start_date, end_date) unless empty
-      end
-    end
-		@variables = {
-    }
-	end
+    @products   = Product.all
+    @suppliers  = Supplier.all
+    @statistics = {
+      gross_income: inflows_total,
+      total_expenses: outflows_total,
+      balance: inflows_total - outflows_total,
+      consumables: consumables,
+      operative_expenses: operative_expenses,
+      op_ex_by_supplier: op_ex_by_supplier
+      }
+  end
 
 	def take
 		@inflows   = Inflow.all
@@ -61,9 +37,19 @@ class PagesController < ApplicationController
 	end
 
 	private
-	def search_params
-		params.require(:pages).permit(:date_from, :date_to) unless params[:pages].nil?
-	end
+	def statistics_params
+    params.require(:pages).permit(:date_from, :date_to) unless params[:pages].nil?
+  end
+
+  def statistics_range
+    empty = statistics_params[:date_from].empty? && statistics_params[:date_to].empty?
+    unless empty
+      start_date = DateTime.strptime(statistics_params[:date_from], '%m/%d/%Y')
+      end_date = DateTime.strptime(statistics_params[:date_to], '%m/%d/%Y')
+      @inflows = @inflows.date_range(start_date, end_date)
+      @outflows = @outflows.date_range(start_date, end_date)
+    end
+  end
 
 	def take_params
 		params.require(:pages).permit(:date) unless params[:pages].nil?

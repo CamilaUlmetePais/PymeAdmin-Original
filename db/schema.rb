@@ -10,13 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20201013135319) do
-
-  create_table "expense_types", force: :cascade do |t|
-    t.string   "name"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
+ActiveRecord::Schema.define(version: 20200731182640) do
 
   create_table "inflow_items", force: :cascade do |t|
     t.float    "quantity"
@@ -74,8 +68,6 @@ ActiveRecord::Schema.define(version: 20201013135319) do
     t.string   "unit"
     t.float    "stock"
     t.integer  "notification_threshold"
-    t.boolean  "chicken"
-    t.float    "crate_percentage"
   end
 
   create_table "suppliers", force: :cascade do |t|
@@ -92,9 +84,8 @@ ActiveRecord::Schema.define(version: 20201013135319) do
     t.float    "price"
     t.string   "unit"
     t.float    "stock"
-    t.datetime "created_at",      null: false
-    t.datetime "updated_at",      null: false
-    t.integer  "expense_type_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "supply_product_links", force: :cascade do |t|

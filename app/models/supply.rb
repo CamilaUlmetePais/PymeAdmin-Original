@@ -1,10 +1,9 @@
 class Supply < ApplicationRecord
-	belongs_to			:expense_type
 	has_many        :outflow_items
 	has_many        :outflows, through: :outflow_items
 	has_many        :suppliers, through: :outflows
 	alias_attribute :items, :outflow_items
-	validates       :name, :price, :unit, :stock, :expense_type_id, presence: true
+	validates       :name, :price, :unit, :stock, presence: true
 	validates 			:stock, numericality: true
 	validates       :price, numericality: { greater_than: 0 }
 	validates       :name, uniqueness: { case_sensitive: false }

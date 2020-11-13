@@ -18,9 +18,7 @@ Rails.application.routes.draw do
     end
   end
   resources :supply_product_links
-  get 'expenses', to: 'pages#expenses', as: :expenses
-  get 'profit', to: 'pages#profit', as: :profit
-  get 'sales', to: 'pages#sales', as: :sales
+  get 'statistics', to: 'pages#statistics', as: :statistics
   get 'take', to: 'pages#take', as: :take
 
 end

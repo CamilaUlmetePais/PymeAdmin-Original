@@ -74,7 +74,7 @@ class SuppliesController < ApplicationController
    end
 
    def supply_params
-     params.require(:supply).permit(:name, :price, :unit, :stock, :expense_type_id,
+     params.require(:supply).permit(:name, :price, :unit, :stock,
       mass_stock: [:supply_id, :stock])
    end
 end

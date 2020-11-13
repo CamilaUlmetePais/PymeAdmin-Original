@@ -8,34 +8,20 @@ en:
         index:
           items: Items
         pages:
-          averages: Averages
-          expenses:
+          statistics:
+            balance: Balance
+            exp_per_supplier: Expenses per supplier
+            gross_income: Gross income
+            percentage: Percentage
+            quantity: Quantity
+            sales_per_product: Sales per product
+            supplier_name: Supplier
+            supplier_op_ex: Expenses
+            supply_name: Supply
+            total: Total
             total_expenses: Total expenses
-            cogs: Cost of goods sold
-            overhead: Overhead
-            extraordinary_expenses: Extraordinary expenses
-            overhead_percentage: Overhead percentage
-            average_daily_expenses: Average daily expenses
-            average_monthly_expenses: Average monthly expenses
-            average_yearly_expenses: Average yearly expenses
-          profit:
-            total_profit: Total profit
-            daily_profit_average: Daily profit average
-            monthly_profit_average: Monthly profit average
-            anual_profit_average: Anual profit average
-          sales:
-            total_sales: Total sales
-            cash_sales: Sales in cash
-            card_sales: Sales in debit
-            daily_sales_total_average: Daily sales average
-            daily_sales_cash_average: Daily cash sales average
-            daily_sales_card_average: Daily debit sales average
-            monthly_sales_total_average: Monthly sales average
-            monthly_sales_cash_average: Monthly cash sales average
-            monthly_sales_card_average: Monthly debit sales average
-            anual_sales_total_average: Anual sales average
-            anual_sales_cash_average: Anual cash sales average
-            anual_sales_card_average: Anual debit sales average
+            total_cogs: Total cost of goods sold
+            total_operative_expenses: Total operative expenses
           take:
             balance: Balance
             cash_inflows: Cash inflows
@@ -49,9 +35,6 @@ en:
       headers:
         edit: Edit %{model}
         pages:
-          expenses: Expenses
-          profit: Profit
-          sales: Sales
           statistics: Statistics
           take: Take
         products:
