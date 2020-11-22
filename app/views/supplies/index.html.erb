@@ -19,7 +19,6 @@
 					<tr>
 						<th><%= I18n.t('activerecord.attributes.supplies.name') %></th>
 						<th><%= I18n.t('activerecord.attributes.supplies.price') %></th>
-						<th><%= I18n.t('activerecord.attributes.supplies.expense_type') %></th>
 					</tr>
 				</thead>
 
@@ -28,7 +27,6 @@
 						<tr>
 							<td><%= supply.name %></td>
 							<td>$<%= supply.price %></td>
-							<td><%= supply.expense_type.name %></td>
 							<td>
                 <button type="button" class="btn btn-primary btn-sm">
                   <%= link_to I18n.t('helpers.buttons.show'), supply_path(supply), class: 'white-text' %>

@@ -44,7 +44,6 @@ class SuppliesController < ApplicationController
 
 	def new
 		@supply = Supply.new
-    @expense_types = ExpenseType.all
 	end
 
   def show
