@@ -132,7 +132,8 @@ GEM
     parser (2.7.0.2)
       ast (~> 2.4.0)
     popper_js (1.16.0)
-    puma (3.12.6)
+    puma (4.3.8)
+      nio4r (~> 2.0)
     rack (2.2.3)
     rack-test (0.6.3)
       rack (>= 1.0)
@@ -273,7 +274,7 @@ DEPENDENCIES
   kaminari-bootstrap (~> 3.0.1)
   listen (~> 3.0.5)
   mini_racer
-  puma (~> 3.12.6)
+  puma (~> 4.3.8)
   rails (~> 5.0.0, >= 5.0.0.1)
   rails-i18n (~> 5.1)
   rspec-rails
