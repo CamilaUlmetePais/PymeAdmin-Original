@@ -16,7 +16,7 @@
       <div class="col-12 inflow_items">
         <%= f.simple_fields_for :inflow_items do |builder| %>
           <%= render "inflow_item_fields", f: builder %>
-          <div class="links">
+          <div class="links ml-3 mb-2">
             <button type="button" class="btn btn-outline-primary">
               <%= link_to_add_association I18n.t('helpers.links.new_item'), f, :inflow_items %>
             </button>
@@ -40,7 +40,7 @@
       </div>
       <div class="col-3">
         <button type="button" class="btn btn-outline-primary">
-          <%= link_to I18n.t('helpers.buttons.back'), inflows_path %>
+          <%= link_to I18n.t('helpers.buttons.back'), inflows_path, data: { confirm: I18n.t('helpers.buttons.are_you_sure')} %>
         </button>
       </div>
     </div>

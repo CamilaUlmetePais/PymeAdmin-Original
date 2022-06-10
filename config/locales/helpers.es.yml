@@ -1,0 +1,76 @@
+es:
+  helpers:
+      buttons:
+        add: Agregar ítem
+        are_you_sure: Estás segure?
+        back: Atrás
+        destroy: Eliminar
+        edit: Editar
+        remove: Borrar
+        show: Mostrar
+        update_stock: Actualizar stock
+        search: Buscar
+      label:
+        inflow:
+          cash: Efectivo
+          total: Total
+        inflow_item:
+          inflow_id: ID de entrada
+          product_id: Producto
+          quantity: Cantidad
+        notification:
+          done: Listo
+          text: Contenido
+          title: Título
+        outflow:
+          total: Total
+          cash: Efectivo
+          notes: Notas
+          paid: Pagado
+          supplier_id: Proveedor/a
+        outflow_item:
+          outflow_id: ID de salida
+          quantity: Cantidad
+          supply_id: Insumo
+        product:
+          name: Nombre
+          notification_threshold: Umbral de notificación
+          price: Precio
+          stock: Stock
+          unit: Unidad
+        supplier:
+          account_balance: Saldo
+          name: Nombre
+          phone_number: Teléfono
+        supply:
+          name: Nombre
+          notification_threshold: Umbral de notificación
+          price: Precio
+          stock: Stock
+          unit: Unidad
+        supply_product_link:
+          product: ID de producto
+          supply: ID de insumo
+      links:
+        auto_stock: Configurar stock automático
+        new_inflow: Nueva Entrada
+        new_item: Nuevo Ítem
+        new_notification: Nueva Notificación
+        new_outflow: Nueva Salida
+        new_product: Nuevo Producto
+        new_supplier: Nuevo/a Proveedor/a
+        new_supply: Nuevo Insumo
+        new_supply_product_link: Nuevo Vínculo Insumo-Producto
+      search:
+        by_date: 'Buscar por fecha:'
+        from: Fecha desde
+        to: Fecha hasta
+        cash: Efectivo
+        card: Tarjeta
+        date: Fecha
+      select:
+        prompt: Por favor seleccione
+      submit:
+        create: Crear %{model}
+        submit: Guardar %{model}
+        update: Actualizar %{model}

@@ -65,20 +65,20 @@ es:
       updated: "Tu cuenta se actualizó exitosamente."
       updated_but_not_signed_in: "Tu cuenta se actualizó exitosamente, pero como cambiaste tu contraseña, tenés que volver a iniciar sesión."
     sessions:
-      signed_in: "Signed in successfully."
-      signed_out: "Signed out successfully."
-      already_signed_out: "Signed out successfully."
+      signed_in: "Iniciaste sesión exitosamente."
+      signed_out: "Cerraste sesión exitosamente."
+      already_signed_out: "Cerraste sesión exitosamente."
     unlocks:
-      send_instructions: "You will receive an email with instructions for how to unlock your account in a few minutes."
-      send_paranoid_instructions: "If your account exists, you will receive an email with instructions for how to unlock it in a few minutes."
-      unlocked: "Your account has been unlocked successfully. Please sign in to continue."
+      send_instructions: "Recibirás instrucciones por e-mail para desbloquear tu cuenta en unos minutos."
+      send_paranoid_instructions: "Si tu cuenta existe, recibirás instrucciones por e-mail para desbloquearla en unos minutos."
+      unlocked: "Tu cuenta se desbloqueó con éxito. Iniciá sesión para continuar."
   errors:
     messages:
-      already_confirmed: "was already confirmed, please try signing in"
-      confirmation_period_expired: "needs to be confirmed within %{period}, please request a new one"
-      expired: "has expired, please request a new one"
-      not_found: "not found"
-      not_locked: "was not locked"
+      already_confirmed: "ya estaba confirmada, por favor intentá iniciar sesión."
+      confirmation_period_expired: "necesita confirmarse antes de %{period}, por favor pedí uno nuevo."
+      expired: "expiró, por favor pedí uno nuevo."
+      not_found: "no encontrado"
+      not_locked: "no estaba bloqueada"
       not_saved:
-        one: "1 error prohibited this %{resource} from being saved:"
-        other: "%{count} errors prohibited this %{resource} from being saved:"
+        one: "1 error prohibió que %{resource} se guardara:"
+        other: "%{count} errores prohibieron que %{resource} se guardara:"

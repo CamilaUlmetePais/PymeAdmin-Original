@@ -16,7 +16,7 @@
 		</div>
 		<div class="col-1">
 			<button type="button" class="btn btn-outline-primary">
-        <%= link_to I18n.t('helpers.buttons.back'), notifications_path %>
+        <%= link_to I18n.t('helpers.buttons.back'), notifications_path, data: { confirm: I18n.t('helpers.buttons.are_you_sure')} %>
       </button>
 		</div>
 	</div>

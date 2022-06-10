@@ -6,9 +6,9 @@
 	</div>
 
 	<div class="row">
-		<div class="col-12">
+		<div class="col-8">
 			<%= simple_form_for :product, url: 'mass_stock_update', authenticity_token: true  do |f| %>
-				<% 10.times do |n| %>
+				<% 8.times do |n| %>
 					<%= f.simple_fields_for :mass_stock do |builder| %>
 				    <%= render 'mass_stock_fields', number: n, f: builder %>
 				  <% end %>
@@ -16,14 +16,14 @@
 		</div>
 	</div>
 
-	<div class="row mb-6 mt-2">
-		<div class="col-6">
+	<div class="row mb-6 mt-2 ml-2">
+		<div class="col-7">
 			<%= f.button :submit, class: "btn-primary" %>
 			<% end %>
 		</div>
-		<div class="col-6">
+		<div class="col-4 ml-4">
 			<button type="button" class="btn btn-outline-primary">
-				<%= link_to I18n.t('helpers.buttons.back'), products_path %>
+				<%= link_to I18n.t('helpers.buttons.back'), products_path, data: { confirm: I18n.t('helpers.buttons.are_you_sure')} %>
 			</button>
 		</div>
 	</div>

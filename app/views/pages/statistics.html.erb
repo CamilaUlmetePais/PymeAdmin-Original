@@ -9,13 +9,13 @@
     <%= simple_form_for(:pages, wrapper: :inline_form, html: { class: "form-inline col-12" },
     url: statistics_path , method: :get) do |f| %>
       <%= f.error_notification %>
-      <div class="col-3">
+      <div class="mr-3">
         <%= f.input :date_from, id: 'date_from', placeholder: I18n.t('helpers.search.from')%>
       </div>
-      <div class="col-3">
+      <div class="mr-3">
         <%= f.input :date_to, id: 'date_to', placeholder: I18n.t('helpers.search.to')%>
       </div>
-      <div class="col-3">
+      <div class="mr-3">
         <%= f.button :submit, I18n.t('helpers.buttons.search'), class: "btn-primary" %>
       </div>
     <% end %>

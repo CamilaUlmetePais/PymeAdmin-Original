@@ -9,12 +9,10 @@
     <%= simple_form_for(:pages, wrapper: :inline_form, html: { class: "form-inline col-12" },
     url: take_path , method: :get) do |f| %>
       <%= f.error_notification %>
-      <div class="col-2">
+      <div class="mr-2 ml-2">
         <%= f.input :date, id: 'date', placeholder: I18n.t('helpers.search.date')%>
       </div>
-      <div class="col-2">
-        <%= f.button :submit, I18n.t('helpers.buttons.search'), class: "btn-primary" %>
-      </div>
+      <%= f.button :submit, I18n.t('helpers.buttons.search'), class: "btn-primary" %>
     <% end %>
   </div>
 
