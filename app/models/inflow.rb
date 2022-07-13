@@ -3,8 +3,6 @@ class Inflow < ApplicationRecord
 	has_many 											:inflow_items
 	accepts_nested_attributes_for :inflow_items, allow_destroy: true, reject_if: :all_blank
 	alias_attribute 							:items, :inflow_items
-	validates 										:total, presence: true
-	validates 										:total, numericality: true
 
 	scope :cash_scope, -> (value) { where('cash = ?', value) }
 	scope :date_range, -> (start_date, end_date) { where(
