@@ -3,9 +3,9 @@
 one:
   quantity: 1.5
   outflow: one
-  product: one
+  supply: one
 
 two:
   quantity: 1.5
   outflow: two
-  product: two
+  supply: two

@@ -3,7 +3,11 @@
 one:
   total: 1.5
   cash: false
+  paid: 1.5
+  supplier: one
 
 two:
   total: 1.5
   cash: false
+  paid: 1
+  supplier: one

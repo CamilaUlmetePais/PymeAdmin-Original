@@ -2,6 +2,8 @@
 
 one:
   total: 1.5
+  cash: true
 
 two:
   total: 1.5
+  cash: false

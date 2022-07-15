@@ -3,9 +3,11 @@
 one:
   name: MyString
   price: 1.5
-  quantity: 1.5
+  unit: MyString
+  stock: 1.5
 
 two:
   name: MyString
   price: 1.5
-  quantity: 1.5
+  unit: MyString
+  stock: 1.5

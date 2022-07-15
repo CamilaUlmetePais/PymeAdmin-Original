@@ -7,11 +7,6 @@ RSpec.describe Inflow, type: :model do
 		it { should accept_nested_attributes_for(:inflow_items).allow_destroy(true) }
 	end
 
-	context "validations" do
-		it { should validate_presence_of(:total) }
-		it { should validate_numericality_of(:total) }
-	end
-
 	context "generate_total method" do
 		it "generates the value for the 'total' attribute by adding subtotals" do
 			@product      = create(:product, price: 2)

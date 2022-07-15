@@ -11,6 +11,7 @@ RSpec.describe Supplier, type: :model do
 		it { should validate_presence_of(:account_balance) }
 		it { should validate_numericality_of(:account_balance) }
 		it { should validate_numericality_of(:notification_threshold) }
+		it { should validate_numericality_of(:phone_number) }
 		it { should validate_uniqueness_of(:name).case_insensitive }
 	end
 

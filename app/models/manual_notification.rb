@@ -1,3 +1,3 @@
 class ManualNotification < Notification
-	validates :due_date, presence: true
+	validates :due_date, :title, presence: true
 end
