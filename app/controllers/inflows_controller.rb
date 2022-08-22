@@ -125,8 +125,10 @@ class InflowsController < ApplicationController
     def generate_inflow_total(params)
       total = 0
       params[:inflow_items_attributes].to_h.values.each do |item|
-        product = Product.find(item[:product_id])
-        total += item[:quantity].to_f * product.price
+        unless item[:product_id].empty? || item[:quantity].empty?
+          product = Product.find(item[:product_id])
+          total += item[:quantity].to_f * product.price
+        end
       end
       total
     end

@@ -13,24 +13,26 @@
     </div>
 
     <div class="row">
-      <div class="col-12 inflow_items">
-        <%= f.simple_fields_for :inflow_items do |builder| %>
-          <%= render "inflow_item_fields", f: builder %>
-          <div class="links ml-3 mb-2">
-            <button type="button" class="btn btn-outline-primary">
-              <%= link_to_add_association I18n.t('helpers.links.new_item'), f, :inflow_items %>
-            </button>
-          </div>
+      <div class="col-12">
+        <% 8.times do |n| %>
+          <%= f.simple_fields_for :inflow_items do |builder| %>
+            <%= render "inflow_item_fields", number: n, f: builder %>
+            <!-- <div class="links ml-3 mb-2">
+              <button type="button" class="btn btn-outline-primary">
+                <%= link_to_add_association I18n.t('helpers.links.new_item'), f, :inflow_items %>
+              </button>
+            </div> -->
+          <% end %>
         <% end %>
       </div>
     </div>
 
-    <div class="row">
-      <div class="col-4">
-        <div class="fields mb-2 mt-4">
-            <%= f.input :total %>
-            <%= f.input :cash, input_html: { checked: true } %>
-        </div>
+    <div class="row fields mb-2 mt-4">
+      <div class="col-6">
+          <%= f.input :cash, input_html: { checked: true } %>
+      </div>
+      <div class="col-6" id="total">
+          Total:
       </div>
     </div>
 
