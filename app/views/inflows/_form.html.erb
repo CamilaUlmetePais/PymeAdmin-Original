@@ -1,3 +1,4 @@
+<%# byebug %>
 <%= simple_form_for(@inflow, html: { class: 'form-vertical' }) do |f| %>
   <div class="container-fluid">
     <div class="row">
@@ -15,20 +16,22 @@
     <div class="row">
       <div class="col-12">
         <% 8.times do |n| %>
+          <% if params['inflow'] %>
+            <% item = params['inflow']['inflow_items_attributes'][n.to_s] %>
+          <% else %>
+            <% item = {quantity: "" , product_id: ""} %>
+          <% end %>
           <%= f.simple_fields_for :inflow_items do |builder| %>
-            <%= render "inflow_item_fields", number: n, f: builder %>
-            <!-- <div class="links ml-3 mb-2">
-              <button type="button" class="btn btn-outline-primary">
-                <%= link_to_add_association I18n.t('helpers.links.new_item'), f, :inflow_items %>
-              </button>
-            </div> -->
+            <%= render "inflow_item_fields", number: n, item: item, f: builder %>
           <% end %>
         <% end %>
       </div>
     </div>
 
     <div class="row fields mb-2 mt-4">
-      <div class="col-6">
+      <div class="col-5">
+      </div>
+      <div class="col-1">
           <%= f.input :cash, input_html: { checked: true } %>
       </div>
       <div class="col-6" id="total">
@@ -37,13 +40,13 @@
     </div>
 
     <div class="row mb-2">
-      <div class="col-3">
-        <%= f.button :submit, class: "btn-primary" %>
-      </div>
-      <div class="col-3">
+      <div class="col-5">
         <button type="button" class="btn btn-outline-primary">
           <%= link_to I18n.t('helpers.buttons.back'), inflows_path, data: { confirm: I18n.t('helpers.buttons.are_you_sure')} %>
         </button>
+      </div>
+      <div class="col-3">
+        <%= f.button :submit, class: "btn-primary" %>
       </div>
     </div>
   </div>

@@ -18,8 +18,9 @@ class InflowsController < ApplicationController
                     }
         format.json { render :show, status: :created, location: @inflow }
       else
+        @products = Product.all
         format.html { render :new }
-        format.json { render json: @inflow.errors, status: :unprocessable_entity }
+        format.json { render json: @inflow.errors, status: :unprocessable_entity, products: @products }
       end
     end
   end

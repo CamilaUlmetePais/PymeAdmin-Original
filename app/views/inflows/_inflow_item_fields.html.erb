@@ -4,20 +4,21 @@
       <div class="row inflow-item">
         <div class="col-3">
           <div class="field quantity-input">
-            <%= f.input :quantity %>
+            <%= f.input :quantity, input_html: {value: item[:quantity]} %>
           </div>
         </div>
         <div class="col-3">
           <div class="field product-id-input">
-            <%= f.input :product_id, collection: @products %>
+            <% if item[:product_id].empty? %>
+              <%= f.input :product_id, collection: @products %>
+            <% else %>
+              <%= f.input :product_id, collection: @products, selected: item[:product_id] %>
+            <% end %>
           </div>
         </div>
         <div class="col-3 mt-5">
           subtotal
         </div>
-        <!-- <div class="col-3">
-          <%# Boton destroy  %>
-        </div> -->
       </div>
     </fieldset>
   </div>
