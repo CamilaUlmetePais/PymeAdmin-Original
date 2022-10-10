@@ -12,8 +12,8 @@ class InflowsController < ApplicationController
         @inflow.notification_builder
         format.html { redirect_to inflows_path,
                       notice: {
-                        message: I18n.t('activerecord.controllers.actions.created'),
-                        model_name: I18n.t('activerecord.models.inflow.one')
+                        message: I18n.t('activerecord.controllers.actions.created',
+                        model_name: I18n.t('activerecord.models.inflow.one') )
                       }
                     }
         format.json { render :show, status: :created, location: @inflow }
