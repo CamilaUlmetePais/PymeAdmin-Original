@@ -8,13 +8,7 @@ Rails.application.routes.draw do
       post 'add_items', to: 'inflows#add_items', as: :add_items
     end
   end
-  resources :products do
-    collection do
-      get 'mass_stock'
-      post 'mass_stock_update'
-    end
-  end
-  resources :supplies do
+  resources :products, :supplies do
     collection do
       get 'mass_stock'
       post 'mass_stock_update'
