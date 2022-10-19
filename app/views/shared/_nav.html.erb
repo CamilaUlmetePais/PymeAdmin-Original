@@ -15,8 +15,23 @@
     				<%= link_to I18n.t('activerecord.models.inflow.other'), inflows_path, class: "dropdown-item" %>
     			</div>
     		</div>
-				<%=  %>
 			</li>
+			<li class="nav-item mr-1">
+					<div class="btn-group">
+		  			<button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+		  				<%= I18n.t('activerecord.models.product.other') %>
+		  			</button>
+		  			<div class="dropdown-menu">
+		  				<% unless current_user.nil? %>
+			  				<% if current_user.admin %>
+			  					<%= link_to	I18n.t('helpers.links.new_product'), new_product_path, class: "dropdown-item" %>
+			  				<% end %>
+			  			<% end %>
+		  				<%= link_to	I18n.t('activerecord.models.product.other'), products_path, class: "dropdown-item" %>
+		  				<%= link_to I18n.t('views.headers.products.mass_stock'), mass_stock_products_path, class: "dropdown-item"%>
+		  			</div>
+		  		</div>
+			  </li>
 			<% unless current_user.nil? %>
 				<% if current_user.admin %>
 					<li class="nav-item mr-1">
@@ -30,18 +45,6 @@
 							</div>
 						</div>
 					</li>
-					<li class="nav-item mr-1">
-						<div class="btn-group">
-			  			<button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-			  				<%= I18n.t('activerecord.models.product.other') %>
-			  			</button>
-			  			<div class="dropdown-menu">
-			  				<%= link_to	I18n.t('helpers.links.new_product'), new_product_path, class: "dropdown-item" %>
-			  				<%= link_to	I18n.t('activerecord.models.product.other'), products_path, class: "dropdown-item" %>
-			  				<%= link_to I18n.t('views.headers.products.mass_stock'), mass_stock_products_path, class: "dropdown-item"%>
-			  			</div>
-			  		</div>
-			  	</li>
 			  	<li class="nav-item mr-1">
 						<div class="btn-group">
 							<button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">

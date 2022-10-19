@@ -34,6 +34,7 @@ en:
           date: Created at
       headers:
         edit: Edit %{model}
+        add_items: Add items to %{model}
         pages:
           statistics: Statistics
           take: Take

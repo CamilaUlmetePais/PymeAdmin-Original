@@ -20,8 +20,13 @@ class OutflowsController < ApplicationController
                     }
         format.json { render :show, status: :created, location: @outflow }
       else
-        format.html { render :new }
-        format.json { render json: @outflow.errors, status: :unprocessable_entity }
+        @supplies = Supply.all.order('name')
+        format.html { redirect_to outflows_path,
+                      alert: {
+                        message: I18n.t('activerecord.controllers.actions.failed',
+                        model_name: I18n.t('activerecord.models.outflow.one') )
+                      }
+                    }
       end
     end
   end
@@ -34,7 +39,7 @@ class OutflowsController < ApplicationController
     @outflow.destroy
     respond_to do |format|
       format.html { redirect_to outflows_path,
-                    notice: {
+                    alert: {
                       message: I18n.t('activerecord.controllers.actions.destroyed',
                       model_name: I18n.t('activerecord.models.outflow.one') )
                     }
@@ -45,8 +50,8 @@ class OutflowsController < ApplicationController
 
   # GET /outflows/1/edit
   def edit
-    @supplies = Supply.all
-    @suppliers = Supplier.all
+    @supplies = Supply.all.order('name')
+    @suppliers = Supplier.all.order('name')
   end
 
   # GET /outflows
@@ -61,8 +66,8 @@ class OutflowsController < ApplicationController
   def new
     @outflow = Outflow.new
     @outflow.items.build
-    @supplies = Supply.all
-    @suppliers = Supplier.all
+    @supplies = Supply.all.order('name')
+    @suppliers = Supplier.all.order('name')
   end
 
   def show

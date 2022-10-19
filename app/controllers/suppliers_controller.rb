@@ -29,7 +29,7 @@ class SuppliersController < ApplicationController
     @supplier.destroy
     respond_to do |format|
       format.html { redirect_to suppliers_path,
-                    notice: {
+                    alert: {
                       message: I18n.t('activerecord.controllers.actions.destroyed',
                       model_name: I18n.t('activerecord.models.supplier.one') )
                     }

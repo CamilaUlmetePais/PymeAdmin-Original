@@ -1,0 +1,21 @@
+<div class="container-fluid">
+  <div class="fields">
+    <fieldset>
+      <div class="row">
+        <div class="col-3">
+          <div class="field">
+            <%= builder.input :quantity %>
+          </div>
+        </div>
+        <div class="col-3">
+          <div class="field">
+            <%= builder.input :product_id, collection: @products %>
+          </div>
+        </div>
+        <!-- div class="col-3 mt-5">
+          subtotal 0
+        </div -->
+      </div>
+    </fieldset>
+  </div>
+</div>

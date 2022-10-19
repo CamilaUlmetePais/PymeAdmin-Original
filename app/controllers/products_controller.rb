@@ -1,7 +1,7 @@
 class ProductsController < ApplicationController
   before_action :set_product, only: [:show, :edit, :update, :destroy]
   skip_before_action :verify_authenticity_token, only: [:mass_stock_update]
-  before_action :authenticate_admin
+  before_action :authenticate_admin, only: [:create, :destroy, :edit, :new]
 
   # POST /products
   # POST /products.json
@@ -29,7 +29,7 @@ class ProductsController < ApplicationController
     @product.destroy
     respond_to do |format|
       format.html { redirect_to products_path,
-                    notice: {
+                    alert: {
                       message: I18n.t('activerecord.controllers.actions.destroyed',
                       model_name: I18n.t('activerecord.models.product.one') )
                     }
@@ -49,7 +49,7 @@ class ProductsController < ApplicationController
   end
 
   def mass_stock
-    @products = Product.all
+    @products = Product.all.order('name')
   end
 
   def mass_stock_update

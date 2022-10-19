@@ -59,6 +59,7 @@ en:
         destroyed: " %{model_name} was successfully deleted."
         stock_updated: Stock was successfully updated.
         updated: " %{model_name} was successfully updated."
+        failed: " %{model_name} failed to be created."
     errors:
       messages:
         record_invalid: 'Validation failed: %{errors}'

@@ -34,6 +34,7 @@ es:
           date: Creado el
       headers:
         edit: Editar %{model}
+        add_items: Agregar ítems a %{model}
         pages:
           statistics: Estadísticas
           take: Caja

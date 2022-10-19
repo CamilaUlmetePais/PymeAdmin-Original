@@ -6,6 +6,7 @@ en:
         back: Back
         destroy: Destroy
         edit: Edit
+        expand: Add Items
         remove: Remove
         show: Show
         update_stock: Update stock

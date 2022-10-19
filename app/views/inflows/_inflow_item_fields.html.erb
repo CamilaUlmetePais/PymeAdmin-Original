@@ -1,25 +1,182 @@
 <div class="container-fluid">
   <div class="fields">
     <fieldset>
-      <div class="row inflow-item">
+      <div class="row" id="item-0">
         <div class="col-3">
-          <div class="field quantity-input">
-            <%= f.input :quantity, input_html: {value: item[:quantity]} %>
+          <div class="field quantity-0">
+            <%= builder.input :quantity, input_html: {
+              id: 'inflow_inflow_items_attributes_0_quantity',
+              name: 'inflow[inflow_items_attributes][0][quantity]'
+              } %>
           </div>
         </div>
         <div class="col-3">
-          <div class="field product-id-input">
-            <% if item[:product_id].empty? %>
-              <%= f.input :product_id, collection: @products %>
-            <% else %>
-              <%= f.input :product_id, collection: @products, selected: item[:product_id] %>
-            <% end %>
+          <div class="field product-id-0">
+            <%= builder.input :product_id, collection: @products, input_html: {
+                id: 'inflow_inflow_items_attributes_0_product_id',
+                name: 'inflow[inflow_items_attributes][0][product_id]'
+                } %>
           </div>
         </div>
         <div class="col-3 mt-5">
-          subtotal
+          subtotal 0
         </div>
       </div>
+
+      <div class="row" id="item-1">
+        <div class="col-3">
+          <div class="field quantity-1">
+            <%= builder.input :quantity, input_html: {
+              id: 'inflow_inflow_items_attributes_1_quantity',
+              name: 'inflow[inflow_items_attributes][1][quantity]'
+              } %>
+          </div>
+        </div>
+        <div class="col-3">
+          <div class="field product-id-1">
+            <%= builder.input :product_id, collection: @products, input_html: {
+                id: 'inflow_inflow_items_attributes_1_product_id',
+                name: 'inflow[inflow_items_attributes][1][product_id]'
+                } %>
+          </div>
+        </div>
+        <div class="col-3 mt-5">
+          subtotal 1
+        </div>
+      </div>
+
+      <div class="row" id="item-2">
+        <div class="col-3">
+          <div class="field quantity-2">
+            <%= builder.input :quantity, input_html: {
+              id: 'inflow_inflow_items_attributes_2_quantity',
+              name: 'inflow[inflow_items_attributes][2][quantity]'
+              } %>
+          </div>
+        </div>
+        <div class="col-3">
+          <div class="field product-id-2">
+            <%= builder.input :product_id, collection: @products, input_html: {
+                id: 'inflow_inflow_items_attributes_2_product_id',
+                name: 'inflow[inflow_items_attributes][2][product_id]'
+                } %>
+          </div>
+        </div>
+        <div class="col-3 mt-5">
+          subtotal 2
+        </div>
+      </div>
+
+      <div class="row" id="item-3">
+        <div class="col-3">
+          <div class="field quantity-3">
+            <%= builder.input :quantity, input_html: {
+              id: 'inflow_inflow_items_attributes_3_quantity',
+              name: 'inflow[inflow_items_attributes][3][quantity]'
+              } %>
+          </div>
+        </div>
+        <div class="col-3">
+          <div class="field product-id-3">
+            <%= builder.input :product_id, collection: @products, input_html: {
+                id: 'inflow_inflow_items_attributes_3_product_id',
+                name: 'inflow[inflow_items_attributes][3][product_id]'
+                } %>
+          </div>
+        </div>
+        <div class="col-3 mt-5">
+          subtotal 3
+        </div>
+      </div>
+
+      <div class="row" id="item-4">
+        <div class="col-3">
+          <div class="field quantity-4">
+            <%= builder.input :quantity, input_html: {
+              id: 'inflow_inflow_items_attributes_4_quantity',
+              name: 'inflow[inflow_items_attributes][4][quantity]'
+              } %>
+          </div>
+        </div>
+        <div class="col-3">
+          <div class="field product-id-4">
+            <%= builder.input :product_id, collection: @products, input_html: {
+                id: 'inflow_inflow_items_attributes_4_product_id',
+                name: 'inflow[inflow_items_attributes][4][product_id]'
+                } %>
+          </div>
+        </div>
+        <div class="col-3 mt-5">
+          subtotal 4
+        </div>
+      </div>
+
+      <div class="row" id="item-5">
+        <div class="col-3">
+          <div class="field quantity-5">
+            <%= builder.input :quantity, input_html: {
+              id: 'inflow_inflow_items_attributes_5_quantity',
+              name: 'inflow[inflow_items_attributes][5][quantity]'
+              } %>
+          </div>
+        </div>
+        <div class="col-3">
+          <div class="field product-id-5">
+            <%= builder.input :product_id, collection: @products, input_html: {
+                id: 'inflow_inflow_items_attributes_5_product_id',
+                name: 'inflow[inflow_items_attributes][5][product_id]'
+                } %>
+          </div>
+        </div>
+        <div class="col-3 mt-5">
+          subtotal 5
+        </div>
+      </div>
+
+      <div class="row" id="item-6">
+        <div class="col-3">
+          <div class="field quantity-6">
+            <%= builder.input :quantity, input_html: {
+              id: 'inflow_inflow_items_attributes_6_quantity',
+              name: 'inflow[inflow_items_attributes][6][quantity]'
+              } %>
+          </div>
+        </div>
+        <div class="col-3">
+          <div class="field product-id-6">
+            <%= builder.input :product_id, collection: @products, input_html: {
+                id: 'inflow_inflow_items_attributes_6_product_id',
+                name: 'inflow[inflow_items_attributes][6][product_id]'
+                } %>
+          </div>
+        </div>
+        <div class="col-3 mt-5">
+          subtotal 6
+        </div>
+      </div>
+
+      <div class="row" id="item-7">
+        <div class="col-3">
+          <div class="field quantity-7">
+            <%= builder.input :quantity, input_html: {
+              id: 'inflow_inflow_items_attributes_7_quantity',
+              name: 'inflow[inflow_items_attributes][7][quantity]'
+              } %>
+          </div>
+        </div>
+        <div class="col-3">
+          <div class="field product-id-7">
+            <%= builder.input :product_id, collection: @products, input_html: {
+                id: 'inflow_inflow_items_attributes_7_product_id',
+                name: 'inflow[inflow_items_attributes][7][product_id]'
+                } %>
+          </div>
+        </div>
+        <div class="col-3 mt-5">
+          subtotal 7
+        </div>
+      </div>
+
     </fieldset>
   </div>
 </div>

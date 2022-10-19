@@ -1,13 +1,18 @@
 <div class='container-fluid'>
   <%= render 'shared/notice', notice: notice %>
+  <%= render 'shared/alert', alert: alert %>
 
   <div class="row mt-2 mb-2">
     <div class="col-5">
       <h1><%= I18n.t('activerecord.models.product.other') %></h1>
     </div>
-    <div class='col-2'>
-      <button type="button" class="btn btn-primary btn-lg"><%= link_to I18n.t('helpers.links.new_product'), new_product_path, class: 'white-text' %></button>
-    </div>
+    <% unless current_user.nil? %>
+      <% if current_user.admin %>
+        <div class='col-2'>
+          <button type="button" class="btn btn-primary btn-lg"><%= link_to I18n.t('helpers.links.new_product'), new_product_path, class: 'white-text' %></button>
+        </div>
+      <% end %>
+    <% end %>
     <div class="col-2">
       <button type="button" class="btn btn-primary btn-lg"><%= link_to I18n.t('helpers.buttons.update_stock'), mass_stock_products_path, class: 'white-text' %></button>
     </div>
@@ -38,17 +43,21 @@
                   <%= link_to I18n.t('helpers.buttons.show'), product_path(product), class: 'white-text' %>
                 </button>
               </td>
-              <td>
-                <button type="button" class="btn btn-success btn-sm">
-                  <%= link_to I18n.t('helpers.buttons.edit'), edit_product_path(product), class: 'white-text'%>
-                </button>
-              </td>
-              <td>
-                <button type="button" class="btn btn-danger btn-sm">
-                  <%= link_to I18n.t('helpers.buttons.destroy'), product, class: 'white-text',
-                  method: :delete, data: { confirm: I18n.t('helpers.buttons.are_you_sure') } %>
-                </button>
-              </td>
+              <% unless current_user.nil? %>
+                <% if current_user.admin %>
+                  <td>
+                    <button type="button" class="btn btn-success btn-sm">
+                      <%= link_to I18n.t('helpers.buttons.edit'), edit_product_path(product), class: 'white-text'%>
+                    </button>
+                  </td>
+                  <td>
+                    <button type="button" class="btn btn-danger btn-sm">
+                      <%= link_to I18n.t('helpers.buttons.destroy'), product, class: 'white-text',
+                      method: :delete, data: { confirm: I18n.t('helpers.buttons.are_you_sure') } %>
+                    </button>
+                  </td>
+                <% end %>
+              <% end %>
             </tr>
           <% end %>
         </tbody>

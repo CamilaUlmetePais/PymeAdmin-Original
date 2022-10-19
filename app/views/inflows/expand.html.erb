@@ -1,0 +1,16 @@
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-6">
+      <h1><%=I18n.t('views.headers.add_items', model: I18n.t('activerecord.models.inflow.one') )%> </h1>
+    </div>
+  </div>
+
+  <!-- show inflow as is with a small table or cards like in the index. don't forget the cash boolean -->
+
+  <div class="row">
+    <div class="col-12">
+      <%# render 'form', inflow: @inflow %>
+      <!-- render _inflow_item_fields to add new items -->
+    </div>
+  </div>
+</div>

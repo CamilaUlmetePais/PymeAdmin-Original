@@ -1,5 +1,6 @@
 <div class='container-fluid'>
   <%= render 'shared/notice', notice: notice %>
+  <%= render 'shared/alert', alert: alert %>
 
   <div class="row mb-2 mt-2">
     <div class="col-10">
@@ -65,19 +66,22 @@
                   <%= link_to I18n.t('helpers.buttons.show'), inflow_path(inflow), class: 'white-text' %>
                 </button>
               </td>
-              <% if current_user.admin %>
-                <td>
-                  <button type='button' class='btn btn-success btn-sm'>
-                    <%= link_to I18n.t('helpers.buttons.edit'), edit_inflow_path(inflow), class: 'white-text' %>
-                  </button>
-                </td>
-                <td>
-                  <button type='button' class='btn btn-danger btn-sm'>
-                    <%= link_to I18n.t('helpers.buttons.destroy'), inflow, class: 'white-text',
-                      method: :delete, data: { confirm: I18n.t('helpers.buttons.are_you_sure') }%>
-                  </button>
-                </td>
-                <% end %>
+              <td>
+                <button type='button' class='btn btn-success btn-sm'>
+                  <%= link_to I18n.t('helpers.buttons.edit'), edit_inflow_path(inflow), class: 'white-text' %>
+                </button>
+              </td>
+              <td>
+                <button type='button' class='btn btn-success btn-sm'>
+                  <%= link_to I18n.t('helpers.buttons.expand'), expand_inflows_path(inflow), class: 'white-text' %>
+                </button>
+              </td>
+              <td>
+                <button type='button' class='btn btn-danger btn-sm'>
+                  <%= link_to I18n.t('helpers.buttons.destroy'), inflow, class: 'white-text',
+                    method: :delete, data: { confirm: I18n.t('helpers.buttons.are_you_sure') }%>
+                </button>
+              </td>
             </tr>
           <% end %>
         </tbody>

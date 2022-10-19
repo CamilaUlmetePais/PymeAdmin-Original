@@ -13,6 +13,8 @@ class SupplyProductLinksController < ApplicationController
                       }
                     }
       else
+        @products = Product.all.order('name')
+        @supplies = Supply.all.order('name')
         format.html { render :new }
         format.json { render json: @supply_product_link.errors, status: :unprocessable_entity }
       end
@@ -23,7 +25,7 @@ class SupplyProductLinksController < ApplicationController
     @supply_product_link.destroy
     respond_to do |format|
       format.html { redirect_to supply_product_links_path,
-                    notice: {
+                    alert: {
                       message: I18n.t('activerecord.controllers.actions.destroyed',
                       model_name: I18n.t('activerecord.models.supply_product_link.one') )
                     }
@@ -41,8 +43,8 @@ class SupplyProductLinksController < ApplicationController
 
 	def new
 		@supply_product_link = SupplyProductLink.new
-    @products            = Product.all
-    @supplies            = Supply.all
+    @products            = Product.all.order('name')
+    @supplies            = Supply.all.order('name')
 	end
 
  private

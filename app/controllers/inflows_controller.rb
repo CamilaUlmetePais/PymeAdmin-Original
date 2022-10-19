@@ -1,5 +1,13 @@
 class InflowsController < ApplicationController
-  before_action :set_inflow, only: [:show, :edit, :update, :destroy]
+  before_action :set_inflow, only: [:show, :edit, :update, :destroy, :add_items, :expand]
+
+  def add_items
+
+  end
+
+  def expand
+    @products = Product.all.order('name')
+  end
 
   # POST /inflows
   # POST /inflows.json
@@ -18,9 +26,13 @@ class InflowsController < ApplicationController
                     }
         format.json { render :show, status: :created, location: @inflow }
       else
-        @products = Product.all
-        format.html { render :new }
-        format.json { render json: @inflow.errors, status: :unprocessable_entity, products: @products }
+        @products = Product.all.order('name')
+        format.html { redirect_to inflows_path,
+                      alert: {
+                        message: I18n.t('activerecord.controllers.actions.failed',
+                        model_name: I18n.t('activerecord.models.inflow.one') )
+                      }
+                    }
       end
     end
   end
@@ -32,7 +44,7 @@ class InflowsController < ApplicationController
     @inflow.destroy
     respond_to do |format|
       format.html { redirect_to inflows_path,
-                    notice: {
+                    alert: {
                       message: I18n.t('activerecord.controllers.actions.destroyed',
                       model_name: I18n.t('activerecord.models.inflow.one') )
                     }
@@ -43,7 +55,7 @@ class InflowsController < ApplicationController
 
   # GET /inflows/1/edit
   def edit
-    @products = Product.all
+    @products = Product.all.order('name')
   end
 
   # GET /inflows
@@ -59,7 +71,7 @@ class InflowsController < ApplicationController
   def new
     @inflow   = Inflow.new
     @inflow.items.build
-    @products = Product.all
+    @products = Product.all.order('name')
   end
 
   def show
@@ -70,14 +82,12 @@ class InflowsController < ApplicationController
   def update
     respond_to do |format|
       successful = false
-
       @inflow.transaction do
         @inflow.restore_stock
         successful = @inflow.update(inflow_params)
         @inflow.substract_stock
         @inflow.notification_builder
       end
-
       if successful
         format.html { redirect_to inflows_path,
                       notice: {
