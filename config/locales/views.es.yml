@@ -7,6 +7,10 @@ es:
       body:
         index:
           items: Items
+        add_items:
+          previous_inflow: Entrada Previa
+          previous_total: Total Previo
+          new_items: Nuevos Ítems
         pages:
           statistics:
             balance: Balance

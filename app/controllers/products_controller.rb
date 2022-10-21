@@ -69,7 +69,7 @@ class ProductsController < ApplicationController
   end
 
   def show
-    @transactions = @product.inflow_items.order(:created_at).page(params[:page]).per(1)
+    @transactions = @product.inflow_items.order(:created_at).page(params[:page]).per(15)
   end
 
   # PATCH/PUT /products/1

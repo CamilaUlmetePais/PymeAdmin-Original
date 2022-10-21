@@ -1,11 +1,11 @@
 class Supplier < ApplicationRecord
-	has_many    :outflows
-	has_many    :outflow_items, through: :outflows
-	has_many    :supplies, through: :outflow_items
-	validates   :name, :account_balance, presence: true
-  validates   :account_balance, numericality: true
-  validates   :notification_threshold, :phone_number, numericality: true, allow_blank: true
-	validates   :name, uniqueness: { case_sensitive: false }
+	has_many  :outflows
+	has_many  :outflow_items, through: :outflows
+	has_many  :supplies, through: :outflow_items
+	validates :name, :account_balance, presence: true
+  validates :account_balance, numericality: true
+  validates :notification_threshold, :phone_number, numericality: true, allow_blank: true
+	validates :name, uniqueness: { case_sensitive: false }
 
 	# Supplier -> {supply_id: id, supplier_id: id, expenses: Float}
 	def get_expenses(supply_id, supply_name)

@@ -56,7 +56,7 @@ class SuppliersController < ApplicationController
   # GET /suppliers/1
   # GET /suppliers/1.json
   def show
-    @transactions = @supplier.outflows.order(created_at: :desc).page(params[:page])
+    @transactions = @supplier.outflows.order(created_at: :desc).page(params[:page]).per(15)
     search_dates unless search_params.nil?
     @transactions.order(created_at: :desc).page(params[:page])
   end

@@ -128,12 +128,13 @@ class OutflowsController < ApplicationController
       end
     end
 
-# Temporary method until javascript subtotal functionality is working in view.
     def generate_outflow_total(params)
       total = 0
       params[:outflow_items_attributes].to_h.values.each do |item|
-        supply = Supply.find(item[:supply_id])
-        total += item[:quantity].to_f * supply.price
+        unless item.values.any? {|value| value.empty?}
+          supply = Supply.find(item[:supply_id])
+          total += item[:quantity].to_f * supply.price
+        end
       end
       total
     end

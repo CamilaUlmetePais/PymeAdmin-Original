@@ -63,7 +63,7 @@
         </thead>
 
         <tbody>
-          <% @transactions.each do |item| %>
+          <% @transactions.order(created_at: :desc).each do |item| %>
             <tr>
               <td><%= I18n.l(item.created_at, format: :short) %></td>
               <td><%= item.quantity %>  <%= item.product.unit %></td>

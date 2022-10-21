@@ -5,12 +5,235 @@
     </div>
   </div>
 
-  <!-- show inflow as is with a small table or cards like in the index. don't forget the cash boolean -->
+  <div class="row">
+    <div class="col-12">
+      <h4><%= I18n.t('views.body.add_items.previous_inflow') %></h4>
+      <% @inflow.items.each do |item| %>
+        <p><%= item.receipt_list %></p>
+      <% end %>
+      <h5><%= I18n.t('activerecord.attributes.inflows.cash') %>  <%= checkbox(@inflow.cash) %></h5>
+      <h5><%= I18n.t('views.body.add_items.previous_total') %>:  $<%= @inflow.total %></h5>
+    </div>
+  </div>
 
   <div class="row">
     <div class="col-12">
-      <%# render 'form', inflow: @inflow %>
-      <!-- render _inflow_item_fields to add new items -->
+      <%= simple_form_for(@inflow, html: { class: 'form-vertical' }) do |f| %>
+        <div class="row">
+          <div class="col-6">
+            <%= render 'shared/errors', klass: @inflow %>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="col-6">
+            <h4><%= I18n.t('views.body.add_items.new_items') %></h4>
+          </div>
+        </div>
+
+        <div>
+          <div class="container-fluid">
+            <div class="fields">
+              <fieldset>
+                <div class="row" id="item-0">
+                  <div class="col-3">
+                    <div class="field quantity-0">
+                      <%= f.input :quantity, input_html: {
+                        id: 'inflow_inflow_items_attributes_0_quantity',
+                        name: 'inflow[inflow_items_attributes][0][quantity]'
+                        } %>
+                    </div>
+                  </div>
+                  <div class="col-3">
+                    <div class="field product-id-0">
+                      <%= f.input :product_id, collection: @products, input_html: {
+                          id: 'inflow_inflow_items_attributes_0_product_id',
+                          name: 'inflow[inflow_items_attributes][0][product_id]'
+                          } %>
+                    </div>
+                  </div>
+                  <div class="col-3 mt-5">
+                    subtotal 0
+                  </div>
+                </div>
+
+                <div class="row" id="item-1">
+                  <div class="col-3">
+                    <div class="field quantity-1">
+                      <%= f.input :quantity, input_html: {
+                        id: 'inflow_inflow_items_attributes_1_quantity',
+                        name: 'inflow[inflow_items_attributes][1][quantity]'
+                        } %>
+                    </div>
+                  </div>
+                  <div class="col-3">
+                    <div class="field product-id-1">
+                      <%= f.input :product_id, collection: @products, input_html: {
+                          id: 'inflow_inflow_items_attributes_1_product_id',
+                          name: 'inflow[inflow_items_attributes][1][product_id]'
+                          } %>
+                    </div>
+                  </div>
+                  <div class="col-3 mt-5">
+                    subtotal 1
+                  </div>
+                </div>
+
+                <div class="row" id="item-2">
+                  <div class="col-3">
+                    <div class="field quantity-2">
+                      <%= f.input :quantity, input_html: {
+                        id: 'inflow_inflow_items_attributes_2_quantity',
+                        name: 'inflow[inflow_items_attributes][2][quantity]'
+                        } %>
+                    </div>
+                  </div>
+                  <div class="col-3">
+                    <div class="field product-id-2">
+                      <%= f.input :product_id, collection: @products, input_html: {
+                          id: 'inflow_inflow_items_attributes_2_product_id',
+                          name: 'inflow[inflow_items_attributes][2][product_id]'
+                          } %>
+                    </div>
+                  </div>
+                  <div class="col-3 mt-5">
+                    subtotal 2
+                  </div>
+                </div>
+
+                <div class="row" id="item-3">
+                  <div class="col-3">
+                    <div class="field quantity-3">
+                      <%= f.input :quantity, input_html: {
+                        id: 'inflow_inflow_items_attributes_3_quantity',
+                        name: 'inflow[inflow_items_attributes][3][quantity]'
+                        } %>
+                    </div>
+                  </div>
+                  <div class="col-3">
+                    <div class="field product-id-3">
+                      <%= f.input :product_id, collection: @products, input_html: {
+                          id: 'inflow_inflow_items_attributes_3_product_id',
+                          name: 'inflow[inflow_items_attributes][3][product_id]'
+                          } %>
+                    </div>
+                  </div>
+                  <div class="col-3 mt-5">
+                    subtotal 3
+                  </div>
+                </div>
+
+                <div class="row" id="item-4">
+                  <div class="col-3">
+                    <div class="field quantity-4">
+                      <%= f.input :quantity, input_html: {
+                        id: 'inflow_inflow_items_attributes_4_quantity',
+                        name: 'inflow[inflow_items_attributes][4][quantity]'
+                        } %>
+                    </div>
+                  </div>
+                  <div class="col-3">
+                    <div class="field product-id-4">
+                      <%= f.input :product_id, collection: @products, input_html: {
+                          id: 'inflow_inflow_items_attributes_4_product_id',
+                          name: 'inflow[inflow_items_attributes][4][product_id]'
+                          } %>
+                    </div>
+                  </div>
+                  <div class="col-3 mt-5">
+                    subtotal 4
+                  </div>
+                </div>
+
+                <div class="row" id="item-5">
+                  <div class="col-3">
+                    <div class="field quantity-5">
+                      <%= f.input :quantity, input_html: {
+                        id: 'inflow_inflow_items_attributes_5_quantity',
+                        name: 'inflow[inflow_items_attributes][5][quantity]'
+                        } %>
+                    </div>
+                  </div>
+                  <div class="col-3">
+                    <div class="field product-id-5">
+                      <%= f.input :product_id, collection: @products, input_html: {
+                          id: 'inflow_inflow_items_attributes_5_product_id',
+                          name: 'inflow[inflow_items_attributes][5][product_id]'
+                          } %>
+                    </div>
+                  </div>
+                  <div class="col-3 mt-5">
+                    subtotal 5
+                  </div>
+                </div>
+
+                <div class="row" id="item-6">
+                  <div class="col-3">
+                    <div class="field quantity-6">
+                      <%= f.input :quantity, input_html: {
+                        id: 'inflow_inflow_items_attributes_6_quantity',
+                        name: 'inflow[inflow_items_attributes][6][quantity]'
+                        } %>
+                    </div>
+                  </div>
+                  <div class="col-3">
+                    <div class="field product-id-6">
+                      <%= f.input :product_id, collection: @products, input_html: {
+                          id: 'inflow_inflow_items_attributes_6_product_id',
+                          name: 'inflow[inflow_items_attributes][6][product_id]'
+                          } %>
+                    </div>
+                  </div>
+                  <div class="col-3 mt-5">
+                    subtotal 6
+                  </div>
+                </div>
+
+                <div class="row" id="item-7">
+                  <div class="col-3">
+                    <div class="field quantity-7">
+                      <%= f.input :quantity, input_html: {
+                        id: 'inflow_inflow_items_attributes_7_quantity',
+                        name: 'inflow[inflow_items_attributes][7][quantity]'
+                        } %>
+                    </div>
+                  </div>
+                  <div class="col-3">
+                    <div class="field product-id-7">
+                      <%= f.input :product_id, collection: @products, input_html: {
+                          id: 'inflow_inflow_items_attributes_7_product_id',
+                          name: 'inflow[inflow_items_attributes][7][product_id]'
+                          } %>
+                    </div>
+                  </div>
+                  <div class="col-3 mt-5">
+                    subtotal 7
+                  </div>
+                </div>
+              </fieldset>
+            </div>
+          </div>
+        </div>
+
+        <div class="row fields mb-2 mt-4">
+          <div class="col-6">
+          </div>
+          <div class="col-6" id="total">
+            Total:
+          </div>
+        </div>
+
+        <div class="row mb-2">
+          <div class="col-5">
+            <button type="button" class="btn btn-outline-primary">
+              <%= link_to I18n.t('helpers.buttons.back'), inflows_path, data: { confirm: I18n.t('helpers.buttons.are_you_sure')} %>
+            </button>
+          </div>
+          <div class="col-3">
+            <%= f.button :submit, class: "btn-primary" %>
+          </div>
+        </div>
+      <% end %>
     </div>
   </div>
 </div>

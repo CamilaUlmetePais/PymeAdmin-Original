@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
   devise_for :users
-  resources :notifications, :outflows, :suppliers, :supply_product_links
   root to: 'inflows#index'
+  resources :notifications, :outflows, :suppliers, :supply_product_links
   resources :inflows do
     collection do
       get '/expand/:id', to: 'inflows#expand', as: :expand
@@ -16,5 +16,4 @@ Rails.application.routes.draw do
   end
   get 'statistics', to: 'pages#statistics', as: :statistics
   get 'take', to: 'pages#take', as: :take
-
 end
