@@ -47,7 +47,9 @@ inflow_item2 = {quantity: 5, product_id: 4, inflow_id: 1 }    # subtotal = 5*150
 inflow_item3 = {quantity: 2.35, product_id: 5, inflow_id: 2 } # subtotal = 2.35*80=188
 inflow_item4 = {quantity: 3, product_id: 6, inflow_id: 3 }    # subtotal = 3*180=540
 inflow_item5 = {quantity: 2.5, product_id: 4, inflow_id: 3 }  # subtotal = 2.5*150=375
-inflow_item6 = {quantity: 5, product_id: 6, inflow_id: 4 }    # subtotal = 5*180=900
+inflow_item6 = {quantity: 5, product_id: 1, inflow_id: 3 }    # subtotal = 5*180=900
+inflow_item7 = {quantity: 1, product_id: 2, inflow_id: 3 }    # subtotal = 1*25 = 25
+inflow_item8 = {quantity: 2, product_id: 3, inflow_id: 3 }    # subtotal = 2*50 = 100
 Inflow.create({total: 2250, cash: true, inflow_items_attributes: [inflow_item1, inflow_item2] })
 Inflow.create({total: 188, cash: false, inflow_items_attributes: [inflow_item3] })
 Inflow.create({total: 915, cash: true, inflow_items_attributes: [inflow_item4, inflow_item5] })
