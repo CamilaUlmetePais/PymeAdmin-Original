@@ -2,7 +2,7 @@ class InflowsController < ApplicationController
   before_action :set_inflow, only: [:show, :edit, :update, :destroy, :add_items, :expand]
 
   def add_items
-    byebug
+    
   end
 
   def expand
