@@ -5,7 +5,7 @@ Rails.application.routes.draw do
   resources :inflows do
     collection do
       get '/expand/:id', to: 'inflows#expand', as: :expand
-      post 'add_items', to: 'inflows#add_items', as: :add_items
+      post 'add_items/:id', to: 'inflows#add_items', as: :add_items
     end
   end
   resources :products, :supplies do

@@ -26,10 +26,10 @@
       <div class="col-5">
       </div>
       <div class="col-1">
-          <%= f.input :cash, input_html: { checked: true } %>
+        <%= f.input :cash, input_html: { checked: true } %>
       </div>
       <div class="col-6" id="total">
-          Total:
+        <%= I18n.t('activerecord.attributes.inflows.total') %>
       </div>
     </div>
 

@@ -60,6 +60,7 @@ en:
         stock_updated: Stock was successfully updated.
         updated: " %{model_name} was successfully updated."
         failed: " %{model_name} failed to be created."
+        expanded: "Items were added successfully to %{model_name}."
     errors:
       messages:
         record_invalid: 'Validation failed: %{errors}'

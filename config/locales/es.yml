@@ -59,6 +59,7 @@ es:
         destroyed: " %{model_name} se eliminó con éxito."
         stock_updated: El stock se actualizó exitosamente.
         updated: " %{model_name} se actualizó exitosamente."
+        expanded: "Se agregaron ítems al %{model_name} con éxito."
     errors:
       messages:
         record_invalid: 'Registro inválido: %{errors}'

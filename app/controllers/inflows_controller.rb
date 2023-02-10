@@ -2,12 +2,24 @@ class InflowsController < ApplicationController
   before_action :set_inflow, only: [:show, :edit, :update, :destroy, :add_items, :expand]
 
   def add_items
-    
-  end
-
-  def expand
-    @products = Product.all.order('name')
-  end
+    # check that the items aren't empty and .push them onto the original inflow_items_attributes
+    items_to_add = inflow_params[:inflow_items_attributes]#.map {|item| !item[].empty? }
+    byebug
+    items_to_add.keys.each do |key|
+      ready_item = items_to_add[key].push(inflow_id: @inflow.id)
+      @new_item = InflowItem.new(ready_item)
+      @new_item.save
+    end
+    byebug
+    respond_to do |format|
+      format.html { redirect_to inflows_path,
+                    notice: {
+                      message: I18n.t('activerecord.controllers.actions.expanded',
+                      model_name: I18n.t('activerecord.models.inflow.one') )
+                    }
+                  }
+      end
+  end 
 
   # POST /inflows
   # POST /inflows.json
@@ -58,6 +70,10 @@ class InflowsController < ApplicationController
     @products = Product.all.order('name')
   end
 
+  def expand
+    @products = Product.all.order('name')
+  end
+
   # GET /inflows
   # GET /inflows.json
   def index
@@ -69,7 +85,7 @@ class InflowsController < ApplicationController
 
   # GET /inflows/new
   def new
-    @inflow   = Inflow.new
+    @inflow = Inflow.new
     @inflow.items.build
     @products = Product.all.order('name')
   end
@@ -107,7 +123,7 @@ class InflowsController < ApplicationController
     def set_inflow
       @inflow = Inflow.find(params[:id])
     end
-
+ 
     def inflow_params
       params.require(:inflow).permit(
         :total, :cash, :_destroy, :id,
@@ -132,7 +148,6 @@ class InflowsController < ApplicationController
       end
     end
 
-# Temporary method until javascript subtotal functionality is working in view.
     def generate_inflow_total(params)
       total = 0
       params[:inflow_items_attributes].to_h.values.each do |item|
