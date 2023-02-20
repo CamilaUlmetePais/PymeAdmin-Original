@@ -9,22 +9,14 @@ supply5 = Supply.create({name: "Impuestos", price: 1, unit: "$", stock: 100})
 supply6 = Supply.create({name: "Salarios", price: 1, unit: "$", stock: 100})
 supply7 = Supply.create({name: "Pollo", price: 100, unit: "u", stock: 100})
 supply8 = Supply.create({name: "Pan rallado", price: 300, unit: "kg", stock: 100})
-supplier1 = Supplier.create(
-  {name: "Juan", phone_number: "11 12345678", account_balance: 0, notification_threshold: -1000})
-supplier2 = Supplier.create(
-  {name: "Norma", phone_number: "11 12345678", account_balance: 0, notification_threshold: -1000})
-supplier3 = Supplier.create(
-  {name: "Santiago", phone_number: "11 12345678", account_balance: 0, notification_threshold: -1000})
-supplier4 = Supplier.create(
-  {name: "Edén", phone_number: "11 12345678", account_balance: 0, notification_threshold: -1000})
-supplier5 = Supplier.create(
-  {name: "AySA", phone_number: "11 12345678", account_balance: 0, notification_threshold: -1000})
-supplier6 = Supplier.create(
-  {name: "Monotributo", phone_number: "11 12345678", account_balance: 0, notification_threshold: -1000})
-supplier7 = Supplier.create(
-  {name: "ABL", phone_number: "11 12345678", account_balance: 0, notification_threshold: -1000})
-supplier8 = Supplier.create(
-  {name: "Alquiler", phone_number: "11 12345678", account_balance: 0, notification_threshold: -1000})
+supplier1 = Supplier.create({name: "Juan", phone_number: "11 12345678", account_balance: 0, notification_threshold: -1000})
+supplier2 = Supplier.create({name: "Norma", phone_number: "11 12345678", account_balance: 0, notification_threshold: -1000})
+supplier3 = Supplier.create({name: "Santiago", phone_number: "11 12345678", account_balance: 0, notification_threshold: -1000})
+supplier4 = Supplier.create({name: "Edén", phone_number: "11 12345678", account_balance: 0, notification_threshold: -1000})
+supplier5 = Supplier.create({name: "AySA", phone_number: "11 12345678", account_balance: 0, notification_threshold: -1000})
+supplier6 = Supplier.create({name: "Monotributo", phone_number: "11 12345678", account_balance: 0, notification_threshold: -1000})
+supplier7 = Supplier.create({name: "ABL", phone_number: "11 12345678", account_balance: 0, notification_threshold: -1000})
+supplier8 = Supplier.create({name: "Alquiler", phone_number: "11 12345678", account_balance: 0, notification_threshold: -1000})
 product1 = Product.create(
   {name: "Queso", price: 80, unit: "kg", stock: 100, notification_threshold: 5})
 product2 = Product.create(

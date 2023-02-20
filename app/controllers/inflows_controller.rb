@@ -1,13 +1,8 @@
 class InflowsController < ApplicationController
-  before_action :set_inflow, only: [:show, :edit, :update, :destroy, :add_items, :expand]
+  before_action :set_inflow, only: [:show, :edit, :update, :destroy]#, :add_items, :expand]
 
-  def add_items
-    
-  end
-
-  def expand
-    @products = Product.all.order('name')
-  end
+  # def add_items 
+  # end
 
   # POST /inflows
   # POST /inflows.json
@@ -56,7 +51,19 @@ class InflowsController < ApplicationController
   # GET /inflows/1/edit
   def edit
     @products = Product.all.order('name')
+    @prices = Hash.new
+    Product.all.each do |product|
+      @prices[product.id] = product.price
+    end
   end
+
+  # def expand
+  #   @products = Product.all.order('name')
+  #   @prices = Hash.new
+  #   Product.all.each do |product|
+  #     @prices[product.id] = product.price
+  #   end
+  # end
 
   # GET /inflows
   # GET /inflows.json
@@ -72,6 +79,10 @@ class InflowsController < ApplicationController
     @inflow   = Inflow.new
     @inflow.items.build
     @products = Product.all.order('name')
+    @prices = Hash.new
+    Product.all.each do |product|
+      @prices[product.id] = product.price
+    end
   end
 
   def show

@@ -35,7 +35,6 @@ class SuppliesController < ApplicationController
   end
 
   def edit
-    @expense_types = ExpenseType.all
   end
 
 	def index

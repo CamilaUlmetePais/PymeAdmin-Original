@@ -46,7 +46,7 @@
           <tbody>
             <% @variables[:cash_inflows].each do |inflow| %>
               <tr>
-                <td>$ <%= inflow.total %></td>
+                <td>$<%= inflow.total %></td>
                 <td>
                   <% inflow.items.each do |item| %>
                     <span class="badge badge-success small-top-margin"><%= item.list %></span>
