@@ -309,7 +309,7 @@ DEPENDENCIES
   listen (~> 3.0.5)
   mini_racer
   puma (~> 4.3.12)
-  rails (~> 5.2.0, >= 5.2.0.1)
+  rails (~> 5.2.3, >= 5.2.3)
   rails-i18n (~> 5.1)
   rspec-rails
   rubocop

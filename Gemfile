@@ -1,7 +1,7 @@
 source 'https://rubygems.org'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
-gem 'rails', '~> 5.2.0', '>= 5.2.0.1'
+gem 'rails', '~> 5.2.3', '>= 5.2.3'
 gem 'execjs'
 gem 'mini_racer'
 gem 'bootsnap'
